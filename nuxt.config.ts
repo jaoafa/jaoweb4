@@ -3,4 +3,6 @@
 export default defineNuxtConfig({
   srcDir: 'src/',
   typescript: { shim: false, strict: true },
+  modules: ['@nuxt/content'],
+  content: {},
 })
