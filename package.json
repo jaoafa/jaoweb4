@@ -1,0 +1,33 @@
+{
+  "name": "@jaoafa/jaoweb",
+  "version": "4.0.0",
+  "description": "jao Minecraft Server Website",
+  "keywords": [
+    "jaoafa",
+    "vue",
+    "nuxt"
+  ],
+  "homepage": "https://jaoafa.com/",
+  "bugs": "https://github.com/jaoafa/jaoweb4/issues",
+  "license": "UNLICENSED",
+  "contributors": [
+    {
+      "name": "Hiratake",
+      "url": "https://hiratake.dev/"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaoafa/jaoweb4.git"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.13"
+  },
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  }
+}
