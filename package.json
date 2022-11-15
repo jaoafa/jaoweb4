@@ -21,13 +21,36 @@
     "url": "https://github.com/jaoafa/jaoweb4.git"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.13"
+    "@commitlint/cli": "17.2.0",
+    "@commitlint/config-conventional": "17.2.0",
+    "@typescript-eslint/eslint-plugin": "5.43.0",
+    "@typescript-eslint/parser": "5.43.0",
+    "eslint": "8.27.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-n": "15.5.1",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-vue": "9.7.0",
+    "husky": "8.0.2",
+    "lint-staged": "13.0.3",
+    "nuxt": "3.0.0-rc.13",
+    "prettier": "2.7.1",
+    "stylelint": "14.15.0",
+    "stylelint-config-prettier": "9.0.4",
+    "stylelint-config-recess-order": "3.0.0",
+    "stylelint-config-recommended-vue": "1.4.0"
   },
   "scripts": {
+    "prepare": "husky install",
     "postinstall": "nuxt prepare",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "lint": "npm run lint:script && npm run lint:style",
+    "lint:script": "eslint \"**/*.{js,ts,vue}\" --ignore-path .gitignore",
+    "lint:style": "stylelint \"**/*.vue\" -i .gitignore",
+    "format": "prettier \"**/*.{js*,ts*,vue}\" -w --ignore-path .gitignore"
   }
 }
