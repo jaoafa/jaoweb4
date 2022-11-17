@@ -1,0 +1,15 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "stylelint.validate": ["css", "less", "postcss", "vue"],
+  // markdown
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+  // yaml
+  "[yaml]": {
+    "editor.formatOnSave": false
+  }
+}
