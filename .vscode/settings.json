@@ -1,6 +1,12 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["/.renovaterc.json"],
+      "url": "https://docs.renovatebot.com/renovate-schema.json"
+    }
+  ],
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "stylelint.validate": ["css", "less", "postcss", "vue"],
