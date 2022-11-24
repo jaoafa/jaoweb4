@@ -21,8 +21,6 @@ const styles = computed(
   <svg
     :style="styles"
     xmlns="http://www.w3.org/2000/svg"
-    width="838.8"
-    height="184.9"
     viewBox="0 0 838.8 184.9"
     class="logo"
   >
@@ -85,6 +83,7 @@ const styles = computed(
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: auto;
   line-height: 1;
   color: inherit;
   vertical-align: bottom;
