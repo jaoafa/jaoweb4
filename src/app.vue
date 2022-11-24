@@ -1,5 +1,9 @@
+<script setup lang="ts">
+import 'modern-css-reset'
+</script>
+
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
