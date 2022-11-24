@@ -9,7 +9,7 @@
   ],
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "stylelint.validate": ["css", "less", "postcss", "vue"],
+  "stylelint.validate": ["css", "scss", "vue"],
   // markdown
   "[markdown]": {
     "editor.formatOnSave": false
