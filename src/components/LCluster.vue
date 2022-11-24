@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { type Properties } from 'csstype'
 import { type ComponentTagStyles } from '@/types'
-import { Properties } from 'csstype'
 
 type LayoutClusterProps = {
   /** 適用するタグを指定します */
