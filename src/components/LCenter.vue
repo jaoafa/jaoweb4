@@ -46,15 +46,17 @@ const styles = computed(
 <style lang="scss" scoped>
 .center {
   box-sizing: content-box;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
-}
-.center--intrinsic {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.center--and-text {
-  text-align: center;
+
+  &--intrinsic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &--and-text {
+    text-align: center;
+  }
 }
 </style>
