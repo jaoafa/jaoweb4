@@ -1,0 +1,12 @@
+// styles > variables
+$size-breakpoints: (
+  'sm': 'screen and (min-width: 576px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 992px)',
+  'xl': 'screen and (min-width: 1200px)',
+) !default;
+$size-width-max: 1280px;
+$size-height-header-lg: 80px;
+$size-height-header-md: 64px;
+$size-height-header-sm: 56px;
+$size-gutters: 24px;
