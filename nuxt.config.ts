@@ -9,4 +9,11 @@ export default defineNuxtConfig({
     strict: true,
     typeCheck: true,
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: { additionalData: '@use "@/assets/styles/main.scss" as *;' },
+      },
+    },
+  },
 })
