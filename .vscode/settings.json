@@ -1,0 +1,10 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.tsc.autoDetect": "off",
+  "stylelint.validate": ["css", "less", "postcss", "vue"],
+
+  "[javascript][typescript][vue][json][css][scss]": {
+    "editor.formatOnSave": true
+  }
+}
