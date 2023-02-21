@@ -21,8 +21,8 @@
     "url": "https://github.com/jaoafa/jaoweb4.git"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.3.0",
-    "@commitlint/config-conventional": "17.3.0",
+    "@commitlint/cli": "17.4.4",
+    "@commitlint/config-conventional": "17.4.4",
     "@nuxt/content": "2.2.2",
     "@nuxtjs/color-mode": "3.2.0",
     "@typescript-eslint/eslint-plugin": "5.44.0",
