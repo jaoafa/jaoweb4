@@ -1,8 +1,0 @@
-// styles > mixins
-@use 'variables' as *;
-
-@mixin bp($type: md) {
-  @media #{ map-get($size-breakpoints, $type) } {
-    @content;
-  }
-}
