@@ -1,22 +1,10 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "githubPullRequests.ignoredPullRequestBranches": ["main"],
-  "json.schemas": [
-    {
-      "fileMatch": ["/.renovaterc.json"],
-      "url": "https://docs.renovatebot.com/renovate-schema.json"
-    }
-  ],
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "stylelint.validate": ["css", "scss", "vue"],
-  // markdown
-  "[markdown]": {
-    "editor.formatOnSave": false
-  },
-  // yaml
-  "[yaml]": {
-    "editor.formatOnSave": false
+  "typescript.tsc.autoDetect": "off",
+  "stylelint.validate": ["css", "less", "postcss", "vue"],
+
+  "[javascript][typescript][vue][json][css][scss]": {
+    "editor.formatOnSave": true
   }
 }

@@ -1,11 +1,11 @@
 {
   "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "stylelint.vscode-stylelint",
-    "esbenp.prettier-vscode",
+    "nuxt.mdc",
     "vue.volar",
     "vue.vscode-typescript-vue-plugin",
-    "nuxt.mdc"
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "esbenp.prettier-vscode"
   ],
   "unwantedRecommendations": ["octref.vetur"]
 }
