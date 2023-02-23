@@ -1,0 +1,9 @@
+// mixins
+
+@use 'variables' as *;
+
+@mixin breakpoint($type: md) {
+  @media #{ map-get($breakPoints, $type) } {
+    @content;
+  }
+}
