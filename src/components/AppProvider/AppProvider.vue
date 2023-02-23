@@ -9,8 +9,8 @@ import '@fontsource/noto-sans-jp'
 
 <style lang="scss">
 :root {
-  --white: #fff;
   --text: #373948;
+  --bg: #fff;
   --max: 1200px;
 }
 *,
@@ -21,5 +21,6 @@ import '@fontsource/noto-sans-jp'
 body {
   font-family: 'Noto Sans JP', sans-serif;
   color: var(--text);
+  background-color: var(--bg);
 }
 </style>

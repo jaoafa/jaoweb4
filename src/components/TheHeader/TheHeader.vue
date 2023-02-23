@@ -7,10 +7,11 @@ const onClick = () => {
 
 <template>
   <header class="header">
-    <div class="wrapper">
+    <div class="inner">
       <NuxtLink to="/" class="logo">
         <AppLogo />
       </NuxtLink>
+      <TheHeaderNav :open="open" />
       <button class="button" :class="{ open }" @click="onClick">
         <span />
         <span />
@@ -25,14 +26,15 @@ const onClick = () => {
 .header {
   position: sticky;
   top: 0;
+  z-index: 10;
 }
-.wrapper {
+.inner {
   box-sizing: content-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: var(--max);
-  padding: 16px 16px;
+  padding: 16px;
   margin: auto;
 
   @include breakpoint {
@@ -53,7 +55,6 @@ const onClick = () => {
   width: 36px;
   height: 36px;
   overflow: hidden;
-  background-color: var(--white);
   border-radius: 50%;
 
   @include breakpoint {
@@ -77,7 +78,7 @@ const onClick = () => {
   }
   &.open,
   &:hover {
-    color: var(--white);
+    color: var(--bg);
 
     &::before {
       width: 200%;
