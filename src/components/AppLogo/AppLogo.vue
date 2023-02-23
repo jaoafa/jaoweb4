@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Properties } from 'csstype'
 
-type AppLogoProps = {
+export type AppLogoProps = {
   /** 色を指定します */
   color?: Properties['fill']
 }
