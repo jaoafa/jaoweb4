@@ -32,21 +32,34 @@ const onClick = () => {
   align-items: center;
   justify-content: space-between;
   max-width: var(--max);
-  padding: 16px 24px;
+  padding: 16px 16px;
   margin: auto;
+
+  @include breakpoint {
+    padding: 16px 24px;
+  }
 }
 .logo {
-  width: 192px;
+  width: 144px;
   color: inherit;
   text-decoration: none;
+
+  @include breakpoint {
+    width: 192px;
+  }
 }
 .button {
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   overflow: hidden;
   background-color: var(--white);
   border-radius: 50%;
+
+  @include breakpoint {
+    width: 48px;
+    height: 48px;
+  }
 
   &::before {
     position: absolute;
