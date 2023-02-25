@@ -19,7 +19,6 @@ const styles = computed(() => ({
     :style="styles"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 838.8 184.9"
-    class="logo"
   >
     <path
       d="M838.8,145.7a79.3,79.3,0,0,0-13.6,3.8v24.3H813.7V134.1h10.9v6.2c4-2.6,8.3-6.3,14.2-6.4Z"
@@ -75,7 +74,7 @@ const styles = computed(() => ({
 </template>
 
 <style lang="scss" scoped>
-.logo {
+svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
