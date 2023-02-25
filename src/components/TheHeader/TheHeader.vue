@@ -6,13 +6,15 @@ const onClick = () => {
 </script>
 
 <template>
-  <header class="header">
-    <div class="inner">
-      <NuxtLink to="/" class="logo">
+  <header>
+    <div>
+      <NuxtLink to="/">
         <AppLogo />
       </NuxtLink>
-      <TheHeaderNav :open="open" />
-      <button class="button" :class="{ open }" @click="onClick">
+      <TheHeaderOverlay :value="open">
+        <TheHeaderNav />
+      </TheHeaderOverlay>
+      <button :class="{ open }" @click="onClick">
         <span />
         <span />
         <span />
@@ -23,25 +25,26 @@ const onClick = () => {
 </template>
 
 <style lang="scss" scoped>
-.header {
+header {
   position: sticky;
   top: 0;
   z-index: 10;
-}
-.inner {
-  box-sizing: content-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: var(--max);
-  padding: 16px;
-  margin: auto;
 
-  @include breakpoint {
-    padding: 16px 24px;
+  & > div {
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max);
+    padding: 16px;
+    margin: auto;
+
+    @include breakpoint {
+      padding: 16px 24px;
+    }
   }
 }
-.logo {
+a {
   width: 144px;
   color: inherit;
   text-decoration: none;
@@ -50,7 +53,7 @@ const onClick = () => {
     width: 192px;
   }
 }
-.button {
+button {
   position: relative;
   width: 36px;
   height: 36px;
@@ -70,7 +73,7 @@ const onClick = () => {
     width: 0;
     height: 0;
     content: '';
-    background-color: var(--text);
+    background-color: var(--nav);
     border-radius: 50%;
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 0.3s;
@@ -85,7 +88,6 @@ const onClick = () => {
       height: 200%;
     }
   }
-
   & > span {
     position: absolute;
     right: 0;

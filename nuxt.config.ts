@@ -1,6 +1,8 @@
 // Nuxt Configuration
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 
+import svgLoader from 'vite-svg-loader'
+
 export default defineNuxtConfig({
   components: [
     {
@@ -21,5 +23,10 @@ export default defineNuxtConfig({
         scss: { additionalData: '@use "@/assets/styles/main.scss" as *;' },
       },
     },
+    plugins: [
+      svgLoader({
+        svgo: false,
+      }),
+    ],
   },
 })
