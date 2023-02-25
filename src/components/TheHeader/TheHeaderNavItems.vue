@@ -179,6 +179,11 @@ a {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateX(8px);
+    }
 
     span {
       font-size: rem(16);
