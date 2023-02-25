@@ -56,7 +56,7 @@ ul {
   display: flex;
   gap: 24px;
   align-items: center;
-  padding: 0 2px;
+  padding: 0 4px;
   list-style: none;
 }
 a {

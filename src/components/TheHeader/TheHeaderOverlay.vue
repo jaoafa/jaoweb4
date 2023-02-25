@@ -53,12 +53,13 @@ const props = withDefaults(defineProps<TheHeaderOverlayProps>(), {
   transition: opacity 0.1s;
 
   & > div {
+    box-sizing: content-box;
     max-width: var(--max);
-    padding: 72px 16px 24px;
+    padding: 72px 24px;
     margin: auto;
 
     @include breakpoint {
-      padding: 120px 24px 32px;
+      padding: 120px 24px;
     }
   }
 }

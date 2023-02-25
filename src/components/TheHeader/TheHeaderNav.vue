@@ -19,8 +19,12 @@
 <style lang="scss" scoped>
 nav {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 120px;
+  gap: 64px;
+
+  @include breakpoint {
+    grid-template-columns: auto 1fr;
+    gap: 120px;
+  }
 
   & > div {
     display: flex;
@@ -29,8 +33,10 @@ nav {
     align-items: flex-start;
 
     &:nth-child(2) {
-      grid-row: 1;
-      grid-column: 1;
+      @include breakpoint {
+        grid-row: 1;
+        grid-column: 1;
+      }
     }
   }
 }

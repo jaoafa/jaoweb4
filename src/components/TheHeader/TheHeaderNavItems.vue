@@ -131,8 +131,8 @@ a {
 }
 .parent {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 40px 24px;
+  grid-template-columns: repeat(auto-fill, minmax(216px, 1fr));
+  gap: 56px 24px;
   width: 100%;
 
   & > li {
