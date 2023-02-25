@@ -70,7 +70,7 @@ const onClick = () => {
     width: 0;
     height: 0;
     content: '';
-    background-color: var(--text);
+    background-color: var(--nav);
     border-radius: 50%;
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 0.3s;

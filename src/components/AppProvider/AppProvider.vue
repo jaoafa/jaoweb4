@@ -9,8 +9,10 @@ import '@fontsource/noto-sans-jp'
 
 <style lang="scss">
 :root {
+  --primary: #ffb41d;
   --text: #373948;
   --bg: #fff;
+  --nav: #05081a;
   --max: 1200px;
 }
 *,

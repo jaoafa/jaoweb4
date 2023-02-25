@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<TheHeaderNavWrapperProps>(), {
   width: $side;
   height: $side;
   content: '';
-  background-color: var(--text);
+  background-color: var(--nav);
   border-radius: 50%;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 0.3s;
@@ -55,7 +55,7 @@ const props = withDefaults(defineProps<TheHeaderNavWrapperProps>(), {
   transition-property: opacity;
 
   @include breakpoint {
-    padding: 88px 24px 24px;
+    padding: 120px 24px 24px;
   }
 }
 .content {
