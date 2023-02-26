@@ -11,6 +11,7 @@ import '@fontsource/noto-sans-jp'
 :root {
   --primary: #ffb41d;
   --text: #373948;
+  --text-muted: #82848d;
   --bg: #fff;
   --nav: #05081a;
   --max: 1200px;
