@@ -39,7 +39,12 @@ const social: {
   <ul>
     <template v-for="item in social" :key="item.label">
       <li>
-        <NuxtLink :to="item.href" target="_blank">
+        <NuxtLink
+          :to="item.href"
+          :title="item.label"
+          :aria-label="item.label"
+          target="_blank"
+        >
           <LIcon size="20px">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path :d="item.icon.path" />
