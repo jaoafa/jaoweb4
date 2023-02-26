@@ -33,14 +33,10 @@ const appConfig = useAppConfig()
 
 <style lang="scss" scoped>
 footer {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
   padding: 40px 0;
 
   & > div {
     box-sizing: content-box;
-    width: 100%;
     max-width: var(--max);
     padding: 0 16px;
     margin: auto;
@@ -53,6 +49,7 @@ footer {
 nav {
   display: grid;
   gap: 64px;
+  padding-bottom: 40px;
 
   @include breakpoint {
     grid-template-columns: auto 1fr;
