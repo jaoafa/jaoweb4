@@ -1,6 +1,7 @@
 // App Config
 // https://nuxt.com/docs/guide/directory-structure/app-config
 
+import { markRaw } from 'vue'
 import IconFile from '@/assets/images/file.svg?component'
 import IconPeople from '@/assets/images/people.svg?component'
 import IconRocket from '@/assets/images/rocket.svg?component'
@@ -13,7 +14,7 @@ export default defineAppConfig({
     {
       label: 'はじめての方へ',
       to: '/guide',
-      icon: IconRocket,
+      icon: markRaw(IconRocket),
     },
     {
       label: 'ドキュメント',
@@ -40,7 +41,7 @@ export default defineAppConfig({
           to: '/docs/policies',
         },
       ],
-      icon: IconFile,
+      icon: markRaw(IconFile),
     },
     {
       label: 'コミュニティ',
@@ -62,7 +63,7 @@ export default defineAppConfig({
           href: 'https://wiki.jaoafa.com/',
         },
       ],
-      icon: IconPeople,
+      icon: markRaw(IconPeople),
     },
     {
       label: 'サポート',
@@ -84,7 +85,7 @@ export default defineAppConfig({
           to: '/support/profiles',
         },
       ],
-      icon: IconSupport,
+      icon: markRaw(IconSupport),
     },
   ],
 })
