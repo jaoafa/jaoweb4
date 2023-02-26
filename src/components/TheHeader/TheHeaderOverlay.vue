@@ -49,6 +49,7 @@ const props = withDefaults(defineProps<TheHeaderOverlayProps>(), {
   z-index: 1;
   height: 100%;
   overflow-y: auto;
+  overscroll-behavior: contain;
   color: var(--bg);
   transition: opacity 0.1s;
 
