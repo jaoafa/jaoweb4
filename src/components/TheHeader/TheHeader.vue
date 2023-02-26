@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const appConfig = useAppConfig()
+
 const open = ref<boolean>(false)
 const onClick = () => {
   open.value = !open.value
@@ -8,7 +10,11 @@ const onClick = () => {
 <template>
   <header>
     <div>
-      <NuxtLink to="/">
+      <NuxtLink
+        to="/"
+        :title="appConfig.sitename"
+        :aria-label="`${appConfig.sitename} toppage`"
+      >
         <AppLogo />
       </NuxtLink>
       <TheHeaderOverlay :value="open">
@@ -48,9 +54,14 @@ a {
   width: 144px;
   color: inherit;
   text-decoration: none;
+  transition: opacity 0.2s;
 
   @include breakpoint {
     width: 192px;
+  }
+
+  &:hover {
+    opacity: 0.7;
   }
 }
 button {

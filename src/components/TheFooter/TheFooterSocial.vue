@@ -16,7 +16,7 @@ const social: {
 }[] = [
   {
     label: 'Discord',
-    href: appConfig.social.discord.header,
+    href: appConfig.social.discord.footer,
     icon: siDiscord,
   },
   {

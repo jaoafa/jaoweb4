@@ -39,6 +39,7 @@ const styles = computed(() => ({
 <style lang="scss" scoped>
 .icon {
   line-height: 1;
+
   & :deep() > svg {
     width: 1em;
     height: 1em;
@@ -48,6 +49,7 @@ const styles = computed(() => ({
   &--withtext {
     display: inline-flex;
     align-items: baseline;
+
     & :deep() > svg {
       margin-inline-end: v-bind(space);
     }

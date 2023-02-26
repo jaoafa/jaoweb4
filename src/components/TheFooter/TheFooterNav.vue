@@ -7,9 +7,6 @@ const appConfig = useAppConfig()
     <template v-for="item in appConfig.navigation" :key="item.label">
       <li>
         <NuxtLink :to="item.to">
-          <LIcon size="24px">
-            <component :is="item.icon" />
-          </LIcon>
           <span>{{ item.label }}</span>
         </NuxtLink>
         <ul v-if="item.children" class="child">
@@ -17,7 +14,6 @@ const appConfig = useAppConfig()
             <li>
               <NuxtLink :to="child.to || child.href">
                 <span>{{ child.label }}</span>
-                <p>{{ child.description }}</p>
               </NuxtLink>
             </li>
           </template>
@@ -37,8 +33,8 @@ a {
 }
 .parent {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(216px, 1fr));
-  gap: 56px 24px;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 32px 24px;
   width: 100%;
 
   & > li {
@@ -49,11 +45,8 @@ a {
 
     & > a {
       position: relative;
-      display: inline-flex;
-      gap: 12px;
-      align-items: center;
-      padding-bottom: 8px;
-      font-size: rem(17);
+      padding-bottom: 4px;
+      font-size: rem(15);
       font-weight: bold;
 
       &::after {
@@ -79,23 +72,14 @@ a {
 .child {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 
   & > li > a {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    transition: transform 0.2s;
+    display: block;
+    font-size: rem(13);
+    transition: opacity 0.2s;
 
     &:hover {
-      transform: translateX(8px);
-    }
-
-    span {
-      font-size: rem(16);
-    }
-    p {
-      font-size: rem(12);
       opacity: 0.7;
     }
   }

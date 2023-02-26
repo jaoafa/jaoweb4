@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const appConfig = useAppConfig()
+</script>
 
 <template>
   <nav>
@@ -7,9 +9,14 @@
     </div>
 
     <div>
-      <NuxtLink to="/" class="logo">
+      <NuxtLink
+        to="/"
+        class="logo"
+        :title="appConfig.sitename"
+        :aria-label="`${appConfig.sitename} toppage`"
+      >
         <AppLogo />
-        <p>ここで爆発します、あなたの可能性が。</p>
+        <p>{{ appConfig.tagline }}</p>
       </NuxtLink>
       <TheHeaderSocial />
     </div>
