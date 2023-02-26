@@ -7,6 +7,8 @@ import IconRocket from '@/assets/images/rocket.svg?component'
 import IconSupport from '@/assets/images/support.svg?component'
 
 export default defineAppConfig({
+  sitename: 'jao Minecraft Server',
+  tagline: 'ここで爆発します、あなたの可能性が。',
   navigation: [
     {
       label: 'はじめての方へ',

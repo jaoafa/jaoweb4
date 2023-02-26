@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const appConfig = useAppConfig()
+
 const year = computed(() => {
   const date = new Date()
   return date.getFullYear()
@@ -12,7 +14,7 @@ const year = computed(() => {
       が提供・作成・承認したものではございません。また、当サーバはコミュニティ参加者の協力によって、非営利目的で運営を行っております。<br />
       Minecraftは、Mojang ABの商標です。
     </p>
-    <p>&copy; 2016-{{ year }} jao Minecraft Server</p>
+    <p>&copy; 2016-{{ year }} {{ appConfig.sitename }}</p>
   </div>
 </template>
 
