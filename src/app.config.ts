@@ -88,4 +88,13 @@ export default defineAppConfig({
       icon: markRaw(IconSupport),
     },
   ],
+  social: {
+    discord: {
+      header: 'https://discord.gg/7fvwYQDaQp',
+      footer: 'https://discord.gg/zEGrApgGfB',
+    },
+    github: 'https://github.com/jaoafa',
+    twitter: 'https://twitter.com/jaoafa',
+    youtube: 'https://www.youtube.com/channel/UC92wyJyhqXEMiEROeFJKNKg',
+  },
 })

@@ -7,6 +7,8 @@ import {
   siYoutube,
 } from 'simple-icons'
 
+const appConfig = useAppConfig()
+
 const social: {
   label: string
   href: string
@@ -14,22 +16,22 @@ const social: {
 }[] = [
   {
     label: 'Discord',
-    href: 'http://discord.gg/zEGrApgGfB',
+    href: appConfig.social.discord.footer,
     icon: siDiscord,
   },
   {
     label: 'GitHub',
-    href: 'https://github.com/jaoafa',
+    href: appConfig.social.github,
     icon: siGithub,
   },
   {
     label: 'Twitter',
-    href: 'https://twitter.com/jaoafa',
+    href: appConfig.social.twitter,
     icon: siTwitter,
   },
   {
     label: 'YouTube',
-    href: 'https://www.youtube.com/channel/UC92wyJyhqXEMiEROeFJKNKg',
+    href: appConfig.social.youtube,
     icon: siYoutube,
   },
 ]
