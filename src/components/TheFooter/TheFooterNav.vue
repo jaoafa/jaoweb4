@@ -1,84 +1,12 @@
 <script setup lang="ts">
-const navigation: {
-  label: string
-  to?: string
-  href?: string
-  children?: {
-    label: string
-    to?: string
-    href?: string
-  }[]
-}[] = [
-  {
-    label: 'はじめての方へ',
-    to: '/guide',
-  },
-  {
-    label: 'ドキュメント',
-    to: '/docs',
-    children: [
-      {
-        label: 'サービス仕様',
-        to: '/docs/spec',
-      },
-      {
-        label: 'ガイドライン',
-        to: '/docs/guidelines',
-      },
-      {
-        label: '利用規約',
-        to: '/docs/terms',
-      },
-      {
-        label: '運営方針',
-        to: '/docs/policies',
-      },
-    ],
-  },
-  {
-    label: 'コミュニティ',
-    to: '/community',
-    children: [
-      {
-        label: 'ブログ',
-        to: '/community/blog',
-      },
-      {
-        label: 'お知らせ',
-        to: '/community/news',
-      },
-      {
-        label: 'wiki',
-        href: 'https://wiki.jaoafa.com/',
-      },
-    ],
-  },
-  {
-    label: 'サポート',
-    to: '/support',
-    children: [
-      {
-        label: 'お問い合わせ',
-        to: '/support/inquiry',
-      },
-      {
-        label: 'よくあるご質問',
-        to: '/support/faq',
-      },
-      {
-        label: '運営者情報',
-        to: '/support/profiles',
-      },
-    ],
-  },
-]
+const appConfig = useAppConfig()
 </script>
 
 <template>
   <ul class="parent">
-    <template v-for="item in navigation" :key="item.label">
+    <template v-for="item in appConfig.navigation" :key="item.label">
       <li>
-        <NuxtLink :to="item.to || item.href">
+        <NuxtLink :to="item.to">
           <span>{{ item.label }}</span>
         </NuxtLink>
         <ul v-if="item.children" class="child">
