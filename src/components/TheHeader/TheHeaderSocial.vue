@@ -7,6 +7,11 @@ import {
   siYoutube,
 } from 'simple-icons'
 
+type TheHeaderSocialEmits = {
+  (e: 'click'): void
+}
+const emit = defineEmits<TheHeaderSocialEmits>()
+
 const appConfig = useAppConfig()
 
 const social: {
@@ -46,6 +51,7 @@ const social: {
           :title="item.label"
           :aria-label="item.label"
           target="_blank"
+          @click="() => emit('click')"
         >
           <LIcon size="20px">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+type TheHeaderNavItemsEmits = {
+  (e: 'click'): void
+}
+const emit = defineEmits<TheHeaderNavItemsEmits>()
+
 const appConfig = useAppConfig()
 </script>
 
@@ -6,7 +11,7 @@ const appConfig = useAppConfig()
   <ul class="parent">
     <template v-for="item in appConfig.navigation" :key="item.label">
       <li>
-        <NuxtLink :to="item.to">
+        <NuxtLink :to="item.to" @click="() => emit('click')">
           <LIcon size="24px">
             <component :is="item.icon" />
           </LIcon>
@@ -15,7 +20,10 @@ const appConfig = useAppConfig()
         <ul v-if="item.children" class="child">
           <template v-for="child in item.children" :key="child.label">
             <li>
-              <NuxtLink :to="child.to || child.href">
+              <NuxtLink
+                :to="child.to || child.href"
+                @click="() => emit('click')"
+              >
                 <span>{{ child.label }}</span>
                 <p>{{ child.description }}</p>
               </NuxtLink>

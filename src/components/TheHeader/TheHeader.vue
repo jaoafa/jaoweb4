@@ -33,7 +33,7 @@ onMounted(() => {
         <AppLogo />
       </NuxtLink>
       <TheHeaderOverlay :value="open">
-        <TheHeaderNav />
+        <TheHeaderNav @click="() => (open = false)" />
       </TheHeaderOverlay>
       <button :class="{ open }" @click="onClick">
         <span />

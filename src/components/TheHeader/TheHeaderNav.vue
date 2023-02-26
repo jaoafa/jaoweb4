@@ -1,11 +1,16 @@
 <script setup lang="ts">
+type TheHeaderNavEmits = {
+  (e: 'click'): void
+}
+const emit = defineEmits<TheHeaderNavEmits>()
+
 const appConfig = useAppConfig()
 </script>
 
 <template>
   <nav>
     <div>
-      <TheHeaderNavItems />
+      <TheHeaderNavItems @click="() => emit('click')" />
     </div>
 
     <div>
@@ -14,11 +19,12 @@ const appConfig = useAppConfig()
         class="logo"
         :title="appConfig.sitename"
         :aria-label="`${appConfig.sitename} toppage`"
+        @click="() => emit('click')"
       >
         <AppLogo />
         <p>{{ appConfig.tagline }}</p>
       </NuxtLink>
-      <TheHeaderSocial />
+      <TheHeaderSocial @click="() => emit('click')" />
     </div>
   </nav>
 </template>
