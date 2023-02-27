@@ -9,6 +9,8 @@ import IconSupport from '@/assets/images/support.svg?component'
 
 export default defineAppConfig({
   sitename: 'jao Minecraft Server',
+  sitedescription:
+    'ここで爆発します、あなたの可能性が。jao Minecraft Server は、Java版Minecraftのクリエイティブサーバです。やべーやつらが独特で最高にイカしたコニュニティをつくっています。',
   tagline: 'ここで爆発します、あなたの可能性が。',
   navigation: [
     {
