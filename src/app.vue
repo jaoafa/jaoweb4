@@ -40,8 +40,8 @@ useServerSeoMeta({
 
 <template>
   <AppProvider>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <TheHeader />
+    <NuxtPage />
+    <TheFooter />
   </AppProvider>
 </template>
