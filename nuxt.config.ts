@@ -11,6 +11,9 @@ export default defineNuxtConfig({
       extensions: ['.vue'],
     },
   ],
+  content: {
+    documentDriven: true,
+  },
   modules: ['@nuxt/content'],
   srcDir: 'src/',
   typescript: {
