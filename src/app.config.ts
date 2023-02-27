@@ -99,4 +99,5 @@ export default defineAppConfig({
     twitter: 'https://twitter.com/jaoafa',
     youtube: 'https://www.youtube.com/channel/UC92wyJyhqXEMiEROeFJKNKg',
   },
+  gtmId: 'GTM-58VVRGD',
 })
