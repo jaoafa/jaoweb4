@@ -39,10 +39,12 @@ const appConfig = useAppConfig()
 ul {
   list-style: none;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 .parent {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(216px, 1fr));
@@ -77,6 +79,7 @@ a {
         transform: scale(0, 1);
         transform-origin: right center;
       }
+
       &:hover::after {
         transform: scale(1, 1);
         transform-origin: left center;
@@ -84,6 +87,7 @@ a {
     }
   }
 }
+
 .child {
   display: flex;
   flex-direction: column;
@@ -102,6 +106,7 @@ a {
     span {
       font-size: rem(16);
     }
+
     p {
       font-size: rem(12);
       opacity: 0.7;

@@ -3,7 +3,7 @@
 @use 'variables' as *;
 
 @mixin breakpoint($type: md) {
-  @media #{ map-get($breakPoints, $type) } {
+  @media #{ map-get($breakpoints, $type) } {
     @content;
   }
 }

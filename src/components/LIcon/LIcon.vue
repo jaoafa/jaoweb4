@@ -46,6 +46,7 @@ const styles = computed(() => ({
     vertical-align: bottom;
     fill: currentcolor;
   }
+
   &--withtext {
     display: inline-flex;
     align-items: baseline;

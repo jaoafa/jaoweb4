@@ -46,6 +46,7 @@ footer {
     }
   }
 }
+
 nav {
   display: grid;
   gap: 64px;
@@ -63,6 +64,7 @@ nav {
     align-items: flex-start;
   }
 }
+
 .logo {
   display: flex;
   flex-direction: column;

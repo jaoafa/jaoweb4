@@ -55,6 +55,7 @@ header {
     }
   }
 }
+
 a {
   width: 144px;
   color: inherit;
@@ -69,6 +70,7 @@ a {
     opacity: 0.7;
   }
 }
+
 button {
   position: relative;
   width: 36px;
@@ -95,6 +97,7 @@ button {
     transition-duration: 0.3s;
     transform: translate(-50%, -50%);
   }
+
   &.open,
   &:hover {
     color: var(--bg);
@@ -104,6 +107,7 @@ button {
       height: 200%;
     }
   }
+
   & > span {
     position: absolute;
     right: 0;
@@ -119,23 +123,28 @@ button {
     &:nth-child(1) {
       top: 35%;
     }
+
     &:nth-child(2),
     &:nth-child(3) {
       top: 50%;
     }
+
     &:nth-child(4) {
       top: 65%;
     }
   }
+
   &.open > span {
     &:nth-child(1),
     &:nth-child(4) {
       top: 50%;
       width: 0%;
     }
+
     &:nth-child(2) {
       transform: rotate(45deg);
     }
+
     &:nth-child(3) {
       transform: rotate(-45deg);
     }

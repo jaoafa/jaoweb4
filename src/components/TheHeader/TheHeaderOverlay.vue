@@ -31,6 +31,7 @@ const props = withDefaults(defineProps<TheHeaderOverlayProps>(), {
   height: 100dvh;
   overflow: hidden;
 }
+
 .circle {
   $diameter: calc(max(100dvw, 100dvh) * 2);
 
@@ -44,6 +45,7 @@ const props = withDefaults(defineProps<TheHeaderOverlayProps>(), {
   border-radius: 50%;
   transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
 }
+
 .content {
   position: relative;
   z-index: 1;

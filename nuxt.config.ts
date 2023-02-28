@@ -14,8 +14,11 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true,
   },
-  modules: ['@nuxt/content', '@vueuse/nuxt'],
+  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@vueuse/nuxt'],
   srcDir: 'src/',
+  tailwindcss: {
+    cssPath: '@/assets/styles/tailwind.scss',
+  },
   typescript: {
     shim: false,
     strict: true,

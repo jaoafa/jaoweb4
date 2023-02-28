@@ -53,6 +53,7 @@ nav {
     }
   }
 }
+
 .logo {
   display: flex;
   flex-direction: column;

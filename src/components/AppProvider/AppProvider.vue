@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import 'ress'
 import '@fontsource/noto-sans-jp'
 </script>
 
@@ -16,11 +15,13 @@ import '@fontsource/noto-sans-jp'
   --nav: #05081a;
   --max: 1200px;
 }
+
 *,
 ::after,
 ::before {
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Noto Sans JP', sans-serif;
   color: var(--text);
