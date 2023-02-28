@@ -1,29 +1,17 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
+const { y: scroll } = useWindowScroll()
 
 const open = ref<boolean>(false)
 const onClick = () => {
   open.value = !open.value
 }
-
-const scroll = ref<boolean>(false)
-onMounted(() => {
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (window.scrollY > 0) {
-        scroll.value = true
-      } else {
-        scroll.value = false
-      }
-    },
-    { passive: true }
-  )
-})
 </script>
 
 <template>
-  <header :style="{ boxShadow: scroll ? '0 0 4px rgb(0, 0, 0, 0.3)' : 'none' }">
+  <header
+    :style="{ boxShadow: scroll > 0 ? '0 0 4px rgb(0, 0, 0, 0.3)' : 'none' }"
+  >
     <div>
       <NuxtLink
         to="/"
