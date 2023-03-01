@@ -1,7 +1,17 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
+const router = useRouter()
+const currentPath = computed(() =>
+  ((url) => (url.endsWith('/') ? url.substring(0, url.length - 1) : url))(
+    router.currentRoute.value.path
+  )
+)
 useHead({
   title: appConfig.sitename,
+  htmlAttrs: {
+    lang: 'ja',
+    prefix: 'og: https://ogp.me/ns#',
+  },
   meta: [
     { name: 'theme-color', content: '#ffb41d' },
     { name: 'msapplication-TileColor', content: '#ffb41d' },
@@ -9,6 +19,10 @@ useHead({
     { name: 'application-name', content: appConfig.sitename },
   ],
   link: [
+    {
+      rel: 'canonical',
+      href: `https://${appConfig.sitedomain}${currentPath.value}`,
+    },
     {
       rel: 'apple-touch-icon',
       sizes: '180x180',
@@ -47,10 +61,11 @@ useHead({
   ],
 })
 useServerSeoMeta({
-  title: appConfig.sitename,
-  ogTitle: appConfig.sitename,
-  description: appConfig.sitedescription,
-  ogDescription: appConfig.sitedescription,
+  ogSiteName: appConfig.sitename,
+  ogLocale: 'ja_JP',
+  ogUrl: `https://${appConfig.sitedomain}${currentPath.value}`,
+  twitterCard: 'summary_large_image',
+  twitterSite: appConfig.social.twitter.id,
 })
 </script>
 

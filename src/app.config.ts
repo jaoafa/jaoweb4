@@ -9,8 +9,7 @@ import IconSupport from '@/assets/images/support.svg?component'
 
 export default defineAppConfig({
   sitename: 'jao Minecraft Server',
-  sitedescription:
-    'ここで爆発します、あなたの可能性が。jao Minecraft Server は、Java版Minecraftのクリエイティブサーバです。やべーやつらが独特で最高にイカしたコニュニティをつくっています。',
+  sitedomain: process.env.SITE_DOMAIN || 'jaoafa.com',
   tagline: 'ここで爆発します、あなたの可能性が。',
   navigation: [
     {
@@ -96,7 +95,10 @@ export default defineAppConfig({
       footer: 'https://discord.gg/zEGrApgGfB',
     },
     github: 'https://github.com/jaoafa',
-    twitter: 'https://twitter.com/jaoafa',
+    twitter: {
+      id: '@jaoafa',
+      url: 'https://twitter.com/jaoafa',
+    },
     youtube: 'https://www.youtube.com/channel/UC92wyJyhqXEMiEROeFJKNKg',
   },
   gtmId: 'GTM-58VVRGD',

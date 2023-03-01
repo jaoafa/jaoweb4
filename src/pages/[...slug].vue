@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useServerSeoMeta({
+  ogType: 'article',
+})
+</script>
+
 <template>
   <main>
     <ContentDoc v-slot="{ doc }">

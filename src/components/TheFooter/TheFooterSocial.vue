@@ -25,7 +25,7 @@ const social: {
   },
   {
     label: 'Twitter',
-    href: appConfig.social.twitter,
+    href: appConfig.social.twitter.url,
     icon: siTwitter,
   },
   {
