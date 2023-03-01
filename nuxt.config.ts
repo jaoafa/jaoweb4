@@ -1,8 +1,6 @@
 // Nuxt Configuration
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 
-import svgLoader from 'vite-svg-loader'
-
 export default defineNuxtConfig({
   content: {
     documentDriven: true,
@@ -15,12 +13,5 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
     strict: true,
-  },
-  vite: {
-    plugins: [
-      svgLoader({
-        svgo: false,
-      }),
-    ],
   },
 })
