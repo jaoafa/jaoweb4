@@ -24,11 +24,6 @@ export default defineNuxtConfig({
     strict: true,
   },
   vite: {
-    css: {
-      preprocessorOptions: {
-        scss: { additionalData: '@use "@/assets/styles/main.scss" as *;' },
-      },
-    },
     plugins: [
       svgLoader({
         svgo: false,
