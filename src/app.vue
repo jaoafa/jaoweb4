@@ -55,6 +55,7 @@ useServerSeoMeta({
 </script>
 
 <template>
+  <Body class="bg-white text-gray-700" />
   <AppProvider>
     <TheHeader />
     <NuxtPage />

@@ -3,16 +3,27 @@ const appConfig = useAppConfig()
 </script>
 
 <template>
-  <ul class="parent">
+  <ul class="grid-cols-fill-40 grid-cols-fill grid w-full gap-x-8 gap-y-6">
     <template v-for="item in appConfig.navigation" :key="item.label">
-      <li>
-        <NuxtLink :to="item.to">
+      <li class="flex flex-col items-start gap-3">
+        <NuxtLink
+          :to="item.to"
+          :class="`
+            ${'relative pb-1 text-sm font-bold'}
+            ${'after:bg-primary-600 after:absolute after:bottom-0 after:left-0 after:block after:h-0.5 after:w-full after:origin-right after:scale-x-0 after:scale-y-100 after:transition-transform'}
+            ${'hover:after:origin-left hover:after:scale-x-100'}
+          `"
+        >
           <span>{{ item.label }}</span>
         </NuxtLink>
-        <ul v-if="item.children" class="child">
+
+        <ul v-if="item.children" class="flex flex-col gap-2">
           <template v-for="child in item.children" :key="child.label">
             <li>
-              <NuxtLink :to="child.to || child.href">
+              <NuxtLink
+                :to="child.to || child.href"
+                class="block text-xs transition-opacity hover:opacity-70"
+              >
                 <span>{{ child.label }}</span>
               </NuxtLink>
             </li>
@@ -22,70 +33,3 @@ const appConfig = useAppConfig()
     </template>
   </ul>
 </template>
-
-<style lang="scss" scoped>
-ul {
-  list-style: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.parent {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
-  gap: 32px 24px;
-  width: 100%;
-
-  & > li {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-
-    & > a {
-      position: relative;
-      padding-bottom: 4px;
-      font-size: rem(15);
-      font-weight: bold;
-
-      &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 2px;
-        content: '';
-        background-color: var(--primary);
-        transition: transform 0.2s;
-        transform: scale(0, 1);
-        transform-origin: right center;
-      }
-
-      &:hover::after {
-        transform: scale(1, 1);
-        transform-origin: left center;
-      }
-    }
-  }
-}
-
-.child {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  & > li > a {
-    display: block;
-    font-size: rem(13);
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-}
-</style>

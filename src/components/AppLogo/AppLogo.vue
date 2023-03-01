@@ -1,22 +1,19 @@
 <script setup lang="ts">
 import { type Properties } from 'csstype'
 
-export type AppLogoProps = {
-  /** 色を指定します */
-  color?: Properties['fill']
-}
-const props = withDefaults(defineProps<AppLogoProps>(), {
-  color: 'currentcolor',
-})
-
-const styles = computed(() => ({
-  fill: props.color,
-}))
+const props = withDefaults(
+  defineProps<{
+    /** 色を指定します */
+    color?: Properties['fill']
+  }>(),
+  { color: 'currentcolor' }
+)
 </script>
 
 <template>
   <svg
-    :style="styles"
+    :style="{ fill: props.color }"
+    class="inline-flex h-auto w-full select-none items-center justify-center align-bottom leading-none text-inherit"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 838.8 184.9"
   >
@@ -72,17 +69,3 @@ const styles = computed(() => ({
     />
   </svg>
 </template>
-
-<style lang="scss" scoped>
-svg {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  line-height: 1;
-  color: inherit;
-  vertical-align: bottom;
-  user-select: none;
-}
-</style>

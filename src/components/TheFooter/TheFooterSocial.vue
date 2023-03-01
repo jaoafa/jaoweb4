@@ -8,7 +8,6 @@ import {
 } from 'simple-icons'
 
 const appConfig = useAppConfig()
-
 const social: {
   label: string
   href: string
@@ -38,13 +37,14 @@ const social: {
 </script>
 
 <template>
-  <ul>
+  <ul class="flex items-center gap-6 px-1">
     <template v-for="item in social" :key="item.label">
       <li>
         <NuxtLink
           :to="item.href"
           :title="item.label"
           :aria-label="item.label"
+          class="transition-opacity hover:opacity-70"
           target="_blank"
         >
           <LIcon size="20px">
@@ -57,22 +57,3 @@ const social: {
     </template>
   </ul>
 </template>
-
-<style lang="scss" scoped>
-ul {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  padding: 0 4px;
-  list-style: none;
-}
-
-a {
-  color: currentcolor;
-  transition: opacity 0.1s;
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
-</style>

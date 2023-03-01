@@ -1,21 +1,34 @@
 <script setup lang="ts">
-type TheHeaderOverlayProps = {
-  /** 表示状態を指定します */
-  value: boolean
-}
-const props = withDefaults(defineProps<TheHeaderOverlayProps>(), {
-  value: false,
-})
+const props = withDefaults(
+  defineProps<{
+    /** 表示状態を指定します */
+    value: boolean
+  }>(),
+  { value: false }
+)
 </script>
 
 <template>
-  <div :style="{ pointerEvents: props.value ? 'all' : 'none' }" class="overlay">
+  <div
+    :class="`
+      ${'fixed top-0 left-0 h-[100dvh] w-[100dvw] overflow-hidden'}
+      ${props.value ? 'pointer-events-auto' : 'pointer-events-none'}
+    `"
+  >
     <div
-      :style="{ transform: `scale(${props.value ? 1 : 0})` }"
-      class="circle"
+      :class="`
+        ${'circle'}
+        ${'absolute z-0 rounded-full bg-gray-900 transition-transform duration-300 ease-out'}
+        ${props.value ? 'scale-100' : 'scale-0'}
+      `"
     />
-    <div :style="{ opacity: props.value ? 1 : 0 }" class="content">
-      <div>
+    <div
+      :class="`
+        ${'relative z-10 h-full overflow-y-auto overscroll-contain text-white transition-opacity duration-100'}
+        ${props.value ? 'opacity-100' : 'opacity-0'}
+      `"
+    >
+      <div class="mx-auto box-content max-w-6xl px-6 py-20 md:py-32">
         <slot />
       </div>
     </div>
@@ -23,47 +36,12 @@ const props = withDefaults(defineProps<TheHeaderOverlayProps>(), {
 </template>
 
 <style lang="scss" scoped>
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100dvw;
-  height: 100dvh;
-  overflow: hidden;
-}
-
 .circle {
   $diameter: calc(max(100dvw, 100dvh) * 2);
 
-  position: absolute;
   top: calc((100dvh - $diameter) / 2);
   left: calc((100dvw - $diameter) / 2);
-  z-index: 0;
   width: $diameter;
   height: $diameter;
-  background-color: var(--nav);
-  border-radius: 50%;
-  transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  color: var(--bg);
-  transition: opacity 0.1s;
-
-  & > div {
-    box-sizing: content-box;
-    max-width: var(--max);
-    padding: 72px 24px;
-    margin: auto;
-
-    @include breakpoint {
-      padding: 120px 24px;
-    }
-  }
 }
 </style>

@@ -1,31 +1,39 @@
 <script setup lang="ts">
-type TheHeaderNavItemsEmits = {
-  (e: 'click'): void
-}
-const emit = defineEmits<TheHeaderNavItemsEmits>()
-
 const appConfig = useAppConfig()
+const emit = defineEmits<{
+  (e: 'click'): void
+}>()
 </script>
 
 <template>
-  <ul class="parent">
+  <ul class="grid-cols-fill-56 grid w-full gap-x-6 gap-y-12">
     <template v-for="item in appConfig.navigation" :key="item.label">
-      <li>
-        <NuxtLink :to="item.to" @click="() => emit('click')">
-          <LIcon size="24px">
+      <li class="flex flex-col items-start gap-3">
+        <NuxtLink
+          :to="item.to"
+          :class="`
+            ${'relative inline-flex items-center gap-3 pb-2 font-bold'}
+            ${'after:bg-primary-600 after:absolute after:bottom-0 after:left-0 after:block after:h-0.5 after:w-full after:origin-right after:scale-x-0 after:scale-y-100 after:transition-transform'}
+            ${'hover:after:origin-left hover:after:scale-x-100'}
+          `"
+          @click="() => emit('click')"
+        >
+          <LIcon size="22px">
             <component :is="item.icon" />
           </LIcon>
           <span>{{ item.label }}</span>
         </NuxtLink>
-        <ul v-if="item.children" class="child">
+
+        <ul v-if="item.children" class="flex flex-col gap-4">
           <template v-for="child in item.children" :key="child.label">
-            <li>
+            <li class="flex flex-col gap-4">
               <NuxtLink
                 :to="child.to || child.href"
+                class="flex flex-col gap-1 transition-transform hover:translate-x-2"
                 @click="() => emit('click')"
               >
-                <span>{{ child.label }}</span>
-                <p>{{ child.description }}</p>
+                <span class="text-sm">{{ child.label }}</span>
+                <p class="text-xs text-gray-400">{{ child.description }}</p>
               </NuxtLink>
             </li>
           </template>
@@ -34,83 +42,3 @@ const appConfig = useAppConfig()
     </template>
   </ul>
 </template>
-
-<style lang="scss" scoped>
-ul {
-  list-style: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.parent {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(216px, 1fr));
-  gap: 56px 24px;
-  width: 100%;
-
-  & > li {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-
-    & > a {
-      position: relative;
-      display: inline-flex;
-      gap: 12px;
-      align-items: center;
-      padding-bottom: 8px;
-      font-size: rem(17);
-      font-weight: bold;
-
-      &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 2px;
-        content: '';
-        background-color: var(--primary);
-        transition: transform 0.2s;
-        transform: scale(0, 1);
-        transform-origin: right center;
-      }
-
-      &:hover::after {
-        transform: scale(1, 1);
-        transform-origin: left center;
-      }
-    }
-  }
-}
-
-.child {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  & > li > a {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    transition: transform 0.2s;
-
-    &:hover {
-      transform: translateX(8px);
-    }
-
-    span {
-      font-size: rem(16);
-    }
-
-    p {
-      font-size: rem(12);
-      opacity: 0.7;
-    }
-  }
-}
-</style>

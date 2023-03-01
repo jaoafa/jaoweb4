@@ -1,153 +1,48 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
-const { y: scroll } = useWindowScroll()
-
-const open = ref<boolean>(false)
-const onClick = () => {
-  open.value = !open.value
-}
+const [open, toggle] = useToggle()
+const { y } = useWindowScroll()
 </script>
 
 <template>
   <header
-    :style="{ boxShadow: scroll > 0 ? '0 0 4px rgb(0, 0, 0, 0.3)' : 'none' }"
+    :class="`
+      ${'sticky top-0 z-40 bg-white transition-shadow'}
+      ${y > 0 ? 'shadow-md' : ''}
+    `"
   >
-    <div>
-      <NuxtLink
-        to="/"
-        :title="appConfig.sitename"
-        :aria-label="`${appConfig.sitename} toppage`"
-      >
-        <AppLogo />
-      </NuxtLink>
-      <TheHeaderOverlay :value="open">
-        <TheHeaderNav @click="() => (open = false)" />
-      </TheHeaderOverlay>
-      <button :class="{ open }" @click="onClick">
-        <span />
-        <span />
-        <span />
-        <span />
-      </button>
+    <div class="m-auto box-content max-w-6xl p-4 md:px-6">
+      <div class="flex items-center justify-between">
+        <NuxtLink
+          :title="appConfig.sitename"
+          :aria-label="`${appConfig.sitename} toppage`"
+          class="w-36 transition-opacity hover:opacity-70 md:w-48"
+          to="/"
+        >
+          <AppLogo />
+        </NuxtLink>
+
+        <TheHeaderOverlay :value="open">
+          <TheHeaderNav @click="() => (open = false)" />
+        </TheHeaderOverlay>
+
+        <button
+          :class="`
+            ${'relative h-9 w-9 overflow-hidden rounded-full md:h-12 md:w-12'}
+            ${'hover:text-white'}
+            ${'before:transition-size before:absolute before:top-1/2 before:left-1/2 before:z-0 before:h-0 before:w-0 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-gray-900 before:duration-300 before:ease-out'}
+            ${'hover:before:h-[200%] hover:before:w-[200%]'}
+            ${'[&>span]:absolute [&>span]:right-0 [&>span]:left-0 [&>span]:z-10 [&>span]:m-auto [&>span]:block [&>span]:h-0.5 [&>span]:bg-current [&>span]:duration-300 [&>span]:ease-in-out'}
+            ${open ? 'open text-white before:h-[200%] before:w-[200%]' : ''}
+          `"
+          @click="() => toggle()"
+        >
+          <span :class="`${open ? 'top-1/2 w-0' : 'top-[35%] w-1/2'}`" />
+          <span :class="`top-1/2 w-1/2 ${open ? 'rotate-45' : ''}`" />
+          <span :class="`top-1/2 w-1/2 ${open ? '-rotate-45' : ''}`" />
+          <span :class="`${open ? 'top-1/2 w-0' : 'top-[65%] w-1/2'}`" />
+        </button>
+      </div>
     </div>
   </header>
 </template>
-
-<style lang="scss" scoped>
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: var(--bg);
-  transition: box-shadow 0.2s;
-
-  & > div {
-    box-sizing: content-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: var(--max);
-    padding: 16px;
-    margin: auto;
-
-    @include breakpoint {
-      padding: 16px 24px;
-    }
-  }
-}
-
-a {
-  width: 144px;
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.2s;
-
-  @include breakpoint {
-    width: 192px;
-  }
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
-
-button {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  overflow: hidden;
-  border-radius: 50%;
-
-  @include breakpoint {
-    width: 48px;
-    height: 48px;
-  }
-
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 0;
-    width: 0;
-    height: 0;
-    content: '';
-    background-color: var(--nav);
-    border-radius: 50%;
-    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    transition-duration: 0.3s;
-    transform: translate(-50%, -50%);
-  }
-
-  &.open,
-  &:hover {
-    color: var(--bg);
-
-    &::before {
-      width: 200%;
-      height: 200%;
-    }
-  }
-
-  & > span {
-    position: absolute;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    display: block;
-    width: 56%;
-    height: 2px;
-    margin: auto;
-    background-color: currentcolor;
-    transition: 0.3s ease-in-out;
-
-    &:nth-child(1) {
-      top: 35%;
-    }
-
-    &:nth-child(2),
-    &:nth-child(3) {
-      top: 50%;
-    }
-
-    &:nth-child(4) {
-      top: 65%;
-    }
-  }
-
-  &.open > span {
-    &:nth-child(1),
-    &:nth-child(4) {
-      top: 50%;
-      width: 0%;
-    }
-
-    &:nth-child(2) {
-      transform: rotate(45deg);
-    }
-
-    &:nth-child(3) {
-      transform: rotate(-45deg);
-    }
-  }
-}
-</style>

@@ -3,84 +3,30 @@ const appConfig = useAppConfig()
 </script>
 
 <template>
-  <footer>
-    <div>
-      <nav>
-        <div>
+  <footer class="py-10">
+    <div class="mx-auto box-content max-w-6xl px-4 md:px-6">
+      <nav class="grid gap-16 pb-10 md:grid-cols-[auto_1fr] md:gap-32">
+        <div class="flex flex-col items-start gap-8">
           <NuxtLink
             to="/"
-            class="logo"
+            class="flex w-60 flex-col gap-4 text-inherit transition-opacity hover:opacity-70"
             :title="appConfig.sitename"
             :aria-label="`${appConfig.sitename} toppage`"
           >
             <AppLogo />
-            <p>{{ appConfig.tagline }}</p>
+            <p class="px-0.5 text-xs">{{ appConfig.tagline }}</p>
           </NuxtLink>
           <TheFooterSocial />
         </div>
 
-        <div>
+        <div class="flex flex-col items-start gap-8">
           <TheFooterNav />
         </div>
       </nav>
     </div>
 
-    <div>
+    <div class="mx-auto box-content max-w-6xl px-4 md:px-6">
       <TheFooterCopyright />
     </div>
   </footer>
 </template>
-
-<style lang="scss" scoped>
-footer {
-  padding: 40px 0;
-
-  & > div {
-    box-sizing: content-box;
-    max-width: var(--max);
-    padding: 0 16px;
-    margin: auto;
-
-    @include breakpoint {
-      padding: 0 24px;
-    }
-  }
-}
-
-nav {
-  display: grid;
-  gap: 64px;
-  padding-bottom: 40px;
-
-  @include breakpoint {
-    grid-template-columns: auto 1fr;
-    gap: 120px;
-  }
-
-  & > div {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: flex-start;
-  }
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 240px;
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  p {
-    padding: 0 2px;
-    font-size: rem(12);
-  }
-}
-</style>
