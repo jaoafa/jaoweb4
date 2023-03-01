@@ -4,13 +4,6 @@
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
-  components: [
-    {
-      path: '@/components',
-      pathPrefix: false,
-      extensions: ['.vue'],
-    },
-  ],
   content: {
     documentDriven: true,
   },

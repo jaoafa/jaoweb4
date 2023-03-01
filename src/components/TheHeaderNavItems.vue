@@ -18,9 +18,9 @@ const emit = defineEmits<{
           `"
           @click="() => emit('click')"
         >
-          <LIcon size="22px">
+          <AppIcon size="22px">
             <component :is="item.icon" />
-          </LIcon>
+          </AppIcon>
           <span>{{ item.label }}</span>
         </NuxtLink>
 

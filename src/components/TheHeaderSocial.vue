@@ -51,11 +51,11 @@ const emit = defineEmits<{
           target="_blank"
           @click="() => emit('click')"
         >
-          <LIcon size="20px">
+          <AppIcon size="20px">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path :d="item.icon.path" />
             </svg>
-          </LIcon>
+          </AppIcon>
         </NuxtLink>
       </li>
     </template>
