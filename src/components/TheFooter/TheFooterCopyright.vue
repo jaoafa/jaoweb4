@@ -1,10 +1,6 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
-
-const year = computed(() => {
-  const date = new Date()
-  return date.getFullYear()
-})
+const year = useDateFormat(useNow(), 'YYYY')
 </script>
 
 <template>
