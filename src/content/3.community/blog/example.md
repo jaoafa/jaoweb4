@@ -2,6 +2,9 @@
 title: ブログ記事サンプル
 created: 2023-03-01
 updated: 2023-03-01
+author:
+ - name: Hiratake
+   icon: https://res.cloudinary.com/hiratake/image/upload/v1677884273/icon_ax9nte.webp
 ---
 
 これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。
