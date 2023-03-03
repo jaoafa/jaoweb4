@@ -7,16 +7,7 @@ module.exports = {
     'stylelint-config-recommended-vue/scss',
     'stylelint-config-recess-order',
   ],
-  overrides: [
-    {
-      files: ['tailwind.scss'],
-      rules: {
-        'scss/at-rule-no-unknown': [
-          true,
-          { ignoreAtRules: ['tailwind', 'layer', 'apply'] },
-        ],
-      },
-    },
-  ],
-  rules: {},
+  rules: {
+    'scss/at-rule-no-unknown': [true, { ignoreAtRules: ['apply'] }],
+  },
 }

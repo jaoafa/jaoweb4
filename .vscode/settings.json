@@ -1,8 +1,6 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "files.associations": {
-    "tailwind.scss": "postcss"
-  },
+  "scss.lint.unknownAtRules": "ignore",
   "stylelint.validate": ["css", "less", "postcss", "scss", "vue"],
   "tailwindCSS.includeLanguages": {
     "vue": "html"
