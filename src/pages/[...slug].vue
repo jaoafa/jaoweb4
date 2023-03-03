@@ -47,6 +47,23 @@ useServerSeoMeta({
           </dd>
         </div>
       </dl>
+      <ul v-if="doc.author" class="mt-5 flex flex-wrap gap-x-8 gap-y-4">
+        <template v-for="(author, index) in doc.author" :key="index">
+          <li class="flex items-center gap-3">
+            <div
+              class="aspect-square w-9 overflow-hidden rounded-full bg-gray-100"
+            >
+              <img
+                v-if="author.icon"
+                :src="author.icon"
+                alt="icon"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class="text-sm">{{ author.name }}</div>
+          </li>
+        </template>
+      </ul>
       <ContentRenderer
         :value="doc"
         class="prose prose-sm md:prose-base mt-10 max-w-none md:mt-12"
