@@ -2,19 +2,22 @@
 // https://nuxt.com/docs/guide/directory-structure/app-config
 
 import { markRaw } from 'vue'
-import IconFile from '@/assets/images/file.svg?component'
-import IconPeople from '@/assets/images/people.svg?component'
-import IconRocket from '@/assets/images/rocket.svg?component'
-import IconSupport from '@/assets/images/support.svg?component'
+import {
+  CheckBadgeIcon,
+  DocumentTextIcon,
+  RocketLaunchIcon,
+  UsersIcon,
+} from '@heroicons/vue/20/solid'
 
 export default defineAppConfig({
   sitename: 'jao Minecraft Server',
+  sitedomain: process.env.SITE_DOMAIN || 'jaoafa.com',
   tagline: 'ここで爆発します、あなたの可能性が。',
   navigation: [
     {
       label: 'はじめての方へ',
       to: '/guide',
-      icon: markRaw(IconRocket),
+      icon: markRaw(RocketLaunchIcon),
     },
     {
       label: 'ドキュメント',
@@ -41,7 +44,7 @@ export default defineAppConfig({
           to: '/docs/policies',
         },
       ],
-      icon: markRaw(IconFile),
+      icon: markRaw(DocumentTextIcon),
     },
     {
       label: 'コミュニティ',
@@ -63,7 +66,7 @@ export default defineAppConfig({
           href: 'https://wiki.jaoafa.com/',
         },
       ],
-      icon: markRaw(IconPeople),
+      icon: markRaw(UsersIcon),
     },
     {
       label: 'サポート',
@@ -85,7 +88,7 @@ export default defineAppConfig({
           to: '/support/profiles',
         },
       ],
-      icon: markRaw(IconSupport),
+      icon: markRaw(CheckBadgeIcon),
     },
   ],
   social: {
@@ -94,7 +97,11 @@ export default defineAppConfig({
       footer: 'https://discord.gg/zEGrApgGfB',
     },
     github: 'https://github.com/jaoafa',
-    twitter: 'https://twitter.com/jaoafa',
+    twitter: {
+      id: '@jaoafa',
+      url: 'https://twitter.com/jaoafa',
+    },
     youtube: 'https://www.youtube.com/channel/UC92wyJyhqXEMiEROeFJKNKg',
   },
+  gtmId: 'GTM-58VVRGD',
 })

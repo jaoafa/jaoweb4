@@ -1,8 +1,12 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "scss.lint.unknownAtRules": "ignore",
+  "stylelint.validate": ["css", "less", "postcss", "scss", "vue"],
+  "tailwindCSS.includeLanguages": {
+    "vue": "html"
+  },
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.tsc.autoDetect": "off",
-  "stylelint.validate": ["css", "less", "postcss", "vue"],
 
   "[javascript][typescript][vue][json][css][scss]": {
     "editor.formatOnSave": true
