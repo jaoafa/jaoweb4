@@ -1,9 +1,36 @@
 <script setup lang="ts">
 import { CalendarDaysIcon, ArrowPathIcon } from '@heroicons/vue/20/solid'
 
+const { page } = useContent()
+const { data: breadcrumb } = await useAsyncData('page-breadcrumb', () => {
+  const items: string[] = page.value._path
+    .split('/')
+    .filter((item: string) => item)
+    .reduce((prev: string[], current: string) => {
+      if (prev.length) {
+        return [...prev, `${prev[prev.length - 1]}/${current}`]
+      } else {
+        return [`/${current}`]
+      }
+    }, [])
+  return queryContent()
+    .where({ _path: { $in: items } })
+    .only(['_path', 'title'])
+    .sort({ _path: 1 })
+    .find()
+})
 useServerSeoMeta({
   ogType: 'article',
 })
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: breadcrumb.value?.map((item, index, arr) =>
+      index === arr.length - 1
+        ? { name: item.title }
+        : { name: item.title, item: item._path }
+    ),
+  }),
+])
 </script>
 
 <template>
