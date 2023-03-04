@@ -47,6 +47,7 @@
     "prettier-plugin-tailwindcss": "0.2.3",
     "sass": "1.58.3",
     "simple-icons": "8.5.0",
+    "sitemap": "7.1.1",
     "stylelint": "15.2.0",
     "stylelint-config-recess-order": "4.0.0",
     "stylelint-config-recommended-scss": "9.0.1",

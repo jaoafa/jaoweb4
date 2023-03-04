@@ -6,6 +6,11 @@ export default defineNuxtConfig({
     documentDriven: true,
   },
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@vueuse/nuxt'],
+  nitro: {
+    prerender: {
+      routes: ['/sitemap.xml'],
+    },
+  },
   srcDir: 'src/',
   typescript: {
     shim: false,
