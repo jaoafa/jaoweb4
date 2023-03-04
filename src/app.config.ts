@@ -11,7 +11,6 @@ import {
 
 export default defineAppConfig({
   sitename: 'jao Minecraft Server',
-  sitedomain: process.env.SITE_DOMAIN || 'jaoafa.com',
   tagline: 'ここで爆発します、あなたの可能性が。',
   navigation: [
     {

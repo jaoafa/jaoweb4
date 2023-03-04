@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const runtimeConfig = useRuntimeConfig()
 const appConfig = useAppConfig()
 const router = useRouter()
 const currentPath = computed(() =>
@@ -21,7 +22,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: `https://${appConfig.sitedomain}${currentPath.value}`,
+      href: `${runtimeConfig.public.siteUrl}${currentPath.value}`,
     },
     {
       rel: 'apple-touch-icon',
@@ -63,10 +64,21 @@ useHead({
 useServerSeoMeta({
   ogSiteName: appConfig.sitename,
   ogLocale: 'ja_JP',
-  ogUrl: `https://${appConfig.sitedomain}${currentPath.value}`,
+  ogUrl: `${runtimeConfig.public.siteUrl}${currentPath.value}`,
   twitterCard: 'summary_large_image',
   twitterSite: appConfig.social.twitter.id,
 })
+useSchemaOrg([
+  defineOrganization({
+    name: appConfig.sitename,
+    logo: '/logo.png',
+    sameAs: [appConfig.social.twitter.url],
+  }),
+  defineWebSite({
+    name: appConfig.sitename,
+  }),
+  defineWebPage(),
+])
 </script>
 
 <template>

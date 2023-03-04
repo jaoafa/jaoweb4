@@ -5,10 +5,20 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true,
   },
-  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@vueuse/nuxt'],
+  modules: [
+    '@nuxt/content',
+    '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt',
+    'nuxt-schema-org',
+  ],
   nitro: {
     prerender: {
       routes: ['/sitemap.xml'],
+    },
+  },
+  runtimeConfig: {
+    public: {
+      siteUrl: `https://${process.env.SITE_DOMAIN || 'jaoafa.com'}`,
     },
   },
   srcDir: 'src/',

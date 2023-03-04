@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   // Fetch all documents
   const docs = await serverQueryContent(event).find()
   const sitemap = new SitemapStream({
-    hostname: `https://${process.env.SITE_DOMAIN || 'jaoafa.com'}`,
+    hostname: useRuntimeConfig().public.siteUrl,
   })
 
   for (const doc of docs) {
