@@ -28,6 +28,7 @@
     "@nuxt/content": "2.4.3",
     "@nuxt/eslint-config": "0.1.1",
     "@nuxtjs/tailwindcss": "6.4.1",
+    "@tailwindcss/line-clamp": "0.4.2",
     "@tailwindcss/typography": "0.5.9",
     "@types/node": "18.14.5",
     "@vueuse/nuxt": "9.13.0",

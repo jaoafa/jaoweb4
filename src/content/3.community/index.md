@@ -1,5 +1,6 @@
 ---
 title: コミュニティ
+layout: list
 ---
 
-これがコミュニティ
+:content-list{:query='["community"]'}

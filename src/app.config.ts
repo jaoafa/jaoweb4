@@ -29,14 +29,14 @@ export default defineAppConfig({
           to: '/docs/spec',
         },
         {
-          label: 'ガイドライン',
-          description: '一緒に楽しむためのガイドラインをみる',
-          to: '/docs/guidelines',
-        },
-        {
           label: '利用規約',
           description: 'サービス利用時のルールをみる',
           to: '/docs/terms',
+        },
+        {
+          label: 'ガイドライン',
+          description: '一緒に楽しむためのガイドラインをみる',
+          to: '/docs/guidelines',
         },
         {
           label: '運営方針',
