@@ -9,7 +9,7 @@ const { data } = await useAsyncData(
   () => {
     const [query, ...pathParts] = props.query
     return queryContent(query, ...pathParts)
-      .where({ _dir: { $eq: pathParts[pathParts.length - 1] } })
+      .where({ _dir: { $eq: pathParts[pathParts.length - 1] || query } })
       .only(['_path', 'title', 'created', 'author'])
       .sort({ created: -1 })
       .find()

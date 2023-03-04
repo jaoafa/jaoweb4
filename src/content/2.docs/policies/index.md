@@ -1,5 +1,6 @@
 ---
 title: 運営方針
+layout: list
 ---
 
-これが運営方針
+:content-list{:query='["docs", "policies"]'}

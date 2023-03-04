@@ -1,5 +1,6 @@
 ---
 title: お知らせ
+layout: list
 ---
 
-これがお知らせ
+:content-list{:query='["community", "news"]'}

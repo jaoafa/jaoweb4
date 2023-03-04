@@ -1,5 +1,6 @@
 ---
 title: サポート
+layout: list
 ---
 
-これがサポート
+:content-list{:query='["support"]'}

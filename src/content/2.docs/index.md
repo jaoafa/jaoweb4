@@ -1,5 +1,6 @@
 ---
 title: ドキュメント
+layout: list
 ---
 
-これがドキュメント
+:content-list{:query='["docs"]'}

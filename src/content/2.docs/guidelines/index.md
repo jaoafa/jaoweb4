@@ -1,5 +1,6 @@
 ---
 title: ガイドライン
+layout: list
 ---
 
-これがガイドライン
+:content-list{:query='["docs", "guidelines"]'}
