@@ -2,4 +2,4 @@
 title: ブログ
 ---
 
-これがブログ
+:content-list{:query='["community", "blog"]'}
