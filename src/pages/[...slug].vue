@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CalendarDaysIcon, ArrowPathIcon } from '@heroicons/vue/20/solid'
 
-const { page } = useContent()
+const { layout, page } = useContent()
 const { data: breadcrumb } = await useAsyncData('page-breadcrumb', () => {
   const items: string[] = page.value._path
     .split('/')
@@ -31,6 +31,20 @@ useSchemaOrg([
     ),
   }),
 ])
+if (layout.value === 'default') {
+  useSchemaOrg([
+    defineArticle({
+      headline: page.value.title,
+      author: page.value.author
+        ? page.value.author.map((item: { name: string }) => ({
+            name: item.name,
+          }))
+        : undefined,
+      datePublished: page.value.created || undefined,
+      dateModified: page.value.updated || undefined,
+    }),
+  ])
+}
 </script>
 
 <template>
