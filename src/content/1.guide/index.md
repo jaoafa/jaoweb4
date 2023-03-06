@@ -1,6 +1,6 @@
 ---
 title: はじめての方へ
-layout: default
+layout: article
 ---
 
 これがはじめての方へ

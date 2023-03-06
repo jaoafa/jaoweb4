@@ -5,7 +5,7 @@ updated: 2023-03-01
 author:
  - name: Hiratake
    icon: https://res.cloudinary.com/hiratake/image/upload/v1677884273/icon_ax9nte.webp
-layout: default
+layout: article
 ---
 
 これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。これはサンプルテキストです。
