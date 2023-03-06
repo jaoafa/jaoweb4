@@ -10,11 +10,15 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     'nuxt-schema-org',
+    'nuxt-simple-robots',
   ],
   nitro: {
     prerender: {
       routes: ['/sitemap.xml'],
     },
+  },
+  robots: {
+    sitemap: `https://${process.env.SITE_DOMAIN || 'jaoafa.com'}`,
   },
   runtimeConfig: {
     public: {
