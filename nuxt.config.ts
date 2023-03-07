@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     },
   },
   robots: {
-    sitemap: `https://${process.env.SITE_DOMAIN || 'jaoafa.com'}`,
+    sitemap: '/sitemap.xml',
   },
   runtimeConfig: {
     public: {
