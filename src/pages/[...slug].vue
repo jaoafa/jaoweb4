@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CalendarDaysIcon, ArrowPathIcon } from '@heroicons/vue/20/solid'
 
-const { page } = useContent()
+const { page, layout } = useContent()
 const { data: breadcrumb } = await useAsyncData('page-breadcrumb', () => {
   const items: string[] = page.value._path
     .split('/')
@@ -34,7 +34,7 @@ useSchemaOrg([
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout :name="layout as string || 'default'">
     <ContentDoc v-slot="{ doc }">
       <h1 class="text-3xl font-bold">{{ doc.title }}</h1>
       <dl

@@ -90,6 +90,21 @@ export default <Partial<Config>>{
       transitionProperty: {
         size: 'width, height',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: {
+              scrollMargin: '6rem',
+            },
+            h3: {
+              scrollMargin: '6rem',
+            },
+            h4: {
+              scrollMargin: '6rem',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [

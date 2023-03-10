@@ -82,6 +82,7 @@ useSchemaOrg([
 </script>
 
 <template>
+  <Html class="scroll-smooth" />
   <Body class="bg-white text-gray-700" />
   <AppProvider>
     <TheHeader />
