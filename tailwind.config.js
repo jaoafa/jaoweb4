@@ -120,10 +120,13 @@ module.exports = {
                 },
               },
             },
+            img: {
+              borderRadius: defaultTheme.borderRadius.lg,
+            },
             code: {
               padding: '0 4px',
               backgroundColor: '#e6e7e9',
-              borderRadius: '2px',
+              borderRadius: defaultTheme.borderRadius.sm,
             },
             'code::before': {
               content: '""',
