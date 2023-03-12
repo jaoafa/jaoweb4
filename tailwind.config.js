@@ -93,6 +93,14 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
+            p: {
+              a: {
+                color: colors.sky[600],
+                '&:hover': {
+                  textDecoration: 'none',
+                },
+              },
+            },
             h2: {
               scrollMargin: '6rem',
               a: {
