@@ -19,14 +19,14 @@ const { data } = await useAsyncData(
 
 <template>
   <div class="not-prose">
-    <ul v-if="data?.length" class="grid-cols-fill-56 grid gap-6">
+    <ul v-if="data?.length" class="grid grid-cols-fill-56 gap-6">
       <template v-for="item in data" :key="item._path">
         <li
-          class="hover:border-primary-600 rounded-lg border border-gray-100 bg-white p-3 transition-colors"
+          class="rounded-lg border border-gray-100 bg-white p-3 transition-colors hover:border-primary-600"
         >
           <NuxtLink :to="item._path">
             <article class="flex h-full flex-col justify-between gap-3">
-              <h2 class="line-clamp-2 h-[3.5em] font-bold">
+              <h2 class="h-[3.5em] font-bold line-clamp-2">
                 {{ item.title }}
               </h2>
               <div class="flex flex-wrap items-center justify-between gap-2">

@@ -1,11 +1,11 @@
 // Tailwind CSS Configuration
 // https://tailwindcss.com/docs/configuration
 
-import { type Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
-import colors from 'tailwindcss/colors'
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
-export default <Partial<Config>>{
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   theme: {
     colors: {
       // https://tailwindcss.com/docs/customizing-colors
@@ -111,5 +111,14 @@ export default <Partial<Config>>{
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
   ],
-  content: [],
+  content: [
+    './src/components/**/*.{js,vue,ts}',
+    './src/layouts/**/*.vue',
+    './src/pages/**/*.vue',
+    './src/composables/**/*.{js,ts}',
+    './src/plugins/**/*.{js,ts}',
+    './src/app.vue',
+    './src/error.{js,ts,vue}',
+    './nuxt.config.{js,ts}',
+  ],
 }
