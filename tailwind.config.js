@@ -120,6 +120,17 @@ module.exports = {
                 },
               },
             },
+            code: {
+              padding: '0 4px',
+              backgroundColor: '#e6e7e9',
+              borderRadius: '2px',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
           },
         },
       },
