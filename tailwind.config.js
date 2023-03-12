@@ -93,14 +93,54 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
+            p: {
+              a: {
+                color: colors.sky[600],
+                '&:hover': {
+                  textDecoration: 'none',
+                },
+              },
+            },
             h2: {
               scrollMargin: '6rem',
+              a: {
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+              },
             },
             h3: {
               scrollMargin: '6rem',
+              a: {
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+              },
             },
             h4: {
               scrollMargin: '6rem',
+              a: {
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+              },
+            },
+            img: {
+              borderRadius: defaultTheme.borderRadius.lg,
+            },
+            code: {
+              padding: '0 4px',
+              backgroundColor: '#e6e7e9',
+              borderRadius: defaultTheme.borderRadius.sm,
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
             },
           },
         },
