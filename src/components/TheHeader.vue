@@ -30,7 +30,7 @@ const { y } = useWindowScroll()
           :class="`
             ${'relative h-9 w-9 overflow-hidden rounded-full md:h-12 md:w-12'}
             ${'hover:text-white'}
-            ${'before:transition-size before:absolute before:top-1/2 before:left-1/2 before:z-0 before:h-0 before:w-0 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-gray-900 before:duration-300 before:ease-out'}
+            ${'before:absolute before:top-1/2 before:left-1/2 before:z-0 before:h-0 before:w-0 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-gray-900 before:transition-size before:duration-300 before:ease-out'}
             ${'hover:before:h-[200%] hover:before:w-[200%]'}
             ${'[&>span]:absolute [&>span]:right-0 [&>span]:left-0 [&>span]:z-10 [&>span]:m-auto [&>span]:block [&>span]:h-0.5 [&>span]:bg-current [&>span]:duration-300 [&>span]:ease-in-out'}
             ${open ? 'open text-white before:h-[200%] before:w-[200%]' : ''}
