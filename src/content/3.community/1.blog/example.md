@@ -324,11 +324,11 @@ title: 記事のタイトル
 `:content-embed` を使うことで埋め込みコンテンツを利用できます。
 
 ```markdown
-:content-embed{url="https://jaoafa.com/server/beginners"}
+:content-embed{url="https://jaoafa.com/server/beginners/"}
 :content-embed{url="https://github.com/jaoafa"}
 ```
 
-:content-embed{url="https://jaoafa.com/server/beginners"}
+:content-embed{url="https://jaoafa.com/server/beginners/"}
 :content-embed{url="https://github.com/jaoafa"}
 
 ---
