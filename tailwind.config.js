@@ -95,12 +95,30 @@ module.exports = {
           css: {
             h2: {
               scrollMargin: '6rem',
+              a: {
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+              },
             },
             h3: {
               scrollMargin: '6rem',
+              a: {
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+              },
             },
             h4: {
               scrollMargin: '6rem',
+              a: {
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+              },
             },
           },
         },
