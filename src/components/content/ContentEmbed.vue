@@ -3,14 +3,12 @@ const props = defineProps<{
   url: string
 }>()
 
-const key = `embed-${props.url.replace(/[^a-zA-Z0-9]/g, '-')}`
-const { data } = useAsyncData(key, () =>
-  $fetch('/api/embed', {
-    query: {
-      url: props.url,
-    },
-  })
-)
+// const key = `embed-${props.url.replace(/[^a-zA-Z0-9]/g, '-')}`
+const { data } = useFetch('/api/embed', {
+  query: {
+    url: props.url,
+  },
+})
 </script>
 
 <template>
@@ -36,7 +34,7 @@ const { data } = useAsyncData(key, () =>
           </p>
         </div>
       </div>
-      <div class="w-1/3">
+      <div v-if="data.page.image" class="w-1/3">
         <img
           :src="data.page.image"
           :alt="`${data.page.title} thumbnail`"
