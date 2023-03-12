@@ -3,9 +3,8 @@ const props = defineProps<{
   url: string
 }>()
 
-// key は同一ページ内に同じコンポーネントがある場合にダブらないようにしないといけないらしい。
-// URL から key を作ってもいいけど…。
-const { data } = useAsyncData(`embed-${Date.now()}`, () =>
+const key = `embed-${props.url.replace(/[^a-zA-Z0-9]/g, '-')}`
+const { data } = useAsyncData(key, () =>
   $fetch('/api/embed', {
     query: {
       url: props.url,
