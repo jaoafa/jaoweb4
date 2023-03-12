@@ -319,6 +319,16 @@ title: 記事のタイトル
 
 ページの更新日です。 `2021-01-01` のように記述してください。
 
+## 埋め込みコンテンツ
+
+`:content-embed` を使うことで埋め込みコンテンツを利用できます。
+
+```markdown
+:content-embed{url="https://jaoafa.com/server/beginners"}
+```
+
+:content-embed{url="https://jaoafa.com/server/beginners"}
+
 ---
 
 いかがでしたか？

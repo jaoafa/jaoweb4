@@ -44,6 +44,7 @@
     "nuxt": "3.2.2",
     "nuxt-schema-org": "2.1.2",
     "nuxt-simple-robots": "1.0.3",
+    "ogp-parser": "0.6.0",
     "postcss": "8.4.21",
     "postcss-html": "1.5.0",
     "prettier": "2.8.4",

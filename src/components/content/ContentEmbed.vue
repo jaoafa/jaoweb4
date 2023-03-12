@@ -1,0 +1,54 @@
+<script setup lang="ts">
+const props = defineProps<{
+  url: string
+}>()
+
+// key は同一ページ内に同じコンポーネントがある場合にダブらないようにしないといけないらしい。
+// URL から key を作ってもいいけど…。
+const { data } = useAsyncData(`embed-${Date.now()}`, () =>
+  $fetch('/api/embed', {
+    query: {
+      url: props.url,
+    },
+  })
+)
+</script>
+
+<template>
+  <div v-if="data && data.page && data.site">
+    <div class="flex w-full overflow-hidden rounded-lg shadow-lg">
+      <div class="w-2/3 p-2 lg:p-4">
+        <p class="text-1xl font-bold text-gray-900">
+          {{ data.page.title }}
+        </p>
+        <p class="text-sm text-gray-700">
+          {{ data.page.description }}
+        </p>
+        <div class="site-info flex items-center gap-2">
+          <div>
+            <img
+              :src="data.site.icon"
+              :alt="`${data.site.domain} favicon`"
+              class="h-full w-full overflow-hidden bg-gray-100"
+            />
+          </div>
+          <p class="text-sm text-gray-700">
+            {{ data.site.name }}
+          </p>
+        </div>
+      </div>
+      <div class="w-1/3">
+        <img
+          :src="data.page.image"
+          :alt="`${data.page.title} thumbnail`"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+  <div v-else>
+    <p class="text-red-500">
+      {{ data ? data.error : 'Failed to fetch data.' }}
+    </p>
+  </div>
+</template>
