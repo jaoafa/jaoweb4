@@ -3,7 +3,6 @@ const props = defineProps<{
   url: string
 }>()
 
-// const key = `embed-${props.url.replace(/[^a-zA-Z0-9]/g, '-')}`
 const { data } = useFetch('/api/embed', {
   query: {
     url: props.url,
