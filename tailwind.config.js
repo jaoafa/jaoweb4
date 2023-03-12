@@ -50,6 +50,10 @@ module.exports = {
         800: '#1e2131',
         900: '#05081a',
       },
+      danger: colors.red[500],
+      warning: colors.amber[400],
+      success: colors.lime[600],
+      info: colors.cyan[500],
     },
     extend: {
       fontFamily: {

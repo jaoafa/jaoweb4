@@ -246,6 +246,51 @@ ___
 
 `___` を使用した場合
 
+## アラート
+
+文章を `::content-alert` と `::` で囲むとアラート表示ができます。
+
+
+```markdown
+::content-alert
+アラートのコンテンツ
+::
+```
+
+以下のように表示されます。
+
+::content-alert
+アラートのコンテンツ
+::
+
+種類を指定することで、色とアイコンを変更することができます。
+
+```markdown
+::content-alert{type="danger"}
+危なそうなアラート
+::
+
+::content-alert{type="warning"}
+注意が必要そうなアラート
+::
+
+::content-alert{type="success"}
+安全そうなアラート
+::
+```
+
+::content-alert{type="danger"}
+危なそうなアラート
+::
+
+::content-alert{type="warning"}
+注意が必要そうなアラート
+::
+
+::content-alert{type="success"}
+安全そうなアラート
+::
+
 ## メタ情報の設定
 
 Markdownファイルの最初に、ページの情報を指定するためのブロック（ **YAMLフロントマターブロック** ）を追加することができます。
