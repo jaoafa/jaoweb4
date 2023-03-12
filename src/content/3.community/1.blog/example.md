@@ -325,9 +325,11 @@ title: 記事のタイトル
 
 ```markdown
 :content-embed{url="https://jaoafa.com/server/beginners"}
+:content-embed{url="https://github.com/jaoafa"}
 ```
 
 :content-embed{url="https://jaoafa.com/server/beginners"}
+:content-embed{url="https://github.com/jaoafa"}
 
 ---
 
