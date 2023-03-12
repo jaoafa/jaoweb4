@@ -5,9 +5,9 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true,
   },
+  css: ['@/assets/main.css'],
   modules: [
     '@nuxt/content',
-    '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     'nuxt-schema-org',
     'nuxt-simple-robots',
@@ -15,6 +15,12 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/sitemap.xml'],
+    },
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
   robots: {
