@@ -16,7 +16,7 @@ const { y } = useWindowScroll()
         <NuxtLink
           :title="appConfig.sitename"
           :aria-label="`${appConfig.sitename} toppage`"
-          class="w-36 transition-colors hover:text-gray-500 md:w-48"
+          class="w-36 transition-opacity hover:opacity-60 md:w-48"
           to="/"
         >
           <AppLogo />
