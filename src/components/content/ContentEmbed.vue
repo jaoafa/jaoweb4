@@ -11,45 +11,39 @@ const { data } = useFetch('/api/embed', {
 </script>
 
 <template>
-  <a
-    :href="props.url"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="no-underline"
-  >
-    <div v-if="data && data.page && data.site">
-      <div class="flex w-full overflow-hidden rounded-lg shadow-lg">
-        <div class="w-2/3 p-2 lg:p-4">
-          <p class="text-1xl font-bold text-gray-900">
-            {{ data.page.title }}
-          </p>
-          <p class="text-sm text-gray-700">
-            {{ data.page.description }}
-          </p>
-          <div class="site-info flex items-center gap-2">
-            <div>
-              <img
-                :src="data.site.icon"
-                :alt="`${data.site.domain} favicon`"
-                class="h-full w-full overflow-hidden bg-gray-100"
-              />
-            </div>
-            <p class="text-sm text-gray-700">
-              {{ data.site.name }}
-            </p>
-          </div>
-        </div>
-        <div v-if="data.page.image" class="w-1/3">
+  <template v-if="data && data.page && data.site">
+    <a
+      :href="props.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="not-prose my-6 flex h-32 items-center gap-6 overflow-hidden rounded-lg border border-gray-100 bg-white no-underline transition-colors hover:bg-gray-50"
+    >
+      <div class="flex shrink grow flex-col gap-3 px-4 leading-none">
+        <p class="font-bold">{{ data.page.title }}</p>
+        <p class="text-xs text-gray-500 line-clamp-2">
+          {{ data.page.description }}
+        </p>
+        <div class="flex items-center gap-1.5">
           <img
-            :src="data.page.image"
-            :alt="`${data.page.title} thumbnail`"
-            class="h-full w-full object-cover"
+            :src="data.site.icon"
+            :alt="`${data.site.domain} favicon`"
+            class="h-4 w-4 shrink-0 grow-0 translate-y-0.5"
           />
+          <span class="text-xs">{{ data.site.name }}</span>
         </div>
       </div>
-    </div>
-    <div v-else>
-      {{ props.url }}
-    </div>
-  </a>
+      <div class="aspect-square h-full shrink-0 grow-0 md:aspect-video">
+        <img
+          :src="data.page.image"
+          :alt="`${data.page.title} thumbnail`"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </a>
+  </template>
+  <template v-else>
+    <p>
+      <a :href="props.url">{{ props.url }}</a>
+    </p>
+  </template>
 </template>
