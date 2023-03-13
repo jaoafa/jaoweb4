@@ -12,9 +12,7 @@ interface PageMeta {
 
 async function getHTML(url: string): Promise<string> {
   try {
-    const res = await fetch(url, {
-      redirect: 'follow',
-    })
+    const res = await fetch(url)
     return await res.text()
   } catch (error) {
     throw new Error(`Failed to fetch ${url}: ${JSON.stringify(error)}`)
