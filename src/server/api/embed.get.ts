@@ -13,6 +13,9 @@ interface PageMeta {
 async function getHTML(url: string): Promise<string> {
   try {
     const res = await fetch(url)
+    if (!res.ok) {
+      throw new Error(`Failed to fetch ${url}: ${res.status}`)
+    }
     return await res.text()
   } catch (error) {
     throw new Error(`Failed to fetch ${url}: ${JSON.stringify(error)}`)
