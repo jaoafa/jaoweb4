@@ -331,6 +331,14 @@ title: 記事のタイトル
 :content-embed{url="https://jaoafa.com/server/beginners/"}
 :content-embed{url="https://github.com/jaoafa"}
 
+また、URL をそのまま張り付けることでも埋め込みコンテンツが利用できます。
+
+```markdown
+https://jaoafa.com/server/specifications/
+```
+
+https://jaoafa.com/server/specifications/
+
 ---
 
 いかがでしたか？
