@@ -7,11 +7,16 @@ const { y } = useWindowScroll()
 <template>
   <header
     :class="`
-      ${'fixed top-0 z-40 w-full transition'}
+      ${'global-header fixed top-0 z-40 w-full transition'}
       ${y > 0 ? 'bg-white/50 shadow-md backdrop-blur' : 'bg-transparent'}
     `"
   >
-    <div class="m-auto box-content max-w-6xl py-3 px-4 md:py-4 md:px-6">
+    <div
+      :class="`
+        ${'m-auto box-content max-w-6xl py-3 px-4 md:py-4 md:px-6'}
+        ${y > 0 ? 'text-gray-700' : ''}
+      `"
+    >
       <div class="flex items-center justify-between">
         <NuxtLink
           :title="appConfig.sitename"
