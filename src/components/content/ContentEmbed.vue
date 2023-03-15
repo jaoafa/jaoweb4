@@ -23,7 +23,7 @@ const site = computed(() =>
       :href="props.url"
       target="_blank"
       rel="noopener noreferrer"
-      class="not-prose my-6 flex h-32 items-center gap-6 overflow-hidden rounded-lg border border-gray-100 bg-white no-underline transition-colors hover:bg-gray-50"
+      class="not-prose my-6 flex h-32 items-center gap-6 overflow-hidden rounded-lg border border-gray-100 bg-white text-inherit no-underline transition-colors hover:bg-gray-50"
     >
       <div class="flex shrink grow flex-col gap-3 px-4 leading-none">
         <p class="font-bold">{{ page.title }}</p>
