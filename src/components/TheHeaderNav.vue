@@ -22,7 +22,7 @@ const emit = defineEmits<{
         <AppLogo />
         <p class="px-0.5 text-xs">{{ appConfig.tagline }}</p>
       </NuxtLink>
-      <TheHeaderSocial @click="() => emit('click')" />
+      <SocialLinks @click="() => emit('click')" />
     </div>
   </nav>
 </template>

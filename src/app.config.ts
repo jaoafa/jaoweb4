@@ -11,6 +11,7 @@ import {
 
 export default defineAppConfig({
   sitename: 'jao Minecraft Server',
+  address: 'play.jaoafa.com',
   tagline: 'ここで爆発します、あなたの可能性が。',
   navigation: [
     {
@@ -92,15 +93,18 @@ export default defineAppConfig({
   ],
   social: {
     discord: {
-      header: 'https://discord.gg/7fvwYQDaQp',
-      footer: 'https://discord.gg/zEGrApgGfB',
+      url: 'https://discord.gg/jaoafa',
     },
-    github: 'https://github.com/jaoafa',
+    github: {
+      url: 'https://github.com/jaoafa',
+    },
     twitter: {
       id: '@jaoafa',
       url: 'https://twitter.com/jaoafa',
     },
-    youtube: 'https://www.youtube.com/channel/UC92wyJyhqXEMiEROeFJKNKg',
+    youtube: {
+      url: 'https://www.youtube.com/channel/UC92wyJyhqXEMiEROeFJKNKg',
+    },
   },
   gtmId: 'GTM-58VVRGD',
 })

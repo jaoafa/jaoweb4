@@ -16,7 +16,7 @@ const appConfig = useAppConfig()
             <AppLogo />
             <p class="px-0.5 text-xs">{{ appConfig.tagline }}</p>
           </NuxtLink>
-          <TheFooterSocial />
+          <SocialLinks />
         </div>
 
         <div class="flex flex-col items-start gap-8">

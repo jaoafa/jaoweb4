@@ -58,6 +58,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Noto Sans JP', ...defaultTheme.fontFamily.sans],
+        accent: ['Lexend', 'sans-serif'],
       },
       gridTemplateColumns: {
         'fill-0': 'repeat(auto-fill, minmax(0px, 1fr))',

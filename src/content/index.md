@@ -5,4 +5,4 @@ description:
 layout: top
 ---
 
-これがトップページ
+:hero-section
