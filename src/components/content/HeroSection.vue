@@ -3,8 +3,26 @@ import {
   ClipboardDocumentIcon,
   ClipboardDocumentCheckIcon,
 } from '@heroicons/vue/24/outline'
+
 const appConfig = useAppConfig()
 const { copy, copied } = useClipboard()
+
+const images = [
+  '/images/main01.jpg',
+  '/images/main02.jpg',
+  '/images/main03.jpg',
+]
+
+const currentImage = ref<number>(0)
+const currentRatio = ref<number>(0)
+useIntervalFn(() => {
+  if (currentRatio.value >= 1) {
+    currentImage.value = currentImage.value === 2 ? 0 : currentImage.value + 1
+    currentRatio.value = 0
+  } else {
+    currentRatio.value = currentRatio.value + 0.01
+  }
+}, 100)
 </script>
 
 <template>
@@ -12,9 +30,9 @@ const { copy, copied } = useClipboard()
     <div class="z-10 col-start-1 row-start-1 m-auto w-full px-4 md:px-16">
       <div class="flex flex-col items-center gap-8 md:gap-16">
         <div class="flex flex-col items-center gap-4 text-center text-white">
-          <span class="text-base font-bold md:text-3xl">{{
-            appConfig.tagline
-          }}</span>
+          <span class="text-base font-bold md:text-3xl">
+            {{ appConfig.tagline }}
+          </span>
           <span class="font-accent text-5xl font-black md:text-7xl lg:text-8xl">
             {{ appConfig.sitename }}
           </span>
@@ -58,10 +76,57 @@ const { copy, copied } = useClipboard()
       </div>
     </div>
 
-    <img
-      src="/images/main.jpg"
-      alt=""
-      class="col-start-1 row-start-1 h-full min-h-0 w-full object-cover"
-    />
+    <div class="z-10 col-start-1 row-start-1 mx-auto mt-auto mb-16 md:mr-16">
+      <div class="flex w-72 gap-2 md:w-96">
+        <template v-for="n in 3" :key="n">
+          <div
+            :class="`
+              ${'h-2 w-1/3 cursor-pointer overflow-hidden rounded-lg bg-gray-300/70'}
+              ${currentImage === n - 1 ? 'bg-gray-300/80' : 'bg-gray-300/30'}
+            `"
+            @click="
+              () => {
+                currentImage = n - 1
+                currentRatio = 0
+              }
+            "
+          >
+            <span
+              :style="{
+                transform: `scale(${
+                  currentImage === n - 1 ? currentRatio : 0
+                }, 1)`,
+              }"
+              :class="`
+                ${'block h-full rounded bg-primary-600 transition-transform'}
+                ${currentImage === n - 1 ? 'origin-left' : 'origin-right'}
+              `"
+            />
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div class="relative col-start-1 row-start-1 h-full min-h-0 w-full">
+      <template v-for="n in 3" :key="n">
+        <img
+          :class="`
+            ${'absolute inset-0 h-full min-h-0 w-full object-cover'}
+            ${
+              currentImage === n - 1
+                ? 'opacity-100 transition-transform'
+                : 'opacity-0 transition-opacity'
+            }
+          `"
+          :style="{
+            transform: `scale(${
+              currentImage === n - 1 ? 1 + currentRatio / 2 : 1
+            })`,
+          }"
+          :src="images[n - 1]"
+          alt=""
+        />
+      </template>
+    </div>
   </section>
 </template>
