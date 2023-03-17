@@ -28,6 +28,8 @@
     "@heroicons/vue": "2.0.16",
     "@nuxt/content": "2.4.3",
     "@nuxt/eslint-config": "0.1.1",
+    "@nuxtjs/eslint-module": "4.0.2",
+    "@nuxtjs/stylelint-module": "5.0.1",
     "@tailwindcss/line-clamp": "0.4.2",
     "@tailwindcss/typography": "0.5.9",
     "@types/node": "18.14.5",

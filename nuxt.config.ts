@@ -6,8 +6,13 @@ export default defineNuxtConfig({
     documentDriven: true,
   },
   css: ['@/assets/main.css'],
+  eslint: {
+    lintOnStart: false,
+  },
   modules: [
     '@nuxt/content',
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
     '@vueuse/nuxt',
     'nuxt-schema-org',
     'nuxt-simple-robots',
@@ -32,6 +37,9 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src/',
+  stylelint: {
+    lintOnStart: false,
+  },
   typescript: {
     shim: false,
     strict: true,
