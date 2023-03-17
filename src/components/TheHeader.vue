@@ -16,7 +16,12 @@ const { layout } = useContent()
       }
     `"
   >
-    <div class="m-auto box-content max-w-6xl py-3 px-4 md:py-4 md:px-6">
+    <div
+      :class="`
+        ${'m-auto box-content py-3 px-4 md:py-4'}
+        ${layout !== 'top' ? 'max-w-6xl md:px-6' : 'md:px-16'}
+      `"
+    >
       <div class="flex items-center justify-between">
         <NuxtLink
           :title="appConfig.sitename"
