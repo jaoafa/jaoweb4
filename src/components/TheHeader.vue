@@ -45,6 +45,7 @@ const { layout } = useContent()
             ${'[&>span]:absolute [&>span]:right-0 [&>span]:left-0 [&>span]:z-10 [&>span]:m-auto [&>span]:block [&>span]:h-0.5 [&>span]:bg-current [&>span]:duration-300 [&>span]:ease-in-out'}
             ${open ? 'open text-white before:h-[200%] before:w-[200%]' : ''}
           `"
+          aria-label="Toggle site navigation"
           @click="() => toggle()"
         >
           <span :class="`${open ? 'top-1/2 w-0' : 'top-[35%] w-1/2'}`" />
