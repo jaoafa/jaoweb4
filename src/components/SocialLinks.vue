@@ -8,6 +8,17 @@ import {
 } from 'simple-icons'
 
 const appConfig = useAppConfig()
+const props = withDefaults(
+  defineProps<{
+    direction?: 'row' | 'column'
+  }>(),
+  {
+    direction: 'row',
+  }
+)
+const emit = defineEmits<{
+  (e: 'click'): void
+}>()
 const social: {
   label: string
   href: string
@@ -34,13 +45,15 @@ const social: {
     icon: siYoutube,
   },
 ]
-const emit = defineEmits<{
-  (e: 'click'): void
-}>()
 </script>
 
 <template>
-  <ul class="flex items-center gap-6 px-1">
+  <ul
+    :class="`
+      ${'flex items-center gap-6 px-1'}
+      ${props.direction === 'row' ? 'flex-row' : 'flex-col'}
+    `"
+  >
     <template v-for="item in social" :key="item.label">
       <li>
         <NuxtLink

@@ -49,6 +49,15 @@ const { copy, copied } = useClipboard()
         </div>
       </div>
     </div>
+
+    <div
+      class="z-10 col-start-1 row-start-1 mt-auto mr-auto ml-4 mb-16 hidden md:ml-16 md:block"
+    >
+      <div class="text-white">
+        <SocialLinks direction="column" />
+      </div>
+    </div>
+
     <img
       src="/images/main.jpg"
       alt=""
