@@ -2,21 +2,21 @@
 const appConfig = useAppConfig()
 const [open, toggle] = useToggle()
 const { y } = useWindowScroll()
+const { layout } = useContent()
 </script>
 
 <template>
   <header
     :class="`
-      ${'global-header fixed top-0 z-40 w-full transition'}
-      ${y > 0 ? 'bg-white/50 shadow-md backdrop-blur' : 'bg-transparent'}
+      ${'fixed top-0 z-40 w-full transition'}
+      ${
+        y > 0 || layout !== 'top'
+          ? 'bg-white/50 text-inherit shadow-md backdrop-blur'
+          : 'bg-transparent text-white'
+      }
     `"
   >
-    <div
-      :class="`
-        ${'m-auto box-content max-w-6xl py-3 px-4 md:py-4 md:px-6'}
-        ${y > 0 ? 'text-gray-700' : ''}
-      `"
-    >
+    <div class="m-auto box-content max-w-6xl py-3 px-4 md:py-4 md:px-6">
       <div class="flex items-center justify-between">
         <NuxtLink
           :title="appConfig.sitename"
