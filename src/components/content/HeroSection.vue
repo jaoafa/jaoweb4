@@ -7,11 +7,7 @@ import {
 const appConfig = useAppConfig()
 const { copy, copied } = useClipboard()
 
-const images = [
-  '/images/main01.jpg',
-  '/images/main02.jpg',
-  '/images/main03.jpg',
-]
+const images = ['/images/main01', '/images/main02', '/images/main03']
 
 const currentImage = ref<number>(0)
 const currentRatio = ref<number>(0)
@@ -26,7 +22,7 @@ useIntervalFn(() => {
 </script>
 
 <template>
-  <section class="grid h-[100dvh] snap-start overflow-hidden">
+  <section class="grid h-[100svh] snap-start overflow-hidden">
     <div class="z-10 col-start-1 row-start-1 m-auto w-full px-4 md:px-16">
       <div class="flex flex-col items-center gap-8 md:gap-16">
         <div class="flex flex-col items-center gap-4 text-center text-white">
@@ -98,7 +94,7 @@ useIntervalFn(() => {
                 }, 1)`,
               }"
               :class="`
-                ${'block h-full rounded bg-primary-600 transition-transform'}
+                ${'block h-full rounded-lg bg-primary-600 transition-transform'}
                 ${currentImage === n - 1 ? 'origin-left' : 'origin-right'}
               `"
             />
@@ -123,8 +119,15 @@ useIntervalFn(() => {
               currentImage === n - 1 ? 1 + currentRatio / 2 : 1
             })`,
           }"
-          :src="images[n - 1]"
+          :src="`${images[n - 1]}/1920w.webp`"
+          :srcset="`
+            ${images[n - 1]}/856w.webp 856w,
+            ${images[n - 1]}/1200w.webp 1200w,
+            ${images[n - 1]}/1620w.webp 1620w,
+            ${images[n - 1]}/1920w.webp 1980w
+          `"
           alt=""
+          sizes="100vw"
         />
       </template>
     </div>
