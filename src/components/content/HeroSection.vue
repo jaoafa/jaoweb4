@@ -22,7 +22,7 @@ useIntervalFn(() => {
 </script>
 
 <template>
-  <section class="grid h-[100dvh] snap-start overflow-hidden">
+  <section class="grid h-[100svh] snap-start overflow-hidden">
     <div class="z-10 col-start-1 row-start-1 m-auto w-full px-4 md:px-16">
       <div class="flex flex-col items-center gap-8 md:gap-16">
         <div class="flex flex-col items-center gap-4 text-center text-white">
@@ -94,7 +94,7 @@ useIntervalFn(() => {
                 }, 1)`,
               }"
               :class="`
-                ${'block h-full rounded bg-primary-600 transition-transform'}
+                ${'block h-full rounded-lg bg-primary-600 transition-transform'}
                 ${currentImage === n - 1 ? 'origin-left' : 'origin-right'}
               `"
             />
