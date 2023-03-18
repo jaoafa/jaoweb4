@@ -7,11 +7,7 @@ import {
 const appConfig = useAppConfig()
 const { copy, copied } = useClipboard()
 
-const images = [
-  '/images/main01.jpg',
-  '/images/main02.jpg',
-  '/images/main03.jpg',
-]
+const images = ['/images/main01', '/images/main02', '/images/main03']
 
 const currentImage = ref<number>(0)
 const currentRatio = ref<number>(0)
@@ -123,8 +119,15 @@ useIntervalFn(() => {
               currentImage === n - 1 ? 1 + currentRatio / 2 : 1
             })`,
           }"
-          :src="images[n - 1]"
+          :src="`${images[n - 1]}/1920w.webp`"
+          :srcset="`
+            ${images[n - 1]}/856w.webp 856w,
+            ${images[n - 1]}/1200w.webp 1200w,
+            ${images[n - 1]}/1620w.webp 1620w,
+            ${images[n - 1]}/1920w.webp 1980w
+          `"
           alt=""
+          sizes="100vw"
         />
       </template>
     </div>
