@@ -15,3 +15,7 @@ jao Minecraft Server は、Java版Minecraftのクリエイティブサーバで�
 
 また、Discordサーバでは、通話をしながらMinecraft以外のゲームをしたり、様々な話題について会話をしたりと、コミュニティ参加者同士での交流も盛んに行われています。
 ::
+
+:big-toma-watching-you
+
+:gallery-section

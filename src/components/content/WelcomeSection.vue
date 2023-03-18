@@ -11,7 +11,7 @@ const props = defineProps<{
 <template>
   <section class="bg-gray-50">
     <div
-      class="m-auto box-content flex max-w-6xl flex-wrap justify-between gap-16 px-4 py-16 md:flex-nowrap md:items-center md:gap-8 md:py-20 md:px-6 lg:gap-16 lg:py-28 xl:gap-24"
+      class="m-auto box-content flex max-w-6xl flex-wrap justify-between gap-16 px-4 pt-16 md:flex-nowrap md:items-center md:gap-8 md:px-6 md:pt-20 lg:gap-16 lg:pt-28 xl:gap-24"
     >
       <div class="flex flex-col gap-10">
         <h2
