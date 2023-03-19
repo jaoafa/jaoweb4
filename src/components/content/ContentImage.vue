@@ -30,6 +30,7 @@ const closeModal = () => {
       class="col-start-1 row-start-1 h-full w-full rounded-lg object-cover shadow-lg"
     />
     <div
+      v-if="$slots.default"
       class="col-start-1 row-start-1 flex items-center justify-center bg-gray-800/60 p-4 text-white opacity-0 transition-opacity duration-200"
     >
       <slot />
