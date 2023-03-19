@@ -14,12 +14,21 @@ const props = withDefaults(
     >
       <div class="grid grid-cols-3 gap-8">
         <template v-for="(photo, index) in props.photos" :key="index">
-          <div class="aspect-video w-full">
+          <div
+            class="grid aspect-video w-full transition-transform duration-200 hover:scale-105 hover:[&>div]:opacity-100"
+          >
             <img
               :src="photo.url"
               :alt="`${photo.user}が撮影したMinecraftサーバ内の写真`"
-              class="h-full w-full rounded-lg object-cover shadow-lg"
+              class="col-start-1 row-start-1 h-full w-full rounded-lg object-cover shadow-lg"
             />
+            <div
+              class="col-start-1 row-start-1 flex items-center justify-center bg-gray-800/60 p-4 opacity-0 transition-opacity duration-200"
+            >
+              <span class="select-none text-sm text-white">
+                撮影者：{{ photo.user }}
+              </span>
+            </div>
           </div>
         </template>
       </div>
