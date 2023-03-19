@@ -10,9 +10,9 @@ const props = withDefaults(
     <div class="absolute z-0 h-full w-full -skew-y-6 bg-gray-800"></div>
 
     <div
-      class="inner relative z-10 m-auto box-content max-w-6xl px-4 py-16 md:px-6 md:py-40"
+      class="inner relative z-10 m-auto box-content max-w-6xl px-4 py-24 md:px-6 md:py-40"
     >
-      <div class="grid grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
         <template v-for="(photo, index) in props.photos" :key="index">
           <ContentImage :src="photo.url">
             <span class="select-none text-sm"> 撮影者：{{ photo.user }} </span>
