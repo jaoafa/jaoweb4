@@ -1,3 +1,10 @@
+<script setup lang="ts">
+const props = withDefaults(
+  defineProps<{ photos: { url: string; user: string }[] }>(),
+  { photos: () => [] }
+)
+</script>
+
 <template>
   <section class="section relative z-10">
     <div class="absolute z-0 h-full w-full -skew-y-6 bg-gray-800"></div>
@@ -5,7 +12,17 @@
     <div
       class="inner relative z-10 m-auto box-content max-w-6xl px-4 py-16 md:px-6 md:py-40"
     >
-      <div class="text-white"></div>
+      <div class="grid grid-cols-3 gap-8">
+        <template v-for="(photo, index) in props.photos" :key="index">
+          <div class="aspect-video w-full">
+            <img
+              :src="photo.url"
+              :alt="`${photo.user}が撮影したMinecraftサーバ内の写真`"
+              class="h-full w-full rounded-lg object-cover shadow-lg"
+            />
+          </div>
+        </template>
+      </div>
     </div>
   </section>
 
