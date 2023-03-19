@@ -18,4 +18,16 @@ jao Minecraft Server は、Java版Minecraftのクリエイティブサーバで�
 
 :big-toma-watching-you
 
-:gallery-section
+:gallery-section{
+  :photos='[
+    { "url": "/images/main01/1920w.webp", "user": "Hiratake" },
+    { "url": "/images/main02/1920w.webp", "user": "Hiratake" },
+    { "url": "/images/main03/1920w.webp", "user": "Hiratake" },
+    { "url": "/images/main01/1920w.webp", "user": "Hiratake" },
+    { "url": "/images/main02/1920w.webp", "user": "Hiratake" },
+    { "url": "/images/main03/1920w.webp", "user": "Hiratake" },
+    { "url": "/images/main01/1920w.webp", "user": "Hiratake" },
+    { "url": "/images/main02/1920w.webp", "user": "Hiratake" },
+    { "url": "/images/main03/1920w.webp", "user": "Hiratake" }
+  ]'
+}

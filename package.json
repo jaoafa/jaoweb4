@@ -25,6 +25,7 @@
     "@commitlint/config-conventional": "17.4.4",
     "@fontsource/lexend": "4.5.15",
     "@fontsource/noto-sans-jp": "4.5.12",
+    "@headlessui/vue": "1.7.12",
     "@heroicons/vue": "2.0.16",
     "@nuxt/content": "2.4.3",
     "@nuxt/eslint-config": "0.1.1",
