@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import { CalendarDaysIcon } from '@heroicons/vue/20/solid'
 
-const props = defineProps<{
-  query: string[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    query: string[]
+    filter?: boolean
+  }>(),
+  {
+    filter: false,
+  }
+)
 const { data } = await useAsyncData(
   `content-list-${props.query.join('-')}`,
   () => {
@@ -18,7 +24,9 @@ const { data } = await useAsyncData(
 </script>
 
 <template>
-  <div class="not-prose">
+  <div class="not-prose grid gap-3">
+    <div v-if="props.filter"></div>
+
     <ul v-if="data?.length" class="grid grid-cols-fill-56 gap-6">
       <template v-for="item in data" :key="item._path">
         <li
