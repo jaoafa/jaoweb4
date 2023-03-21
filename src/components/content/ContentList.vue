@@ -80,7 +80,7 @@ const filteredData = computed(
 
 <template>
   <div class="not-prose grid gap-6">
-    <div v-if="props.filter" class="flex items-center gap-4">
+    <div v-if="props.filter" class="flex flex-wrap items-center gap-2">
       <div class="relative z-10 w-40">
         <Listbox v-model="selectedAuthor">
           <div class="relative">
