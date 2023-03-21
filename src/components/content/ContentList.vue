@@ -52,6 +52,14 @@ const authors = computed<{ id: number; name: string }[]>(() => [
   ),
 ])
 const selectedAuthor = ref(authors.value[0])
+const tags = computed<{ id: number; name: string }[]>(
+  () =>
+    [
+      '全て',
+      ...new Set(data.value?.map((article) => article.tag || []).flat() || []),
+    ].map((item, index) => ({ id: index, name: item })) || []
+)
+const selectedTag = ref(tags.value[0])
 const filteredData = computed(
   () =>
     data.value?.filter((article) => {
@@ -60,14 +68,18 @@ const filteredData = computed(
         article.author?.some(
           (author) => author.name === selectedAuthor.value.name
         ) || selectedAuthor.value.name === '全て'
-      return isAuthor
+      // タグで絞り込み
+      const isTag: boolean =
+        article.tag?.some((tag) => tag === selectedTag.value.name) ||
+        selectedTag.value.name === '全て'
+      return isAuthor && isTag
     }) || []
 )
 </script>
 
 <template>
   <div class="not-prose grid gap-6">
-    <div v-if="props.filter">
+    <div v-if="props.filter" class="flex items-center gap-4">
       <div class="relative z-10 w-40">
         <Listbox v-model="selectedAuthor">
           <div class="relative">
@@ -117,6 +129,70 @@ const filteredData = computed(
                       `"
                     >
                       {{ author.name }}
+                    </span>
+                    <span
+                      v-if="selected"
+                      class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-600"
+                    >
+                      <CheckIcon class="h-4 w-4" aria-hidden="true" />
+                    </span>
+                  </li>
+                </ListboxOption>
+              </ListboxOptions>
+            </Transition>
+          </div>
+        </Listbox>
+      </div>
+
+      <div class="relative z-10 w-40">
+        <Listbox v-model="selectedTag">
+          <div class="relative">
+            <ListboxButton
+              class="relative w-full rounded-2xl border border-gray-200 bg-gray-50 py-1 pl-3 pr-10 text-xs hover:bg-gray-100 focus:outline-none focus-visible:bg-gray-100"
+            >
+              <span class="flex items-center gap-2 truncate">
+                <span>タグ：</span>
+                <span>{{ selectedTag.name }}</span>
+              </span>
+              <span
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+              >
+                <ChevronUpDownIcon
+                  class="h-4 w-4 text-gray-400"
+                  aria-hidden="true"
+                />
+              </span>
+            </ListboxButton>
+
+            <Transition
+              leave-active-class="transition duration-100 ease-in"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0"
+            >
+              <ListboxOptions
+                class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-gray-900 ring-opacity-5 focus:outline-none"
+              >
+                <ListboxOption
+                  v-for="tag in tags"
+                  v-slot="{ active, selected }"
+                  :key="tag.id"
+                  :value="tag"
+                  as="template"
+                >
+                  <li
+                    :class="`
+                      ${'relative cursor-pointer select-none py-2 pl-10 pr-4 text-gray-500 transition-colors'}
+                      ${active ? 'bg-gray-50 text-gray-800' : ''}
+                      ${selected ? 'text-gray-800' : ''}
+                    `"
+                  >
+                    <span
+                      :class="`
+                        ${'block truncate'}
+                        ${selected ? 'font-bold' : 'font-normal'}
+                      `"
+                    >
+                      {{ tag.name }}
                     </span>
                     <span
                       v-if="selected"
