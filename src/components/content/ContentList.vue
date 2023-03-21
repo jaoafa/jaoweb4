@@ -42,15 +42,16 @@ const { data } = await useAsyncData(
       .find()
   }
 )
-const authors = computed<{ id: number; name: string }[]>(() => [
-  { id: 0, name: '全て' },
-  ...new Set(
-    data.value
-      ?.map((article) => article.author?.map((item) => item.name || '') || [])
-      .flat()
-      .map((item, index) => ({ id: index + 1, name: item })) || []
-  ),
-])
+const authors = computed<{ id: number; name: string }[]>(() =>
+  [
+    '全て',
+    ...new Set(
+      data.value
+        ?.map((article) => article.author?.map((item) => item.name || '') || [])
+        .flat() || []
+    ),
+  ].map((item, index) => ({ id: index, name: item }))
+)
 const selectedAuthor = ref(authors.value[0])
 const tags = computed<{ id: number; name: string }[]>(
   () =>
