@@ -10,6 +10,7 @@ import {
   CalendarDaysIcon,
   CheckIcon,
   ChevronUpDownIcon,
+  TagIcon,
 } from '@heroicons/vue/20/solid'
 
 const props = withDefaults(
@@ -25,6 +26,7 @@ const props = withDefaults(
 interface Article extends MarkdownParsedContent {
   created?: string
   updated?: string
+  tag?: string[]
   author?: {
     name?: string
     icon?: string
@@ -143,27 +145,37 @@ const filteredData = computed(
               </h2>
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <dl
-                  v-if="item.created"
-                  class="flex items-center gap-1 text-xs text-gray-500"
+                  v-if="item.created || item.tag"
+                  class="grid gap-1 text-xs text-gray-500"
                 >
-                  <dt class="translate-y-[0.1em]" aria-label="Posted on">
-                    <AppIcon size="12px">
-                      <CalendarDaysIcon />
-                    </AppIcon>
-                  </dt>
-                  <dd>
-                    <time
-                      :datetime="
-                        useDateFormat(item.created, 'YYYY-MM-DD').value
-                      "
-                    >
-                      {{
-                        useDateFormat(item.created, 'MMMM DD, YYYY', {
-                          locales: 'en-US',
-                        }).value
-                      }}
-                    </time>
-                  </dd>
+                  <div v-if="item.created" class="flex items-center gap-1">
+                    <dt class="translate-y-[0.1em]" aria-label="Posted on">
+                      <AppIcon size="12px">
+                        <CalendarDaysIcon />
+                      </AppIcon>
+                    </dt>
+                    <dd>
+                      <time
+                        :datetime="
+                          useDateFormat(item.created, 'YYYY-MM-DD').value
+                        "
+                      >
+                        {{
+                          useDateFormat(item.created, 'MMMM DD, YYYY', {
+                            locales: 'en-US',
+                          }).value
+                        }}
+                      </time>
+                    </dd>
+                  </div>
+                  <div v-if="item.tag" class="flex items-center gap-1">
+                    <dt class="translate-y-[0.1em]" aria-label="Tag">
+                      <AppIcon size="12px">
+                        <TagIcon />
+                      </AppIcon>
+                    </dt>
+                    <dd>{{ item.tag.join(', ') }}</dd>
+                  </div>
                 </dl>
                 <ul class="flex flex-wrap gap-2">
                   <template v-for="(author, index) in item.author" :key="index">
