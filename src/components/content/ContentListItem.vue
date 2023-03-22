@@ -32,8 +32,14 @@ const createdDate = useDateFormat(props.created || useNow(), 'YYYY-MM-DD')
     <article class="flex flex-col justify-between gap-3">
       <h2 class="h-[3.5em] font-bold line-clamp-2">{{ props.title }}</h2>
 
-      <div class="flex flex-wrap items-center justify-between gap-2">
-        <dl class="grid gap-1 text-xs text-gray-500">
+      <div
+        v-if="props.created || props.tag.length || props.author.length"
+        class="flex flex-wrap items-center justify-between gap-2"
+      >
+        <dl
+          v-if="props.created || props.tag.length"
+          class="grid gap-1 text-xs text-gray-500"
+        >
           <div v-if="props.created" class="flex items-center gap-1">
             <dt>
               <CalendarDaysIcon class="h-3.5 w-3.5" aria-label="Posted on" />
@@ -42,7 +48,7 @@ const createdDate = useDateFormat(props.created || useNow(), 'YYYY-MM-DD')
               <time :datetime="createdDate">{{ createdDate }}</time>
             </dd>
           </div>
-          <div v-if="props.tag" class="flex items-center gap-1">
+          <div v-if="props.tag.length" class="flex items-center gap-1">
             <dt>
               <TagIcon class="h-3.5 w-3.5" aria-label="Tag" />
             </dt>
@@ -50,7 +56,7 @@ const createdDate = useDateFormat(props.created || useNow(), 'YYYY-MM-DD')
           </div>
         </dl>
 
-        <ul class="flex gap-2">
+        <ul v-if="props.author.length" class="flex gap-2">
           <li
             v-for="(item, index) in props.author"
             :key="index"
