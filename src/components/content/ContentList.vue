@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { MarkdownParsedContent } from '@nuxt/content/dist/runtime/types'
+import { FaceFrownIcon } from '@heroicons/vue/24/outline'
 
 const props = withDefaults(
   defineProps<{
@@ -60,19 +61,29 @@ const filteredData = computed(
       />
     </template>
 
-    <ul v-if="filteredData?.length" class="grid grid-cols-fill-56 gap-6">
-      <template v-for="item in filteredData" :key="item._path">
-        <li v-if="item._path">
-          <ContentListItem
-            :url="item._path"
-            :title="item.title"
-            :created="item.created"
-            :updated="item.updated"
-            :tag="item.tag"
-            :author="item.author"
-          />
-        </li>
-      </template>
-    </ul>
+    <template v-if="filteredData?.length">
+      <ul class="grid grid-cols-fill-56 gap-6">
+        <template v-for="item in filteredData" :key="item._path">
+          <li v-if="item._path">
+            <ContentListItem
+              :url="item._path"
+              :title="item.title"
+              :created="item.created"
+              :updated="item.updated"
+              :tag="item.tag"
+              :author="item.author"
+            />
+          </li>
+        </template>
+      </ul>
+    </template>
+    <template v-else>
+      <div
+        class="flex items-center justify-center gap-2 rounded border border-gray-100 px-2 py-6 text-sm"
+      >
+        <FaceFrownIcon class="h-5 w-5 translate-y-[0.5pt]" />
+        <p>該当する項目がありません。</p>
+      </div>
+    </template>
   </div>
 </template>
