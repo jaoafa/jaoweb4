@@ -6,9 +6,11 @@ const props = withDefaults(
   defineProps<{
     query: string[]
     filter?: boolean
+    limit?: number
   }>(),
   {
     filter: false,
+    limit: undefined,
   }
 )
 
@@ -25,10 +27,18 @@ const { data } = await useAsyncData(
   `content-list-${props.query.join('-')}`,
   () => {
     const [query, ...pathParts] = props.query
-    return queryContent<Article>(query, ...pathParts)
-      .where({ _dir: { $eq: pathParts[pathParts.length - 1] || query } })
-      .sort({ created: -1 })
-      .find()
+    if (props.limit) {
+      return queryContent<Article>(query, ...pathParts)
+        .where({ _dir: { $eq: pathParts[pathParts.length - 1] || query } })
+        .sort({ created: -1 })
+        .limit(props.limit)
+        .find()
+    } else {
+      return queryContent<Article>(query, ...pathParts)
+        .where({ _dir: { $eq: pathParts[pathParts.length - 1] || query } })
+        .sort({ created: -1 })
+        .find()
+    }
   }
 )
 

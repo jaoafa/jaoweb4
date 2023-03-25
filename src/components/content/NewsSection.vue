@@ -43,7 +43,7 @@ import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
                 />
               </NuxtLink>
             </div>
-            <ContentList :query="['community', 'news']" />
+            <ContentList :query="['community', 'news']" :limit="4" />
           </TabPanel>
           <TabPanel class="flex flex-col gap-12" as="section">
             <div class="flex items-center justify-between font-accent">
@@ -62,7 +62,7 @@ import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
                 />
               </NuxtLink>
             </div>
-            <ContentList :query="['community', 'blog']" />
+            <ContentList :query="['community', 'blog']" :limit="4" />
           </TabPanel>
         </TabPanels>
       </TabGroup>
