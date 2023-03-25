@@ -6,7 +6,7 @@ import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
 <template>
   <div class="bg-white">
     <div
-      class="m-auto box-content flex max-w-6xl flex-col gap-8 px-4 py-16 md:px-6 md:py-24"
+      class="m-auto box-content flex max-w-6xl flex-col gap-8 px-4 pb-16 pt-12 md:px-6 md:pb-24 md:pt-12"
     >
       <TabGroup>
         <TabList class="flex items-center gap-6">
@@ -27,11 +27,13 @@ import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
         </TabList>
         <TabPanels>
           <TabPanel class="flex flex-col gap-12" as="section">
-            <div class="flex items-center justify-between font-accent">
-              <h2 class="text-6xl font-black">News</h2>
+            <div
+              class="flex items-end justify-between font-accent md:items-center"
+            >
+              <h2 class="text-5xl font-black md:text-6xl">News</h2>
               <NuxtLink
                 :class="`
-                  ${'relative flex items-center overflow-hidden rounded-3xl bg-gray-50 py-2 pl-6 pr-16'}
+                  ${'relative flex items-center overflow-hidden rounded-3xl bg-gray-50 py-2 pl-6 pr-12 md:pr-16'}
                   ${'before:pointer-events-none before:absolute before:inset-0 before:z-0 before:m-auto before:aspect-square before:w-full before:scale-0 before:rounded-full before:bg-primary-600 before:transition-transform'}
                   ${'hover:before:scale-100'}
                 `"
@@ -46,11 +48,13 @@ import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
             <ContentList :query="['community', 'news']" :limit="4" />
           </TabPanel>
           <TabPanel class="flex flex-col gap-12" as="section">
-            <div class="flex items-center justify-between font-accent">
-              <h2 class="font-accent text-6xl font-black">Blog</h2>
+            <div
+              class="flex items-end justify-between font-accent md:items-center"
+            >
+              <h2 class="text-5xl font-black md:text-6xl">Blog</h2>
               <NuxtLink
                 :class="`
-                  ${'relative flex items-center overflow-hidden rounded-3xl bg-gray-50 py-2 pl-6 pr-16'}
+                  ${'relative flex items-center overflow-hidden rounded-3xl bg-gray-50 py-2 pl-6 pr-12 md:pr-16'}
                   ${'before:pointer-events-none before:absolute before:inset-0 before:z-0 before:m-auto before:aspect-square before:w-full before:scale-0 before:rounded-full before:bg-primary-600 before:transition-transform'}
                   ${'hover:before:scale-100'}
                 `"
