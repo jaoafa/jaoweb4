@@ -25,49 +25,55 @@ import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
             {{ item }}
           </Tab>
         </TabList>
-        <TabPanels>
-          <TabPanel class="flex flex-col gap-12" as="section">
-            <div
-              class="flex items-end justify-between font-accent md:items-center"
-            >
-              <h2 class="text-5xl font-black md:text-6xl">News</h2>
-              <NuxtLink
-                :class="`
+        <TabPanels class="relative">
+          <TransitionGroup
+            leave-active-class="transition duration-100 ease-in absolute top-0"
+            leave-from-class="opacity-100 translate-x-0"
+            leave-to-class="opacity-0 translate-x-5"
+          >
+            <TabPanel class="flex flex-col gap-12" as="section">
+              <div
+                class="flex items-end justify-between font-accent md:items-center"
+              >
+                <h2 class="text-5xl font-black md:text-6xl">News</h2>
+                <NuxtLink
+                  :class="`
                   ${'relative flex items-center overflow-hidden rounded-3xl bg-gray-50 py-2 pl-6 pr-12 md:pr-16'}
                   ${'before:pointer-events-none before:absolute before:inset-0 before:z-0 before:m-auto before:aspect-square before:w-full before:scale-0 before:rounded-full before:bg-primary-600 before:transition-transform'}
                   ${'hover:before:scale-100'}
                 `"
-                to="/community/news"
+                  to="/community/news"
+                >
+                  <span class="relative z-10 text-sm">view more</span>
+                  <ArrowRightCircleIcon
+                    class="absolute inset-y-auto right-5 mt-0.5 h-5 w-5"
+                  />
+                </NuxtLink>
+              </div>
+              <ContentList :query="['community', 'news']" :limit="4" />
+            </TabPanel>
+            <TabPanel class="flex flex-col gap-12" as="section">
+              <div
+                class="flex items-end justify-between font-accent md:items-center"
               >
-                <span class="relative z-10 text-sm">view more</span>
-                <ArrowRightCircleIcon
-                  class="absolute inset-y-auto right-5 mt-0.5 h-5 w-5"
-                />
-              </NuxtLink>
-            </div>
-            <ContentList :query="['community', 'news']" :limit="4" />
-          </TabPanel>
-          <TabPanel class="flex flex-col gap-12" as="section">
-            <div
-              class="flex items-end justify-between font-accent md:items-center"
-            >
-              <h2 class="text-5xl font-black md:text-6xl">Blog</h2>
-              <NuxtLink
-                :class="`
+                <h2 class="text-5xl font-black md:text-6xl">Blog</h2>
+                <NuxtLink
+                  :class="`
                   ${'relative flex items-center overflow-hidden rounded-3xl bg-gray-50 py-2 pl-6 pr-12 md:pr-16'}
                   ${'before:pointer-events-none before:absolute before:inset-0 before:z-0 before:m-auto before:aspect-square before:w-full before:scale-0 before:rounded-full before:bg-primary-600 before:transition-transform'}
                   ${'hover:before:scale-100'}
                 `"
-                to="/community/blog"
-              >
-                <span class="relative z-10 text-sm">view more</span>
-                <ArrowRightCircleIcon
-                  class="absolute inset-y-auto right-5 mt-0.5 h-5 w-5"
-                />
-              </NuxtLink>
-            </div>
-            <ContentList :query="['community', 'blog']" :limit="4" />
-          </TabPanel>
+                  to="/community/blog"
+                >
+                  <span class="relative z-10 text-sm">view more</span>
+                  <ArrowRightCircleIcon
+                    class="absolute inset-y-auto right-5 mt-0.5 h-5 w-5"
+                  />
+                </NuxtLink>
+              </div>
+              <ContentList :query="['community', 'blog']" :limit="4" />
+            </TabPanel>
+          </TransitionGroup>
         </TabPanels>
       </TabGroup>
     </div>
