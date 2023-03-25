@@ -45,4 +45,11 @@ export default defineNuxtConfig({
     shim: false,
     strict: true,
   },
+  algolia: {
+    apiKey: process.env.ALGOLIA_API_KEY || '99d5390e982d02657f49edd3edee843b',
+    applicationId: process.env.ALGOLIA_APPLICATION_ID || 'RF6OC1MM2P',
+  },
+  generate: {
+    routes: ['/search'],
+  },
 })

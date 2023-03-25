@@ -4,10 +4,11 @@ import { AlgoliaSearchResult, AlgoliaSearchHit } from '../types/algolia'
 const route = useRoute()
 const q = computed(() => route.query.q as string)
 
-const { data } = (await useAsyncAlgoliaSearch({
-  indexName: 'Main',
-  query: q.value,
-})) as {
+const { search } = useAlgoliaSearch('Main')
+
+const { data } = (await useAsyncData(`search-${q.value}`, () =>
+  search({ query: q.value })
+)) as {
   data: Ref<AlgoliaSearchResult>
 }
 
@@ -17,6 +18,7 @@ const hits = computed(() =>
   })
 )
 
+// ハイライト部分は em で帰ってくる。とりあえず mark に置き換えてブラウザのハイライト機能を使う
 function getTitle(hit: AlgoliaSearchHit) {
   return hit._highlightResult.pageTitle?.value.replace(
     /<em>(.*?)<\/em>/g,
@@ -38,6 +40,7 @@ function getPath(hit: AlgoliaSearchHit) {
   )
 }
 
+// Algolia には各子タイトルごとにコンテンツデータを持っているので、リンク先は ファイルパス + 子タイトルのアンカーとする
 function getUrl(hit: AlgoliaSearchHit) {
   return hit.path + (hit.heading ? '#' + hit.heading : '')
 }
