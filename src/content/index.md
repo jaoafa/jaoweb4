@@ -31,3 +31,5 @@ jao Minecraft Server は、Java版Minecraftのクリエイティブサーバで�
     { "url": "/images/main03/1920w.webp", "user": "Hiratake" }
   ]'
 }
+
+:news-section
