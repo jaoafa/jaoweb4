@@ -83,5 +83,8 @@
   },
   "engines": {
     "node": "18.x"
+  },
+  "dependencies": {
+    "@nuxtjs/algolia": "1.5.1"
   }
 }

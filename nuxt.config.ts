@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-schema-org',
     'nuxt-simple-robots',
+    '@nuxtjs/algolia',
   ],
   nitro: {
     prerender: {
