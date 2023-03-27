@@ -36,13 +36,19 @@ export default defineNitroPlugin((nitroApp) => {
       return
     }
 
+    // すでに Markdown front matter で設定されている場合は上書きしない
+
     // front matter の型定義はあるのだろうか？
+
+    // 作成日時
     if (!result.created && pageInfo.firstCommit) {
       result.created = pageInfo.firstCommit.date
     }
+    // 更新日時
     if (!result.updated && pageInfo.latestCommit) {
       result.updated = pageInfo.latestCommit.date
     }
+    // コントリビューター
     if (!result.contributors) {
       result.contributors = pageInfo.contributors
     }

@@ -5,7 +5,9 @@ import { DefaultLogFields, LogResult, SimpleGit, simpleGit } from 'simple-git'
 import slugify from 'slugify'
 import { withoutTrailingSlash, withLeadingSlash } from 'ufo'
 
-/** ドキュメントの種別 */
+/**
+ * ドキュメントの種別
+ */
 enum DocsType {
   /** submodules として、src/content を設定している場合 */
   SUBMODULE = 'submodule',
@@ -58,7 +60,7 @@ export interface PageInfo {
 /**
  * ドキュメントの種別を判別する
  *
- * @returns ドキュメントの種別
+ * @returns ドキュメントの種別、判別できない場合は undefined
  */
 function getDocsType(): DocsType | undefined {
   // submodule として、src/content を設定している場合
@@ -164,6 +166,13 @@ function getMarkdownFiles(directoryPath: string) {
   return files
 }
 
+/**
+ * Git のログを取得する
+ *
+ * @param docsType ドキュメントの種別
+ * @param path ファイルパス
+ * @returns Git のログ
+ */
 async function getGitLog(docsType: DocsType, path: string) {
   if (docsType === DocsType.SUBMODULE || docsType === DocsType.DOCSGIT) {
     path = path.replace(/^src\/content\//, '')
@@ -179,8 +188,7 @@ async function getGitLog(docsType: DocsType, path: string) {
 /**
  * 最初のコミットを取得する
  *
- * @param docsType ドキュメントの種別
- * @param path ファイルパス
+ * @param log Git のログ
  * @returns 最初のコミット
  */
 async function getFirstCommit(log: LogResult<DefaultLogFields>) {
@@ -190,19 +198,17 @@ async function getFirstCommit(log: LogResult<DefaultLogFields>) {
 /**
  * 最新のコミットを取得する
  *
- * @param docsType ドキュメントの種別
- * @param path ファイルパス
+ * @param log Git のログ
  * @returns 最新のコミット
  */
 async function getLatestCommit(log: LogResult<DefaultLogFields>) {
-  return log.all[0]
+  return log.latest
 }
 
 /**
  * ファイルのコントリビューターを取得する
  *
- * @param docsType ドキュメントの種別
- * @param path ファイルパス
+ * @param log Git のログ
  * @returns コントリビューターの配列
  */
 async function getContributors(
@@ -225,6 +231,13 @@ async function getContributors(
     })
 }
 
+/**
+ * ページの情報を取得する
+ *
+ * @param docsType ドキュメントの種別
+ * @param file ファイルパス
+ * @returns ページの情報
+ */
 async function getPageInfo(docsType: DocsType, file: string) {
   const log = await getGitLog(docsType, file)
   const firstCommit = await getFirstCommit(log)
@@ -266,10 +279,15 @@ async function getPageInfo(docsType: DocsType, file: string) {
   }
 }
 
+/**
+ * ページの情報を取得し、JSON ファイルに保存する。
+ * 保存した JSON ファイルは、server/plugins/pageinfo.ts で読み込まれる。
+ */
 export default defineNuxtModule({
   setup(_, nuxt) {
     const path = os.tmpdir() + '/pageinfos.json'
 
+    // Nitro が初期化されたら、ページの情報を取得する
     nuxt.hook('nitro:init', async () => {
       const docsType = getDocsType()
       if (!docsType) {
@@ -292,6 +310,7 @@ export default defineNuxtModule({
       console.info(`[PageInfo] Saved PageData to ${path}`)
     })
 
+    // Nuxt が終了したら、一時ファイルを削除する
     nuxt.hook('close', async () => {
       if (!fs.existsSync(path)) {
         return
