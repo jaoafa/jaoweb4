@@ -83,6 +83,6 @@
     "format": "prettier \"**/*.{js,ts,json,css,vue}\" -w --ignore-path .gitignore"
   },
   "engines": {
-    "node": "18.x"
+    "node": "^16.10.0 || ^18.0.0"
   }
 }
