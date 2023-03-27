@@ -31,7 +31,7 @@ export default defineNitroPlugin((nitroApp) => {
 
     if (!pageInfo) {
       console.warn(
-        `[PageInfo] ${result._file} に対応する PageInfo が見つかりませんでした。`
+        `[PageInfo] PageInfo corresponding to ${result._file} was not found.`
       )
       return
     }
