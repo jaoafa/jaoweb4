@@ -21,7 +21,7 @@
     "url": "https://github.com/jaoafa/jaoweb4.git"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.4",
+    "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
     "@fontsource/lexend": "4.5.15",
     "@fontsource/noto-sans-jp": "4.5.12",
