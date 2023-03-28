@@ -16,6 +16,7 @@ jobs:
   # Deploy
   deploy:
     name: Deploy
+    if: ${{ github.event_name == 'push' || github.repository == github.event.pull_request.head.repo.full_name }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
