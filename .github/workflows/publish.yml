@@ -10,6 +10,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions: write-all
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
@@ -22,10 +24,6 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node: [18]
-    permissions:
-      contents: read
-      deployments: write
-      pull-requests: write
     timeout-minutes: 10
     steps:
       - name: Checkout
