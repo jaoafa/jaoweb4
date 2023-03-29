@@ -37,15 +37,7 @@ const updatedDate = useDateFormat(props.updated || useNow(), 'YYYY-MM-DD')
     <article class="flex flex-col justify-between gap-3">
       <h2 class="h-[3.5em] font-bold line-clamp-2">{{ props.title }}</h2>
 
-      <div
-        v-if="
-          props.created ||
-          props.updated ||
-          props.tag.length ||
-          props.author.length
-        "
-        class="flex flex-wrap items-center justify-between gap-2"
-      >
+      <div class="flex flex-wrap items-center justify-between gap-2">
         <dl
           v-if="props.created || props.updated || props.tag.length"
           class="grid gap-1 text-xs text-gray-500"
