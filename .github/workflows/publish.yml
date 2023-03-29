@@ -60,7 +60,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -99,27 +99,27 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create commit comment
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch' }}
         uses: peter-evans/commit-comment@v2
         with:
           body: |
             ### ⚡ Successfully Cloudflare Pages deployed!
             | Name | Link |
             | :--- | :--- |
-            | <span aria-hidden="true">🔨</span> Latest commit | ${{ github.sha }} |
+            | <span aria-hidden="true">🔨</span> Latest commit | ${{ github.event.pull_request.head.sha || github.sha }} |
             | <span aria-hidden="true">🔍</span> Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
             | <span aria-hidden="true">😎</span> Deploy Preview Url | [${{ steps.cloudflare-pages-deploy.outputs.url }}](${{ steps.cloudflare-pages-deploy.outputs.url }}) |
             | <span aria-hidden="true">🌳</span> Environment | ${{ steps.cloudflare-pages-deploy.outputs.environment }} |
 
       - name: Create PR comment
-        if: ${{ github.event_name != 'push' }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'pull_request_target' }}
         uses: mshick/add-pr-comment@v2
         with:
           message: |
             ### ⚡ Successfully Cloudflare Pages deployed!
             | Name | Link |
             | :--- | :--- |
-            | <span aria-hidden="true">🔨</span> Latest commit | ${{ github.sha }} |
+            | <span aria-hidden="true">🔨</span> Latest commit | ${{ github.event.pull_request.head.sha || github.sha }} |
             | <span aria-hidden="true">🔍</span> Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
             | <span aria-hidden="true">😎</span> Deploy Preview Url | [${{ steps.cloudflare-pages-deploy.outputs.url }}](${{ steps.cloudflare-pages-deploy.outputs.url }}) |
             | <span aria-hidden="true">🌳</span> Environment | ${{ steps.cloudflare-pages-deploy.outputs.environment }} |
