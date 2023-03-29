@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { CalendarDaysIcon, TagIcon } from '@heroicons/vue/20/solid'
+import {
+  CalendarDaysIcon,
+  ArrowPathIcon,
+  TagIcon,
+} from '@heroicons/vue/20/solid'
 
 const props = withDefaults(
   defineProps<{
@@ -22,6 +26,7 @@ const props = withDefaults(
   }
 )
 const createdDate = useDateFormat(props.created || useNow(), 'YYYY-MM-DD')
+const updatedDate = useDateFormat(props.updated || useNow(), 'YYYY-MM-DD')
 </script>
 
 <template>
@@ -33,11 +38,16 @@ const createdDate = useDateFormat(props.created || useNow(), 'YYYY-MM-DD')
       <h2 class="h-[3.5em] font-bold line-clamp-2">{{ props.title }}</h2>
 
       <div
-        v-if="props.created || props.tag.length || props.author.length"
+        v-if="
+          props.created ||
+          props.updated ||
+          props.tag.length ||
+          props.author.length
+        "
         class="flex flex-wrap items-center justify-between gap-2"
       >
         <dl
-          v-if="props.created || props.tag.length"
+          v-if="props.created || props.updated || props.tag.length"
           class="grid gap-1 text-xs text-gray-500"
         >
           <div v-if="props.created" class="flex items-center gap-1">
@@ -48,6 +58,15 @@ const createdDate = useDateFormat(props.created || useNow(), 'YYYY-MM-DD')
               <time :datetime="createdDate">{{ createdDate }}</time>
             </dd>
           </div>
+          <div v-else-if="props.updated" class="flex items-center gap-1">
+            <dt class="translate-y-[0.1em]">
+              <ArrowPathIcon class="h-3.5 w-3.5" aria-label="Updated on" />
+            </dt>
+            <dd>
+              <time :datetime="updatedDate">{{ updatedDate }}</time>
+            </dd>
+          </div>
+
           <div v-if="props.tag.length" class="flex items-center gap-1">
             <dt>
               <TagIcon class="h-3.5 w-3.5" aria-label="Tag" />
