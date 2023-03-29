@@ -62,7 +62,7 @@ const filteredData = computed(
 </script>
 
 <template>
-  <div class="not-prose grid gap-6">
+  <div class="not-prose my-10 grid gap-6 md:my-12">
     <template v-if="props.filter">
       <ContentListHeader
         v-model:author="selectedAuthor"
