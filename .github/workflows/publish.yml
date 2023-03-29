@@ -21,7 +21,7 @@ on:
 
 permissions:
   # default contents: read & write (in forked repos, only read)
-  contents: read
+  contents: write
   # default deployments: read & write (in forked repos, only read)
   deployments: write
   # default pull-requests: read & write (in forked repos, only read)
