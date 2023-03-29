@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { siDiscord } from 'simple-icons'
+import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
 
 const appConfig = useAppConfig()
 
@@ -26,15 +27,26 @@ const props = defineProps<{
         </div>
         <div class="flex justify-center gap-6 px-1 md:justify-start">
           <NuxtLink
+            :class="`
+              ${'relative flex items-center gap-2 overflow-hidden rounded-3xl bg-[#5865f2] py-2 pl-6 pr-16 text-white transition-colors'}
+              ${'before:pointer-events-none before:absolute before:inset-0 before:z-0 before:m-auto before:aspect-square before:w-full before:scale-0 before:rounded-full before:bg-gray-900 before:transition-transform'}
+              ${'hover:before:scale-100'}
+            `"
             :to="appConfig.social.discord.url"
-            class="flex items-center gap-2 rounded-lg bg-[#5865f2] px-6 py-2 text-white shadow-lg transition-opacity hover:opacity-80"
           >
             <AppIcon size="20px">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="relative z-10"
+              >
                 <path :d="siDiscord.path" />
               </svg>
             </AppIcon>
-            <span class="font-accent text-sm">Discord</span>
+            <span class="relative z-10 font-accent text-sm">Discord</span>
+            <ArrowRightCircleIcon
+              class="absolute inset-y-auto right-5 h-5 w-5"
+            />
           </NuxtLink>
         </div>
       </div>
