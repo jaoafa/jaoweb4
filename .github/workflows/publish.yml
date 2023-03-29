@@ -4,10 +4,13 @@ name: Publish
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push events
+  # Triggers the workflow on push or pull request events
   push:
+  pull_request:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+permissions: write-all
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -15,15 +18,12 @@ jobs:
   # Deploy
   deploy:
     name: Deploy
+    if: ${{ github.event_name == 'push' || github.repository == github.event.pull_request.head.repo.full_name }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
         node: [18]
-    permissions:
-      contents: read
-      deployments: write
-      pull-requests: write
     timeout-minutes: 10
     steps:
       - name: Checkout
@@ -57,3 +57,27 @@ jobs:
           projectName: jaoweb
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create commit comment
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: peter-evans/commit-comment@v2
+        with:
+          body: |
+            ### ⚡ Successfully Cloudflare Pages deployed!
+            |Name|Link|
+            |:---|:---|
+            |<span aria-hidden="true">🔨</span> Latest commit| ${{ github.sha }} |
+            |<span aria-hidden="true">🔍</span> Latest deploy log| ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            |<span aria-hidden="true">😎</span> Deploy Preview Url | [${{ steps.cloudflare-pages-deploy.outputs.url }}](${{ steps.cloudflare-pages-deploy.outputs.url }}) |
+            |<span aria-hidden="true">🌳</span> Environment | ${{ steps.cloudflare-pages-deploy.outputs.environment }} |
+      - name: Create PR comment
+        if: ${{ github.event_name != 'push' }}
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            ### ⚡ Successfully Cloudflare Pages deployed!
+            |Name|Link|
+            |:---|:---|
+            |<span aria-hidden="true">🔨</span> Latest commit| ${{ github.sha }} |
+            |<span aria-hidden="true">🔍</span> Latest deploy log| ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            |<span aria-hidden="true">😎</span> Deploy Preview Url | [${{ steps.cloudflare-pages-deploy.outputs.url }}](${{ steps.cloudflare-pages-deploy.outputs.url }}) |
+            |<span aria-hidden="true">🌳</span> Environment | ${{ steps.cloudflare-pages-deploy.outputs.environment }} |
