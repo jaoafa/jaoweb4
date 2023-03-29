@@ -52,7 +52,7 @@ jobs:
         node: [18]
     # Cancel previous runs that are not completed yet
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
       cancel-in-progress: true
     timeout-minutes: 10
 
