@@ -65,13 +65,15 @@ const filteredData = computed(
 
 <template>
   <div class="not-prose my-10 grid gap-6 md:my-12">
-    <ContentListHeader
-      v-model:author="selectedAuthor"
-      v-model:tag="selectedTag"
-      :enable-author="props.filterUser"
-      :enable-tag="props.filterTag"
-      :content="data || undefined"
-    />
+    <template v-if="props.filterUser || props.filterTag">
+      <ContentListHeader
+        v-model:author="selectedAuthor"
+        v-model:tag="selectedTag"
+        :enable-author="props.filterUser"
+        :enable-tag="props.filterTag"
+        :content="data || undefined"
+      />
+    </template>
 
     <template v-if="filteredData?.length">
       <ul class="grid grid-cols-fill-56 gap-6">
