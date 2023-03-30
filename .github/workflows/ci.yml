@@ -18,27 +18,31 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
   # Lint
   lint:
     name: Lint
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
         os: [ubuntu-latest]
         node: [18]
     timeout-minutes: 10
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+
       - name: Get cache directory
         id: npm-cache-directory
         shell: bash
         run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
       - name: Cache
         id: npm-cache
         uses: actions/cache@v3
@@ -47,8 +51,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - name: Install dependencies
         run: npm ci
+
       - name: Run lint
         run: npm run lint
 
@@ -56,22 +62,27 @@ jobs:
   build:
     name: Build
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
         os: [ubuntu-latest]
         node: [18]
     timeout-minutes: 10
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+
       - name: Get cache directory
         id: npm-cache-directory
         shell: bash
         run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
       - name: Cache
         id: npm-cache
         uses: actions/cache@v3
@@ -80,7 +91,9 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - name: Install dependencies
         run: npm ci
+
       - name: Run build
         run: npm run build
