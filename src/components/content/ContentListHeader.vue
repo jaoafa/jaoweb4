@@ -16,9 +16,17 @@ interface Article extends MarkdownParsedContent {
   }[]
 }
 const props = withDefaults(
-  defineProps<{ content?: Article[]; author?: string; tag?: string }>(),
+  defineProps<{
+    content?: Article[]
+    enableAuthor?: boolean
+    enableTag?: boolean
+    author?: string
+    tag?: string
+  }>(),
   {
     content: () => [],
+    enableAuthor: false,
+    enableTag: false,
     author: '全て',
     tag: '全て',
   }
@@ -62,7 +70,7 @@ const modelTag = computed({
 
 <template>
   <div class="flex flex-wrap items-center gap-3">
-    <Listbox v-model="modelAuthor">
+    <Listbox v-if="enableAuthor" v-model="modelAuthor">
       <div class="relative w-40">
         <ListboxButton
           class="relative w-full rounded-2xl border border-gray-200 bg-gray-50 py-1 pl-3 pr-10 text-xs hover:bg-gray-100 focus:outline-none focus-visible:bg-gray-100"
@@ -123,7 +131,7 @@ const modelTag = computed({
       </div>
     </Listbox>
 
-    <Listbox v-model="modelTag">
+    <Listbox v-if="enableTag" v-model="modelTag">
       <div class="relative z-10 w-40">
         <ListboxButton
           class="relative w-full rounded-2xl border border-gray-200 bg-gray-50 py-1 pl-3 pr-10 text-xs hover:bg-gray-100 focus:outline-none focus-visible:bg-gray-100"
