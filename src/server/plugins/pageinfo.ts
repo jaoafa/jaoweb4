@@ -1,6 +1,6 @@
 import { ParsedContent } from '@nuxt/content/dist/runtime/types'
-import fs from 'fs'
-import os from 'os'
+import fs from 'node:fs'
+import os from 'node:os'
 import { PageInfo } from '../modules/pageinfo'
 
 /**
