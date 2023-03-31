@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { CalendarDaysIcon, ArrowPathIcon } from '@heroicons/vue/20/solid'
+import {
+  ArrowPathIcon,
+  CalendarDaysIcon,
+  TagIcon,
+} from '@heroicons/vue/20/solid'
 
 const { page } = useContent()
 const { data: breadcrumb } = await useAsyncData('page-breadcrumb', () => {
@@ -54,10 +58,11 @@ useSchemaOrg([
         class="mt-4 flex gap-5 text-xs text-gray-500"
       >
         <div v-if="page.created" class="inline-flex items-center gap-2">
-          <dt class="translate-y-[0.1em]" aria-label="Posted on">
-            <AppIcon size="14px">
-              <CalendarDaysIcon />
-            </AppIcon>
+          <dt>
+            <CalendarDaysIcon
+              class="h-3.5 w-3.5 translate-y-[0.1em]"
+              aria-label="Posted on"
+            />
           </dt>
           <dd>
             <time :datetime="useDateFormat(page.created, 'YYYY-MM-DD').value">
@@ -70,10 +75,11 @@ useSchemaOrg([
           </dd>
         </div>
         <div v-if="page.updated" class="inline-flex items-center gap-2">
-          <dt class="translate-y-[0.1em]" aria-label="Updated on">
-            <AppIcon size="14px">
-              <ArrowPathIcon />
-            </AppIcon>
+          <dt>
+            <ArrowPathIcon
+              class="h-3.5 w-3.5 translate-y-[0.1em]"
+              aria-label="Updated on"
+            />
           </dt>
           <dd>
             <time :datetime="useDateFormat(page.updated, 'YYYY-MM-DD').value">
@@ -84,6 +90,12 @@ useSchemaOrg([
               }}
             </time>
           </dd>
+        </div>
+        <div v-if="page.tag" class="inline-flex items-center gap-2">
+          <dt>
+            <TagIcon class="h-3.5 w-3.5 translate-y-[0.1em]" aria-label="Tag" />
+          </dt>
+          <dd>{{ page.tag.join(', ') }}</dd>
         </div>
       </dl>
       <ul v-if="page.author" class="mt-5 flex flex-wrap gap-x-8 gap-y-4">

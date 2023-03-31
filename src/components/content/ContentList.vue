@@ -5,11 +5,13 @@ import { FaceFrownIcon } from '@heroicons/vue/24/outline'
 const props = withDefaults(
   defineProps<{
     query: string[]
-    filter?: boolean
+    filterUser?: boolean
+    filterTag?: boolean
     limit?: number
   }>(),
   {
-    filter: false,
+    filterUser: false,
+    filterTag: false,
     limit: undefined,
   }
 )
@@ -62,11 +64,13 @@ const filteredData = computed(
 </script>
 
 <template>
-  <div class="not-prose grid gap-6">
-    <template v-if="props.filter">
+  <div class="not-prose my-10 grid gap-6 md:my-12">
+    <template v-if="props.filterUser || props.filterTag">
       <ContentListHeader
         v-model:author="selectedAuthor"
         v-model:tag="selectedTag"
+        :enable-author="props.filterUser"
+        :enable-tag="props.filterTag"
         :content="data || undefined"
       />
     </template>
