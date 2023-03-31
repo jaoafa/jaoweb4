@@ -1,7 +1,7 @@
 import { ParsedContent } from '@nuxt/content/dist/runtime/types'
 import fs from 'node:fs'
 import os from 'node:os'
-import { PageInfo } from '../modules/pageinfo'
+import { PageInfo } from '../../modules/pageinfo'
 
 /**
  * Git log を元に作成・更新日時などを設定する

@@ -16,7 +16,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-schema-org',
     'nuxt-simple-robots',
-    '~/server/modules/pageinfo',
   ],
   nitro: {
     prerender: {
