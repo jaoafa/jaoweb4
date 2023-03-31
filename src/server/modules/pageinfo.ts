@@ -1,6 +1,6 @@
 import { defineNuxtModule } from '@nuxt/kit'
-import fs from 'fs'
-import os from 'os'
+import fs from 'node:fs'
+import os from 'node:os'
 import { DefaultLogFields, LogResult, SimpleGit, simpleGit } from 'simple-git'
 import slugify from 'slugify'
 import { withoutTrailingSlash, withLeadingSlash } from 'ufo'
