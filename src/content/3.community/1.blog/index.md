@@ -1,5 +1,7 @@
 ---
 title: ブログ
+created: null
+updated: null
 layout: list
 ---
 

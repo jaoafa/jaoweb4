@@ -1,5 +1,7 @@
 ---
 title: お知らせ
+created: null
+updated: null
 layout: list
 ---
 
