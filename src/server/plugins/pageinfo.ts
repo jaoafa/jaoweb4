@@ -41,15 +41,15 @@ export default defineNitroPlugin((nitroApp) => {
     // front matter の型定義はあるのだろうか？
 
     // 作成日時
-    if (!result.created && pageInfo.firstCommit) {
+    if (result.created === undefined && pageInfo.firstCommit) {
       result.created = pageInfo.firstCommit.date
     }
     // 更新日時
-    if (!result.updated && pageInfo.latestCommit) {
+    if (result.updated === undefined && pageInfo.latestCommit) {
       result.updated = pageInfo.latestCommit.date
     }
     // コントリビューター
-    if (!result.contributors) {
+    if (result.contributors === undefined) {
       result.contributors = pageInfo.contributors
     }
   })
