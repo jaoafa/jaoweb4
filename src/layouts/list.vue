@@ -36,7 +36,7 @@ useSchemaOrg([
     class="m-auto box-content max-w-6xl px-4 pt-24 pb-10 md:px-6 md:pb-16 md:pt-36"
   >
     <h1 class="text-3xl font-bold">{{ page.title }}</h1>
-    <div class="prose prose-sm mt-10 max-w-none md:prose-base md:mt-12">
+    <div class="prose mt-10 max-w-none md:mt-12">
       <slot />
     </div>
   </main>

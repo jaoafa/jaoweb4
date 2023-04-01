@@ -115,7 +115,7 @@ useSchemaOrg([
           </li>
         </template>
       </ul>
-      <div class="prose prose-sm mt-10 max-w-none md:prose-base md:mt-12">
+      <div class="prose mt-10 max-w-none md:mt-12">
         <slot />
       </div>
     </article>

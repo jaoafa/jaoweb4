@@ -98,6 +98,10 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
+            fontSize: `${(15 / 16)
+              .toFixed(7)
+              .replace(/(\.[0-9]+?)0+$/, '$1')
+              .replace(/\.0$/, '')}rem`,
             a: {
               color: colors.sky[600],
               '&:hover': {
