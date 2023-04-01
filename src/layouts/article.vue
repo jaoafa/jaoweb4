@@ -67,7 +67,7 @@ useSchemaOrg([
           <dd>
             <time :datetime="useDateFormat(page.created, 'YYYY-MM-DD').value">
               {{
-                useDateFormat(page.created, 'MMMM DD, YYYY', {
+                useDateFormat(page.created, 'YYYY-MM-DD', {
                   locales: 'en-US',
                 }).value
               }}
@@ -84,7 +84,7 @@ useSchemaOrg([
           <dd>
             <time :datetime="useDateFormat(page.updated, 'YYYY-MM-DD').value">
               {{
-                useDateFormat(page.updated, 'MMMM DD, YYYY', {
+                useDateFormat(page.updated, 'YYYY-MM-DD', {
                   locales: 'en-US',
                 }).value
               }}
