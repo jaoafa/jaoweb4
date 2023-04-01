@@ -4,6 +4,14 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, '$1')
+    .replace(/\.0$/, '')
+const rem = (px) => `${round(px / 16)}rem`
+const em = (px, base) => `${round(px / base)}em`
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
@@ -98,10 +106,13 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            fontSize: `${(15 / 16)
-              .toFixed(7)
-              .replace(/(\.[0-9]+?)0+$/, '$1')
-              .replace(/\.0$/, '')}rem`,
+            fontSize: rem(15),
+            lineHeight: round(28 / 16),
+            letterSpacing: '0.05em',
+            p: {
+              marginTop: em(32, 16),
+              marginBottom: em(32, 16),
+            },
             a: {
               color: colors.sky[600],
               '&:hover': {
@@ -112,6 +123,7 @@ module.exports = {
               scrollMargin: '6rem',
               a: {
                 color: 'inherit',
+                fontWeight: '700',
                 textDecoration: 'none',
                 '&:hover': {
                   textDecoration: 'underline',
@@ -122,6 +134,7 @@ module.exports = {
               scrollMargin: '6rem',
               a: {
                 color: 'inherit',
+                fontWeight: '700',
                 textDecoration: 'none',
                 '&:hover': {
                   textDecoration: 'underline',
@@ -132,6 +145,7 @@ module.exports = {
               scrollMargin: '6rem',
               a: {
                 color: 'inherit',
+                fontWeight: '700',
                 textDecoration: 'none',
                 '&:hover': {
                   textDecoration: 'underline',
