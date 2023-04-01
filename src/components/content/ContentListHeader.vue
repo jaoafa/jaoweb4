@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MarkdownParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { Article } from '@/types'
 import {
   Listbox,
   ListboxButton,
@@ -8,27 +8,25 @@ import {
 } from '@headlessui/vue'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
 
-interface Article extends MarkdownParsedContent {
-  tag?: string[]
-  author?: {
-    name: string
-    icon?: string
-  }[]
-}
 const props = withDefaults(
   defineProps<{
+    /** 記事データを指定します */
     content?: Article[]
+    /** 著者でのフィルターの現在の選択内容を指定します */
+    author?: Required<Article>['author'][number]['name']
+    /** 著者でのフィルターを使用します */
     enableAuthor?: boolean
+    /** タグでのフィルターの現在の選択内容を指定します */
+    tag?: Required<Article>['tag'][number]
+    /** タグでのフィルターを使用します */
     enableTag?: boolean
-    author?: string
-    tag?: string
   }>(),
   {
     content: () => [],
-    enableAuthor: false,
-    enableTag: false,
     author: '全て',
+    enableAuthor: false,
     tag: '全て',
+    enableTag: false,
   }
 )
 const emit = defineEmits<{
