@@ -31,7 +31,7 @@ import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
             leave-from-class="opacity-100 translate-x-0"
             leave-to-class="opacity-0 translate-x-5"
           >
-            <TabPanel key="news" class="flex flex-col gap-12" as="section">
+            <TabPanel key="news" class="flex flex-col" as="section">
               <div
                 class="flex items-end justify-between font-accent md:items-center"
               >
@@ -52,7 +52,7 @@ import { ArrowRightCircleIcon } from '@heroicons/vue/24/outline'
               </div>
               <ContentList :query="['community', 'news']" :limit="4" />
             </TabPanel>
-            <TabPanel key="blog" class="flex flex-col gap-12" as="section">
+            <TabPanel key="blog" class="flex flex-col" as="section">
               <div
                 class="flex items-end justify-between font-accent md:items-center"
               >
