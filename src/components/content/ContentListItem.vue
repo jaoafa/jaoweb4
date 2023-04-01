@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Article } from '@/types'
 import {
   CalendarDaysIcon,
   ArrowPathIcon,
@@ -7,15 +8,18 @@ import {
 
 const props = withDefaults(
   defineProps<{
-    url: string
-    title?: string
-    created?: string
-    updated?: string
-    tag?: string[]
-    author?: {
-      name: string
-      icon?: string
-    }[]
+    /** 記事のURLを指定します */
+    url: Required<Article>['_path']
+    /** 記事のタイトルを指定します */
+    title?: Article['title']
+    /** 作成日を指定します */
+    created?: Article['created']
+    /** 更新日を指定します */
+    updated?: Article['updated']
+    /** タグを指定します */
+    tag?: Article['tag']
+    /** 著者を指定します */
+    author?: Article['author']
   }>(),
   {
     title: '',

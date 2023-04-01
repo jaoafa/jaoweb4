@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import type { MarkdownParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { Article } from '@/types'
 import { FaceFrownIcon } from '@heroicons/vue/24/outline'
 
 const props = withDefaults(
   defineProps<{
+    /** 記事を取得するクエリを指定します */
     query: string[]
+    /** 著者でのフィルターを使用します */
     filterUser?: boolean
+    /** タグでのフィルターを使用します */
     filterTag?: boolean
+    /** 最大表示件数を指定します */
     limit?: number
   }>(),
   {
@@ -16,15 +20,6 @@ const props = withDefaults(
   }
 )
 
-interface Article extends MarkdownParsedContent {
-  created?: string
-  updated?: string
-  tag?: string[]
-  author?: {
-    name: string
-    icon?: string
-  }[]
-}
 const { data } = await useAsyncData(
   `content-list-${props.query.join('-')}`,
   () => {
