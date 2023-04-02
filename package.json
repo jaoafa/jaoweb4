@@ -27,7 +27,7 @@
     "@fontsource/noto-sans-jp": "4.5.12",
     "@headlessui/tailwindcss": "0.1.2",
     "@headlessui/vue": "1.7.12",
-    "@heroicons/vue": "2.0.16",
+    "@heroicons/vue": "2.0.17",
     "@nuxt/content": "2.5.2",
     "@nuxt/eslint-config": "0.1.1",
     "@nuxtjs/eslint-module": "4.0.2",
