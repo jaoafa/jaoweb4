@@ -49,7 +49,7 @@
     "lint-staged": "13.1.2",
     "nuxt": "3.3.2",
     "nuxt-schema-org": "2.1.2",
-    "nuxt-simple-robots": "1.0.5",
+    "nuxt-simple-robots": "1.0.9",
     "postcss": "8.4.23",
     "postcss-html": "1.5.0",
     "prettier": "2.8.8",
