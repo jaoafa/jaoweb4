@@ -160,3 +160,5 @@ jobs:
           EOF
 
           gh pr comment ${{ github.event.number }} -F comment.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
