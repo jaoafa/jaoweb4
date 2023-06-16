@@ -137,3 +137,26 @@ jobs:
               repo: context.repo.repo,
               name: ['🚀request-deploy']
             })
+
+  # Comment on PR from the fork
+  comment:
+    name: Comment
+    runs-on: ubuntu-latest
+
+    # pull_request opened event from forked repo
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == true }}
+
+    steps:
+      - name: Create PR comment
+        run: |
+          cat << EOF > comment.md
+          # ⚠️ デプロイには `🚀request-deploy` ラベルが必要です
+
+          このリポジトリはフォークされたリポジトリです。
+          セキュリティ上の理由から、フォークされたリポジトリからのデプロイは自動的に行われません。
+
+          デプロイをリクエストするには、このプルリクエストに `🚀request-deploy` ラベルを追加してください。
+          （ラベルを追加できるのは一部のメンバーのみです）
+          EOF
+
+          gh pr comment ${{ github.event.number }} -F comment.md
