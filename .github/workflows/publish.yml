@@ -159,6 +159,6 @@ jobs:
           （ラベルを追加できるのは一部のメンバーのみです）
           EOF
 
-          gh pr comment ${{ github.event.number }} -F comment.md
+          gh pr comment ${{ github.event.number }} -R "$GITHUB_REPOSITORY" -F comment.md
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
