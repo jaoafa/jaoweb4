@@ -47,7 +47,7 @@ layout: article
 
 ### 太字
 
-太字にする場合は、太字にしたい **単語** や __文章__ を `**` もしくは `__` で囲みます。
+太字にする場合は、太字にしたい **単語や文章** を `**` で囲みます。
 
 ```markdown
 Strong emphasis, aka bold, with **asterisks** or __underscores__.
@@ -55,13 +55,13 @@ Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
 ### イタリック体
 
-イタリック体にする場合は、イタリック体にしたい *単語* や _文章_ を `*` もしくは `_` で囲みます。
+イタリック体にする場合は、イタリック体にしたい *単語や文章* を `*` で囲みます。
 
 ```markdown
 Emphasis, aka italics, with *asterisks* or _underscores_.
 ```
 
-**太字と _組み合わせる_** こともできます。
+**太字と *組み合わせる*** こともできます。
 
 ```markdown
 Combined emphasis with **asterisks and _underscores_**.
@@ -115,14 +115,6 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 - List3
 ```
 
-`*` や `+` を文頭に付けることでもリストを使用することができます。
-
-* 順序なしリスト1（*）
-  * 順序なしリスト1-1（*）
-
-+ 順序なしリスト1（+）
-  + 順序なしリスト1-1（+）
-
 ### 順序付きリスト
 
 文頭に `1.` や `2.` のように番号を付けることで順序付きリストを使用することができます。
@@ -161,7 +153,7 @@ const bar: number = 0
 console.log({ foo, bar })
 ```
 
-```
+```text
 jao Minecraft Server is a creative server for Java Edition.
 ```
 
@@ -239,18 +231,9 @@ Inline `code` has `back-ticks around` it.
 
 `---` を使用した場合
 
-***
-
-`***` を使用した場合
-
-___
-
-`___` を使用した場合
-
 ## アラート
 
 文章を `::content-alert` と `::` で囲むとアラート表示ができます。
-
 
 ```markdown
 ::content-alert
@@ -314,11 +297,13 @@ title: 記事のタイトル
 
 ### created
 
-ページの公開日（作成日）です。 `2021-01-01` のように記述してください。
+ページの公開日（作成日）です。 `2021-01-01` のように記述してください。  
+指定しない場合は、Git のログをもとにページの作成日が自動設定されます。
 
 ### updated
 
-ページの更新日です。 `2021-01-01` のように記述してください。
+ページの更新日です。 `2021-01-01` のように記述してください。  
+指定しない場合は、Git のログをもとにページの最終更新日が自動設定されます。
 
 ## 埋め込みコンテンツ
 
