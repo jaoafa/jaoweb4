@@ -13,10 +13,13 @@ on:
     types:
       - opened
       - synchronize
-  # Triggers the workflow on pull request event, but only for pull request with label "🚀request-deploy" (from forked repo)
+  # Triggers the workflow on pull request event, but only for pull request opened or pull request labeled with "🚀request-deploy" (from forked repo)
   # pull_request is not allowed to use secrets, so we use pull_request_target instead (in forked repos)
   pull_request_target:
     types:
+      # When a created pull request from forked repo, it will be comment 'Should deploy to add label'
+      - opened
+      # When a labeled '🚀request-deploy' pull request from forked repo, it will be deploy to Cloudflare Pages
       - labeled
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -43,7 +46,10 @@ jobs:
       github.event_name == 'push' ||
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) ||
-      (github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.fork == true && contains(github.event.label.name, '🚀request-deploy'))
+      (github.event_name == 'pull_request_target' &&
+      github.event.action == 'labeled' &&
+      github.event.pull_request.head.repo.fork == true &&
+      contains(github.event.label.name, '🚀request-deploy'))
       }}
 
     strategy:
@@ -137,3 +143,32 @@ jobs:
               repo: context.repo.repo,
               name: ['🚀request-deploy']
             })
+
+  # Comment on PR from the fork
+  comment:
+    name: Comment
+    runs-on: ubuntu-latest
+
+    # pull_request_target opened event from forked repo
+    if: ${{
+      github.event_name == 'pull_request_target' &&
+      github.event.action == 'opened' &&
+      github.event.pull_request.head.repo.fork == true
+      }}
+
+    steps:
+      - name: Create PR comment
+        run: |
+          cat << EOF > comment.md
+          # ⚠️ デプロイには \`🚀request-deploy\` ラベルが必要です
+
+          このリポジトリはフォークされたリポジトリです。
+          セキュリティ上の理由から、フォークされたリポジトリからのデプロイは自動的に行われません。
+
+          デプロイをリクエストするには、このプルリクエストに \`🚀request-deploy\` ラベルを追加してください。
+          （ラベルを追加できるのは一部のメンバーのみです）
+          EOF
+
+          gh pr comment ${{ github.event.number }} -R ${{ github.event.pull_request.head.repo.full_name }} -F comment.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
