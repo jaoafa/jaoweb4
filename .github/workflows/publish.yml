@@ -97,23 +97,13 @@ jobs:
 
       - name: Publish to Cloudflare Pages
         id: cloudflare-pages-deploy
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/pages-action@v1.4.1
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           projectName: jaoweb
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          # メインブランチの場合 (main): ${{ github.ref }}
-          # オリジナルからのプルリクエストの場合 (ブランチ名): ${{ github.event.pull_request.head.ref }}
-          # フォークからのプルリクエストの場合 (コミットのハッシュ): ${{ github.event.pull_request.head.sha }}
-          GITHUB_HEAD_REF: |
-            ${{
-              github.event_name == 'push' && github.ref ||
-              github.event_name == 'pull_request' && github.event.pull_request.head.ref ||
-              github.event_name == 'pull_request_target' && github.event.pull_request.head.sha
-            }}
 
       - name: Create commit comment
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
