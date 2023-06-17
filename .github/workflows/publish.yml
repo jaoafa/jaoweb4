@@ -105,7 +105,15 @@ jobs:
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
         env:
-          GITHUB_HEAD_REF: ${{ github.event.pull_request.head.ref || github.ref }}
+          # メインブランチの場合 (main): ${{ github.ref }}
+          # オリジナルからのプルリクエストの場合 (ブランチ名): ${{ github.event.pull_request.head.ref }}
+          # フォークからのプルリクエストの場合 (コミットのハッシュ): ${{ github.event.pull_request.head.sha }}
+          GITHUB_HEAD_REF: |
+            ${{
+              github.event_name == 'push' && github.ref ||
+              github.event_name == 'pull_request' && github.event.pull_request.head.ref ||
+              github.event_name == 'pull_request_target' && github.event.pull_request.head.sha
+            }}
 
       - name: Create commit comment
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
