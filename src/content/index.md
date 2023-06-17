@@ -7,6 +7,8 @@ layout: top
 
 :hero-section
 
+ほげえええええええええええええええええええええええええ
+
 ::welcome-section{title="ようこそ、jaoの世界へ"}
 jao Minecraft Server は、Java版Minecraftのクリエイティブサーバです。  
 このサーバには、やべーやつらが生息し、独特で最高にイカしたコミュニティをつくっています。
