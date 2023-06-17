@@ -1,0 +1,43 @@
+{
+  "name": "jaoweb4",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+  // コンテナ作成時、依存パッケージをインストールする
+  "postCreateCommand": "npm ci",
+  // コンテナ起動後、開発サーバーを起動する
+  "postAttachCommand": "npm run dev",
+  // コンテナ作成が終了するまで待機する
+  "waitFor": "postCreateCommand",
+  // 公開ポートは3000番と4000番のみにする
+  "forwardPorts": [
+    3000,
+    4000
+  ],
+  // ポート定義
+  "portsAttributes": {
+    "3000": {
+      "label": "Preview",
+      "onAutoForward": "openPreview"
+    },
+    "4000": {
+      "label": "Preview websocket",
+      "onAutoForward": "silent"
+    }
+  },
+  // 定義外のポートは通知しない
+  "otherPortsAttributes": {
+    "onAutoForward": "silent"
+  },
+  "customizations": {
+    // 拡張機能 (see .vscode/extensions.json)
+    "extensions": [
+      "nuxt.mdc",
+      "vue.volar",
+      "vue.vscode-typescript-vue-plugin",
+      "dbaeumer.vscode-eslint",
+      "stylelint.vscode-stylelint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "csstools.postcss"
+    ]
+  }
+}
