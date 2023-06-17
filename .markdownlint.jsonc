@@ -1,0 +1,7 @@
+{
+  "default": true,
+  // 行の長さに制約を設けない
+  "MD013": false,
+  // URL直接記述を許可する
+  "MD034": false
+}
