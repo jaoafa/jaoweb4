@@ -37,7 +37,8 @@
       "stylelint.vscode-stylelint",
       "esbenp.prettier-vscode",
       "bradlc.vscode-tailwindcss",
-      "csstools.postcss"
+      "csstools.postcss",
+      "davidanson.vscode-markdownlint"
     ]
   }
 }
