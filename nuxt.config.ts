@@ -3,7 +3,7 @@
 
 export default defineNuxtConfig({
   content: {
-    documentDriven: true
+    documentDriven: true,
   },
   css: ['@/assets/main.css'],
   eslint: {
