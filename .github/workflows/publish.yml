@@ -104,6 +104,8 @@ jobs:
           projectName: jaoweb
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_HEAD_REF: ${{ github.event.pull_request.head.ref || github.ref }}
 
       - name: Create commit comment
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
