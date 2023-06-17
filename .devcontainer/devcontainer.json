@@ -38,6 +38,9 @@
       "esbenp.prettier-vscode",
       "bradlc.vscode-tailwindcss",
       "csstools.postcss",
+      "yzhang.markdown-all-in-one",
+      "pkief.material-icon-theme",
+      "donjayamanne.githistory",
       "davidanson.vscode-markdownlint"
     ]
   }
