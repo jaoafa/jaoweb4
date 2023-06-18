@@ -54,13 +54,13 @@ const props = defineProps<{
       <div class="relative mx-auto flex flex-col">
         <div class="relative z-10 h-28 w-48 animate-bounce">
           <div
-            class="absolute top-6 left-0 z-0 flex h-16 w-3/4 items-center justify-center rounded-3xl border border-gray-50 bg-white shadow-lg"
+            class="absolute left-0 top-6 z-0 flex h-16 w-3/4 items-center justify-center rounded-3xl border border-gray-50 bg-white shadow-lg"
           >
             <span class="font-accent text-2xl font-black">jao</span>
           </div>
           <div
             :class="`
-              ${'absolute right-0 -bottom-6 z-10 flex h-16 w-3/4 items-center justify-center rounded-3xl border border-gray-50 bg-white shadow-lg'}
+              ${'absolute -bottom-6 right-0 z-10 flex h-16 w-3/4 items-center justify-center rounded-3xl border border-gray-50 bg-white shadow-lg'}
               ${'after:absolute after:-bottom-3.5 after:h-0 after:w-0 after:border-8 after:border-transparent after:border-t-white'}
             `"
           >
@@ -79,7 +79,7 @@ const props = defineProps<{
         <div class="relative z-10 h-16 w-40 animate-bounce self-end">
           <div
             :class="`
-              ${'absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center rounded-3xl border border-gray-50 bg-white shadow-lg'}
+              ${'absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center rounded-3xl border border-gray-50 bg-white shadow-lg'}
               ${'after:absolute after:-top-3.5 after:h-0 after:w-0 after:border-8 after:border-transparent after:border-b-white'}
             `"
           >
