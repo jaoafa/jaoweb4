@@ -15,12 +15,9 @@ const props = withDefaults(
     discordUrl: string
     /** TwitterのIDを指定します */
     twitterId?: string
-    /** TwitterのURLを指定します */
-    twitterUrl?: string
   }>(),
   {
     twitterId: undefined,
-    twitterUrl: undefined,
   }
 )
 </script>
@@ -63,16 +60,13 @@ const props = withDefaults(
               {{ props.discordId }}
             </NuxtLink>
           </div>
-          <div
-            v-if="props.twitterId && props.twitterUrl"
-            class="flex items-center gap-2"
-          >
+          <div v-if="props.twitterId" class="flex items-center gap-2">
             <AppIcon size="16px">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path :d="siTwitter.path" />
               </svg>
             </AppIcon>
-            <NuxtLink :to="props.twitterUrl">
+            <NuxtLink :to="`https://twitter.com/${props.twitterId}`">
               {{ props.twitterId }}
             </NuxtLink>
           </div>
