@@ -7,17 +7,18 @@ const props = withDefaults(
     name: string
     /** アイコン画像を指定します */
     icon: string
-    /** MinecraftのIDを指定します */
-    minecraftId: string
-    /** DiscordのIDを指定します */
-    discordId: string
-    /** DiscordのURLを指定します */
-    discordUrl: string
-    /** TwitterのIDを指定します */
-    twitterId?: string
+    /** Minecraftのアカウントを指定します */
+    minecraft: string
+    /** Discordのアカウントを指定します */
+    discord: {
+      username: string
+      url: string
+    }
+    /** Twitterのアカウントを指定します */
+    twitter?: string
   }>(),
   {
-    twitterId: undefined,
+    twitter: undefined,
   }
 )
 </script>
@@ -35,7 +36,7 @@ const props = withDefaults(
       <div class="grid gap-2 pl-2">
         <div class="flex flex-wrap gap-x-2">
           <NuxtLink
-            :to="`https://users.jaoafa.com/${props.minecraftId}`"
+            :to="`https://users.jaoafa.com/${props.minecraft}`"
             class="text-lg font-bold text-current"
           >
             {{ props.name }}
@@ -43,7 +44,7 @@ const props = withDefaults(
           <div
             class="flex items-center gap-1 font-accent text-xs text-gray-500"
           >
-            <span>Minecraft: {{ props.minecraftId }}</span>
+            <span>Minecraft: {{ props.minecraft }}</span>
           </div>
         </div>
 
@@ -56,18 +57,18 @@ const props = withDefaults(
                 <path :d="siDiscord.path" />
               </svg>
             </AppIcon>
-            <NuxtLink :to="props.discordId">
-              {{ props.discordId }}
+            <NuxtLink :to="props.discord.url">
+              {{ props.discord.username }}
             </NuxtLink>
           </div>
-          <div v-if="props.twitterId" class="flex items-center gap-2">
+          <div v-if="props.twitter" class="flex items-center gap-2">
             <AppIcon size="16px">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path :d="siTwitter.path" />
               </svg>
             </AppIcon>
-            <NuxtLink :to="`https://twitter.com/${props.twitterId}`">
-              {{ props.twitterId }}
+            <NuxtLink :to="`https://twitter.com/${props.twitter}`">
+              {{ props.twitter }}
             </NuxtLink>
           </div>
         </div>
