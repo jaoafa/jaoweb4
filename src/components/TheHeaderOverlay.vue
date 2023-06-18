@@ -11,7 +11,7 @@ const props = withDefaults(
 <template>
   <div
     :class="`
-      ${'fixed top-0 left-0 h-[100dvh] w-[100dvw] overflow-hidden'}
+      ${'fixed left-0 top-0 h-[100dvh] w-[100dvw] overflow-hidden'}
       ${props.value ? 'pointer-events-auto' : 'pointer-events-none'}
     `"
   >

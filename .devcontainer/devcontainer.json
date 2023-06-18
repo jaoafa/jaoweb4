@@ -8,10 +8,7 @@
   // コンテナ作成が終了するまで待機する
   "waitFor": "postCreateCommand",
   // 公開ポートは3000番と4000番のみにする
-  "forwardPorts": [
-    3000,
-    4000
-  ],
+  "forwardPorts": [3000, 4000],
   // ポート定義
   "portsAttributes": {
     "3000": {

@@ -27,7 +27,7 @@ const site = computed(() =>
     >
       <div class="flex shrink grow flex-col gap-3 px-4 leading-none">
         <p class="font-bold">{{ page.title }}</p>
-        <p class="text-xs text-gray-500 line-clamp-2">
+        <p class="line-clamp-2 text-xs text-gray-500">
           {{ page.description }}
         </p>
         <div class="flex items-center gap-1.5">
