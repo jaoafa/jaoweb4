@@ -8,7 +8,8 @@
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
     "csstools.postcss",
-    "davidanson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "taichi.vscode-textlint"
   ],
   "unwantedRecommendations": ["octref.vetur"]
 }
