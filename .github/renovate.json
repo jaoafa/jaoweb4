@@ -1,10 +1,12 @@
 {
-  "branchConcurrentLimit": 5,
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": false,
   "enabledManagers": ["npm"],
   "extends": ["config:base", "schedule:earlyMondays"],
   "labels": ["🤖dependencies"],
   "packageRules": [],
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 0,
   "separateMultipleMajor": true,
   "timezone": "Asia/Tokyo",
   "vulnerabilityAlerts": {
