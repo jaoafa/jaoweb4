@@ -30,12 +30,12 @@
       "ja-space-around-code": {
         "before": true,
         "after": true
-      },
-      // リンクの前後にはスペースを入れる
-      "ja-space-around-link": {
-        "before": true,
-        "after": true
       }
+    },
+    // リンクの前後にはスペースを入れる
+    "ja-space-around-link": {
+      "before": true,
+      "after": true
     },
     // JTF日本語標準スタイルガイド: https://github.com/textlint-ja/textlint-rule-preset-JTF-style
     "preset-jtf-style": {

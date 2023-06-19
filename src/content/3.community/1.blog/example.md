@@ -89,7 +89,7 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 [Internal Link](/)
 ```
 
-[リンク](https://jaoafa.com/ "jao Minecraft Server ウェブサイト")にカーソルを合わせた際に表示されるテキストを設定することもできます。
+[リンク](https://jaoafa.com/ "jao Minecraft Server ウェブサイト") にカーソルを合わせた際に表示されるテキストを設定することもできます。
 
 ```markdown
 [Link](https://jaoafa.com/ "jao Minecraft Server Website")
