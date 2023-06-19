@@ -37,6 +37,7 @@
     "@textlint-ja/textlint-rule-no-filler": "1.1.0",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@textlint-ja/textlint-rule-no-insert-re": "1.0.2",
+    "@textlint-rule/textlint-rule-no-unmatched-pair": "1.0.9",
     "@types/node": "20.3.1",
     "@vueuse/nuxt": "10.2.0",
     "autoprefixer": "10.4.14",
@@ -75,6 +76,7 @@
     "textlint-rule-ja-hiragana-hojodoushi": "1.1.0",
     "textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "1.0.1",
     "textlint-rule-preset-ja-spacing": "2.3.0",
+    "textlint-rule-preset-jtf-style": "2.3.13",
     "typescript": "5.0.4",
     "vue": "3.3.4",
     "vue-tsc": "1.8.0"

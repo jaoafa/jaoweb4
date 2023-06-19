@@ -8,6 +8,8 @@
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
     // れ足す言葉をチェックする: https://github.com/textlint-ja/textlint-rule-no-insert-re
     "@textlint-ja/textlint-rule-no-insert-re": true,
+    // 対になっていないかっこをエラーとする: https://github.com/textlint-rule/textlint-rule-no-unmatched-pair
+    "@textlint-rule/textlint-rule-no-unmatched-pair": true,
     // 脚注をソートする: https://github.com/textlint-rule/textlint-rule-footnote-order
     "footnote-order": true,
     // 漢字よりもひらがなで表記したほうが読みやすい代名詞・形式名詞を指摘する: https://github.com/lostandfound/textlint-rule-ja-hiragana-daimeishi
@@ -34,13 +36,26 @@
         "before": true,
         "after": true
       }
+    },
+    // JTF日本語標準スタイルガイド: https://github.com/textlint-ja/textlint-rule-preset-JTF-style
+    "preset-jtf-style": {
+      "1.1.1.本文": false,
+      "1.1.3.箇条書き": false,
+      "1.2.1.句点(。)と読点(、)": false,
+      "3.1.1.全角文字と半角文字の間": false,
+      "3.3.かっこ類と隣接する文字の間のスペースの有無": false,
+      "4.1.3.ピリオド(.)、カンマ(,)": false,
+      "4.2.7.コロン(：)": false,
+      "4.3.1.丸かっこ（）": true,
+      "4.3.7.山かっこ<>": false
     }
   },
   "filters": {
     // 任意の単語を許可する: https://github.com/textlint/textlint-filter-rule-allowlist
     "allowlist": {
       "allow": [
-        " ]" // コンポーネントの配列閉じタグは前スペースを許容する
+        " ]", // コンポーネントの配列閉じタグは前スペースを許容する
+        "/^:.+?\\{.+\\}$/m" // 単一行コンポーネントはすべて許容する
       ]
     }
   }
