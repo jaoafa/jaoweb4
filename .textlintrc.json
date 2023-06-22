@@ -10,6 +10,16 @@
     "@textlint-ja/textlint-rule-no-insert-re": true,
     // 対になっていないかっこをエラーとする: https://github.com/textlint-rule/textlint-rule-no-unmatched-pair
     "@textlint-rule/textlint-rule-no-unmatched-pair": true,
+    // RegExpでチェックする: https://github.com/textlint-rule/textlint-rule-pattern
+    "@textlint-rule/pattern": {
+      "patterns": [
+        {
+          "message": "ウェブサイト to Web サイト",
+          "pattern": "/ウェブサイト/",
+          "replace": "Web サイト"
+        }
+      ]
+    },
     // 脚注をソートする: https://github.com/textlint-rule/textlint-rule-footnote-order
     "footnote-order": true,
     // 漢字よりもひらがなで表記したほうが読みやすい代名詞・形式名詞を指摘する: https://github.com/lostandfound/textlint-rule-ja-hiragana-daimeishi
