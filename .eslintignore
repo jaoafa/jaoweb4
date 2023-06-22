@@ -1,0 +1,5 @@
+.nuxt
+.nitro
+.output
+dist
+node_modules
