@@ -38,7 +38,8 @@
       "yzhang.markdown-all-in-one",
       "pkief.material-icon-theme",
       "donjayamanne.githistory",
-      "davidanson.vscode-markdownlint"
+      "davidanson.vscode-markdownlint",
+      "taichi.vscode-textlint"
     ]
   }
 }
