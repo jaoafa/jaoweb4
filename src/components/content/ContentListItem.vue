@@ -39,7 +39,7 @@ const updatedDate = useDateFormat(props.updated || useNow(), 'YYYY-MM-DD')
     class="block rounded-lg border border-gray-100 bg-white p-3 transition-colors hover:border-primary-600"
   >
     <article class="flex flex-col justify-between gap-3">
-      <h2 class="h-[3.5em] font-bold line-clamp-2">{{ props.title }}</h2>
+      <h2 class="line-clamp-2 h-[3.5em] font-bold">{{ props.title }}</h2>
 
       <div class="flex flex-wrap items-center justify-between gap-2">
         <dl
