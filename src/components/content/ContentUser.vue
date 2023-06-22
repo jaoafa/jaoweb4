@@ -34,13 +34,16 @@ const props = withDefaults(
     </div>
     <div class="grid grow gap-2">
       <div class="grid gap-2 pl-2">
-        <div class="flex flex-wrap gap-x-2">
-          <div class="text-lg font-bold text-current">
+        <div class="flex flex-wrap items-center gap-x-2">
+          <div
+            :to="`https://users.jaoafa.com/${props.minecraft}`"
+            class="text-xl font-bold text-current"
+          >
             {{ props.name }}
           </div>
           <NuxtLink
             :to="`https://users.jaoafa.com/${props.minecraft}`"
-            class="flex items-center gap-1 font-accent text-xs text-gray-500"
+            class="translate-y-px font-accent text-xs text-gray-500"
           >
             Minecraft: {{ props.minecraft }}
           </NuxtLink>
