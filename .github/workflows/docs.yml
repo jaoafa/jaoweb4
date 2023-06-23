@@ -6,14 +6,10 @@ name: Docs
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    paths:
-      - src/content/**
     branches:
       - main
       - master
   pull_request:
-    paths:
-      - src/content/**
     branches:
       - main
       - master
