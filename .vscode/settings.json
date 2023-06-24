@@ -11,5 +11,11 @@
 
   "[javascript][typescript][vue][json][css][scss]": {
     "editor.formatOnSave": true
-  }
+  },
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "git.fetchOnPull": true,
+  "githubRepositories.autoFetch.enabled": true
 }
