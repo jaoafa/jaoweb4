@@ -1,14 +1,7 @@
-<script setup lang="ts">
-const appConfig = useAppConfig()
-const [open, toggle] = useToggle()
-const { y } = useWindowScroll()
-const { layout } = useContent()
-</script>
-
 <template>
   <header
     :class="`
-      ${'fixed top-0 z-40 w-full transition'}
+      ${'top-0 z-40 w-full transition fixed'}
       ${
         y > 0 || layout !== 'top'
           ? 'bg-white/50 text-inherit shadow-md backdrop-blur'
@@ -57,3 +50,10 @@ const { layout } = useContent()
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+const appConfig = useAppConfig();
+const [open, toggle] = useToggle();
+const { y } = useWindowScroll();
+const { layout } = useContent();
+</script>
