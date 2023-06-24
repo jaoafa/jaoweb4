@@ -28,7 +28,7 @@ Any contribution to this project is more than welcome🚀
 
 ### Commit
 
-コミットメッセージの規約として [Conventionaal Commits](https://www.conventionalcommits.org/) を採用しています。以下ルールに従って、コミットメッセージを記述してください。
+コミットメッセージの規約として [Conventional Commits](https://www.conventionalcommits.org/) を採用しています。以下ルールに従って、コミットメッセージを記述してください。
 
 - 1行目には概要を記述します。
   - 先頭に「型」「: （コロン + 半角スペース）」をいれ、その後ろに概要を記述します。
