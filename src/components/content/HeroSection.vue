@@ -34,7 +34,7 @@ useIntervalFn(() => {
           </span>
         </div>
         <div
-          class="flex items-center gap-4 rounded-lg border border-gray-400 bg-white/60 py-2 px-6 backdrop-blur"
+          class="flex items-center gap-4 rounded-lg border border-gray-400 bg-white/60 px-6 py-2 backdrop-blur"
         >
           <button
             :class="`
@@ -65,14 +65,14 @@ useIntervalFn(() => {
     </div>
 
     <div
-      class="z-10 col-start-1 row-start-1 mt-auto mr-auto ml-4 mb-16 hidden md:ml-16 md:block"
+      class="z-10 col-start-1 row-start-1 mb-16 ml-4 mr-auto mt-auto hidden md:ml-16 md:block"
     >
       <div class="text-white">
         <SocialLinks direction="column" />
       </div>
     </div>
 
-    <div class="z-10 col-start-1 row-start-1 mx-auto mt-auto mb-16 md:mr-16">
+    <div class="z-10 col-start-1 row-start-1 mx-auto mb-16 mt-auto md:mr-16">
       <div class="flex w-72 gap-2 md:w-96">
         <template v-for="n in 3" :key="n">
           <div
