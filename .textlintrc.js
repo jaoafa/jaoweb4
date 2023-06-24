@@ -1,4 +1,6 @@
+// Textlint Configuration
 // https://textlint.github.io/docs/configuring.html
+
 module.exports = {
   rules: {
     // い抜き言葉を検出する
