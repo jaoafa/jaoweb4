@@ -1,6 +1,6 @@
 # Autofix
 
-name: Autofix
+name: autofix.ci # needed to securely identify the workflow
 
 # Controls when the workflow will run
 on:
@@ -57,8 +57,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Lint and Formatter
-        run: npm run lint:script:fix && npm run lint:style:fix && npm run format
+      - name: Run ESLint
+        run: npm run lint:script:fix
+
+      - name: Run Stylelint
+        run: npm run lint:style:fix
+
+      - name: Run Prettier
+        run: npm run format
 
       - name: Autofix
         uses: autofix-ci/action@8bc06253bec489732e5f9c52884c7cace15c0160
