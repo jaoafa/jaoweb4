@@ -17,5 +17,6 @@
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
   "git.fetchOnPull": true,
-  "githubRepositories.autoFetch.enabled": true
+  "githubRepositories.autoFetch.enabled": true,
+  "git.autofetch": "all"
 }
