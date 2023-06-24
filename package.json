@@ -84,22 +84,24 @@
     "vue-tsc": "1.8.0"
   },
   "scripts": {
-    "prepare": "husky install",
-    "prebuild": "npm run typecheck",
-    "pregenerate": "npm run typecheck",
-    "postinstall": "nuxt prepare",
     "build": "nuxt build",
-    "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "typecheck": "nuxt typecheck",
+    "dev": "nuxt dev",
     "lint": "npm run lint:script && npm run lint:style && npm run lint:text",
-    "lint:script": "eslint \"**/*.{js,ts,vue}\" --ignore-path .gitignore",
-    "lint:style": "stylelint \"**/*.{css,vue}\" -i .gitignore",
-    "lint:text": "textlint src/content",
-    "format": "npm run format:prettier && npm run format:textlint",
-    "format:prettier": "prettier \"**/*.{js,ts,json,css,vue}\" -w --ignore-path .gitignore",
-    "format:textlint": "textlint --fix src/content"
+    "lint:fix": "npm run lint:script:fix && npm run lint:style:fix && npm run lint:text:fix",
+    "lint:docs": "npm run lint:text",
+    "lint:docs:fix": "npm run lint:text:fix",
+    "lint:script": "eslint \"**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,vue}\"",
+    "lint:script:fix": "eslint \"**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,vue}\" --fix",
+    "lint:style": "stylelint \"**/*.{css,scss,vue}\"",
+    "lint:style:fix": "stylelint \"**/*.{css,scss,vue}\" --fix",
+    "lint:text": "textlint \"src/content/**/*.md\"",
+    "lint:text:fix": "textlint \"src/content/**/*.md\" --fix",
+    "format": "prettier \"**/!(*.md)\" -wu",
+    "typecheck": "nuxt typecheck",
+    "prepare": "husky install",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "engines": {
     "node": "^18.0.0"
