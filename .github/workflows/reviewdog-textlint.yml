@@ -15,7 +15,7 @@ on:
 # Remove default permissions of GITHUB_TOKEN for security
 # https://docs.github.com/ja/actions/using-jobs/assigning-permissions-to-jobs
 permissions:
-  contents: read
+  contents: write
   checks: write
   pull-requests: write
 
