@@ -67,6 +67,6 @@ jobs:
       - name: Comment to pull-request
         if: failure()
         run: |
-          gh pr comment "${GITHUB_PR_NUMBER}" -b "textlint で修正が必要なエラーが発生しました。\nhttps://github.com/${GITHUB_REPOSITORY}/pull/${GITHUB_PR_NUMBER}/commits/${GITHUB_SHA}"
+          gh pr comment ${{ github.event.pull_request.number }} -R ${{ github.repository }} -b "textlint で修正が必要なエラーが発生しました。\nhttps://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }}/commits/${{ github.sha }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
