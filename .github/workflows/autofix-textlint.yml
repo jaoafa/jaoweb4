@@ -1,4 +1,4 @@
-# Autofix for textlint
+# Autofix textlint
 
 name: autofix.ci # ワークフローの名前は `autofix.ci` でなければならない
 
@@ -15,7 +15,7 @@ permissions:
 jobs:
   # Autofix
   autofix:
-    name: Autofix textlint
+    name: Text
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
