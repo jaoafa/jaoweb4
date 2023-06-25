@@ -27,8 +27,8 @@ const props = withDefaults(
 
 <style lang="scss" scoped>
 .section {
-  margin-bottom: var(--skew-length);
   margin-top: var(--skew-length);
+  margin-bottom: var(--skew-length);
 }
 
 .spacer {
