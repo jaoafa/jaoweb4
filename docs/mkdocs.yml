@@ -1,4 +1,5 @@
 site_name: jaoafa/jaoweb4
+docs_dir: content
 
 repo_name: jaoafa/jaoweb4
 repo_url: https://github.com/jaoafa/jaoweb4
@@ -12,17 +13,18 @@ theme:
   name: material
   language: ja
   favicon: assets/favicon.png
+  custom_dir: overrides
   palette:
     - media: '(prefers-color-scheme: light)'
       scheme: default
-      primary: orange
+      primary: blue
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
     - media: '(prefers-color-scheme: dark)'
       scheme: slate
-      primary: orange
+      primary: blue
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
