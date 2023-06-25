@@ -143,4 +143,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
-          textlint_flags: '"src/content/**/*.md"'
+          textlint_flags: 'src/content/**/*.md'
