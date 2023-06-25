@@ -1,0 +1,63 @@
+# Autofix for textlint
+
+name: autofix.ci # ワークフローの名前は `autofix.ci` でなければならない
+
+# ワークフローが実行する条件
+on:
+  issue_comment:
+    types:
+      - created
+
+permissions:
+  contents: read
+
+jobs:
+  # Autofix
+  autofix:
+    name: Autofix textlint
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [18]
+    timeout-minutes: 10
+    # 条件: PRで、book000 or Hiratake or PR作成者が /fix textlint とコメントしたら
+    if: ${{
+      github.event.issue.pull_request != null &&
+      (github.event.sender.id == 8929706 ||
+      github.event.sender.id == 23224932 ||
+      github.event.sender.id == github.event.issue.user.id) &&
+      contains(github.event.comment.body, '/fix textlint')
+      }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Get cache directory
+        id: npm-cache-directory
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Cache
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache-directory.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Textlint
+        run: npm run lint:text:fix
+
+      - name: Autofix
+        uses: autofix-ci/action@8bc06253bec489732e5f9c52884c7cace15c0160
