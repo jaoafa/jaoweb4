@@ -60,7 +60,7 @@ jobs:
       - name: Run Reviewdog
         uses: reviewdog/action-eslint@v1.19.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           reporter: github-pr-review
           eslint_flags: '"**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,vue}"'
 
@@ -103,6 +103,6 @@ jobs:
       - name: Run Reviewdog
         uses: reviewdog/action-stylelint@v1.17.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           reporter: github-pr-review
           stylelint_input: '"**/*.{css,scss,vue}"'
