@@ -1,3 +1,10 @@
+<script setup lang="ts">
+const appConfig = useAppConfig()
+const [open, toggle] = useToggle()
+const { y } = useWindowScroll()
+const { layout } = useContent()
+</script>
+
 <template>
   <header
     :class="`
@@ -50,10 +57,3 @@
     </div>
   </header>
 </template>
-
-<script setup lang="ts">
-const appConfig = useAppConfig()
-const [open, toggle] = useToggle()
-const { y } = useWindowScroll()
-const { layout } = useContent()
-</script>
