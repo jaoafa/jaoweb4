@@ -60,7 +60,7 @@ jobs:
       - name: Run Reviewdog
         uses: tsuyoshicho/action-textlint@v3
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           fail_on_error: true
 
@@ -68,3 +68,5 @@ jobs:
         if: failure()
         run: |
           gh pr comment "${GITHUB_PR_NUMBER}" -b "textlint で修正が必要なエラーが発生しました。\nhttps://github.com/${GITHUB_REPOSITORY}/pull/${GITHUB_PR_NUMBER}/commits/${GITHUB_SHA}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
