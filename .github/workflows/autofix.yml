@@ -60,6 +60,9 @@ jobs:
       - name: Run Stylelint
         run: npm run lint:style:fix
 
+      - name: Run Textlint
+        run: npm run lint:text:fix
+
       - name: Run Prettier
         run: npm run format
 
