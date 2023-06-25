@@ -1,0 +1,86 @@
+site_name: jaoafa/jaoweb4
+
+repo_name: jaoafa/jaoweb4
+repo_url: https://github.com/jaoafa/jaoweb4
+edit_uri: edit/main/docs/docs
+
+nav:
+  - Home: index.md
+  - ...
+
+theme:
+  name: material
+  language: ja
+  favicon: assets/favicon.png
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.expand
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+  icon:
+    logo: material/pencil-circle
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - footnotes
+  - admonition
+  - md_in_html
+  - pymdownx.magiclink
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - mdx_truly_sane_lists:
+      nested_indent: 2
+  - attr_list
+  - md_in_html
+
+extra:
+  search:
+    language: ja
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/jaoafa
+    - icon: fontawesome/brands/github
+      link: https://github.com/jaoafa
+
+extra_css:
+  - css/extra.css
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: iso_datetime
+      timezone: Asia/Tokyo
+  - awesome-pages
+  - glightbox
