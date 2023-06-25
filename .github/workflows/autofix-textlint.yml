@@ -2,11 +2,12 @@
 
 name: autofix.ci # ワークフローの名前は `autofix.ci` でなければならない
 
-# ワークフローが実行する条件
+# ワークフローを実行する条件
 on:
-  issue_comment:
+  # プルリクエストのラベルが付けられたとき
+  pull_request:
     types:
-      - created
+      - labeled
 
 permissions:
   contents: read
@@ -21,13 +22,10 @@ jobs:
         os: [ubuntu-latest]
         node: [18]
     timeout-minutes: 10
-    # 条件: PRで、book000 or Hiratake or PR作成者が /fix textlint とコメントしたら
+    # 条件: PRで、ラベル 🔧fix-textlint が付けられたとき
     if: ${{
-      github.event.issue.pull_request != null &&
-      (github.event.sender.id == 8929706 ||
-      github.event.sender.id == 23224932 ||
-      github.event.sender.id == github.event.issue.user.id) &&
-      contains(github.event.comment.body, '/fix textlint')
+      github.event.action == 'labeled' &&
+      contains(github.event.label.name, '🔧fix-textlint')
       }}
 
     steps:
