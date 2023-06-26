@@ -81,7 +81,7 @@
     "textlint-rule-preset-jtf-style": "2.3.13",
     "typescript": "5.0.4",
     "vue": "3.3.4",
-    "vue-tsc": "1.8.0"
+    "vue-tsc": "1.8.1"
   },
   "scripts": {
     "build": "nuxt build",
