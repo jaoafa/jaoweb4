@@ -139,7 +139,7 @@ jobs:
         run: npm ci
 
       - name: Run Reviewdog
-        uses: tsuyoshicho/action-textlint@v3.7.0
+        uses: tsuyoshicho/action-textlint@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
