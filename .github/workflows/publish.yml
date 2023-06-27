@@ -97,13 +97,15 @@ jobs:
 
       - name: Publish to Cloudflare Pages
         id: cloudflare-pages-deploy
-        uses: jaoafa/cloudflare-pages-action@main
+        uses: cloudflare/pages-action@v1.4.1
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           projectName: jaoweb
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          WRANGLER_LOG: debug
 
       - name: Create commit comment
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
