@@ -79,7 +79,7 @@
     "textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "1.0.1",
     "textlint-rule-preset-ja-spacing": "2.3.0",
     "textlint-rule-preset-jtf-style": "2.3.13",
-    "typescript": "5.0.4",
+    "typescript": "5.2.2",
     "vue": "3.3.4",
     "vue-tsc": "1.8.1"
   },
