@@ -97,7 +97,7 @@ jobs:
         run: npm ci
 
       - name: Run Reviewdog
-        uses: reviewdog/action-stylelint@v1.17.1
+        uses: reviewdog/action-stylelint@v1.18.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
