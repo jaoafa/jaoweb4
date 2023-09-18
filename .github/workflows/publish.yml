@@ -107,7 +107,7 @@ jobs:
 
       - name: Create commit comment
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        uses: peter-evans/commit-comment@v2
+        uses: peter-evans/commit-comment@v3
         with:
           body: |
             ### ⚡ Successfully Cloudflare Pages deployed!
